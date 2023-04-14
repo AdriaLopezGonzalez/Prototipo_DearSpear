@@ -43,6 +43,11 @@ public class PlayerInput : MonoBehaviour
 
             jumpForce = 0;
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+
+        }
     }
 }
 
