@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     [SerializeField]
-    private float Speed = 5;
+    private float Speed = 8;
 
     private bool _isMoving;
     PlayerInput _input;
@@ -34,7 +34,5 @@ public class PlayerMovement : MonoBehaviour
 
         _rigidbody.velocity = direction;
         _isMoving = direction.magnitude > 0.01f;
-
-        Debug.Log("jumping" + direction);
     }
 }

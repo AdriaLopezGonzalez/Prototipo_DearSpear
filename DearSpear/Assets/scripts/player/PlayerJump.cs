@@ -8,7 +8,6 @@ public class PlayerJump : MonoBehaviour
     PlayerInput _input;
     private Rigidbody2D _rigidbody;
 
-    public float SpeedVertical; //=> movemenetController.MaxSpeed
 
     //private CollisionDetected collisionDetection;
 
@@ -18,17 +17,15 @@ public class PlayerJump : MonoBehaviour
     //
     //CollisionDetected collisionDetected;
 
-    //private void OnEnable()
-    //{
-    //    PlayerInput.OnJumpStarted += OnJumpStarted;
-    //    PlayerInput.OnJumpFinished += OnJumpFinished;
-    //}
-    //
-    //private void OnDisable()
-    //{
-    //    PlayerInput.OnJumpStarted -= OnJumpStarted;
-    //    PlayerInput.OnJumpFinished -= OnJumpFinished;
-    //}
+    private void OnEnable()
+    {
+        PlayerInput.Jump += Jump;
+    }
+    
+    private void OnDisable()
+    {
+        PlayerInput.Jump -= Jump;
+    }
     void Start()
     {
         _input = GetComponent<PlayerInput>();
@@ -39,22 +36,12 @@ public class PlayerJump : MonoBehaviour
 
     void FixedUpdate()
     {
-        Jump();
     }
 
-    public void Jump()
+    public void Jump(float jumpForce)
     {
-        var vel = new Vector2(_rigidbody.velocity.x, _input.Jump * SpeedVertical);
+        var vel = new Vector2(_rigidbody.velocity.x, jumpForce);
 
         _rigidbody.velocity = vel;
-        Debug.Log("jumping" + vel);
     }
-
-    //private float DistanceToGround()
-    //{
-    //
-    //    RaycastHit2D[] hit = new RaycastHit2D[3];
-    //    Physics2D.Raycast(transform.position, Vector2.down, filter, hit, 10);
-    //    return hit[0].distance;
-    //}
 }
