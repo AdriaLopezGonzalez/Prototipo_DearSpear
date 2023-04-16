@@ -16,6 +16,8 @@ public class PlayerInput : MonoBehaviour
     private const float maxJumpForce = 25;
 
     public static Action<float> Jump;
+    public static Action SetRope;
+    public static Action EndRope;
 
     //void Start()
     //{
@@ -29,7 +31,6 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) /*&& (collisionDetected.IsGrounded || collisionDetected.IsTouchingRoof)*/)
         {
             jumpForce += JumpForceAddition * Time.deltaTime;
-            Debug.Log(jumpForce);
         }
         
         if (Input.GetKeyUp(KeyCode.Space))
@@ -46,7 +47,12 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            SetRope?.Invoke();
+        }
 
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            EndRope?.Invoke();
         }
     }
 }

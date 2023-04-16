@@ -7,7 +7,7 @@ public class GrabPointPlayerDetector : MonoBehaviour
 
     Transform _player;
 
-    private bool isDetecting;
+    public bool isDetecting;
 
     private void OnDrawGizmos()
     {
