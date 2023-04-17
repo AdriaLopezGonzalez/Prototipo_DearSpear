@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,11 +8,13 @@ public class PlayerMovement : MonoBehaviour
 
 
     [SerializeField]
-    private float Speed = 8;
+    private float Speed = 8f;
 
     private bool _isMoving;
     PlayerInput _input;
     Rigidbody2D _rigidbody;
+
+    public static Func<bool> CheckHook;
 
     void Start()
     {
@@ -29,10 +29,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        if (CheckHook())
+        {
+            Vector2 direction = new Vector2(_input.MovementHorizontal * Speed, _rigidbody.velocity.y);
 
-        Vector2 direction = new Vector2(_input.MovementHorizontal * Speed, _rigidbody.velocity.y);
+            _rigidbody.velocity += new Vector2(_input.MovementHorizontal * Speed /100, 0);
+            _isMoving = direction.magnitude > 0.01f;
+        }
+        else
+        {
+            Vector2 direction = new Vector2(_input.MovementHorizontal * Speed, _rigidbody.velocity.y);
 
-        _rigidbody.velocity = direction;
-        _isMoving = direction.magnitude > 0.01f;
+            _rigidbody.velocity = direction;
+            _isMoving = direction.magnitude > 0.01f;
+        }
+        
     }
 }

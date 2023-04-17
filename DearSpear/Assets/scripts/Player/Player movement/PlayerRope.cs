@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerRope : MonoBehaviour
@@ -9,31 +7,97 @@ public class PlayerRope : MonoBehaviour
 
     private Vector2 nearestGrabPointPos;
 
+    private bool _isHooked;
+
     // Start is called before the first frame update
     void Start()
     {
         _distanceJoint.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        PlayerInput.SetRope += SetRope;
+        PlayerInput.EndRope += EndRope;
+
+        PlayerMovement.CheckHook += CheckHook;
+    }
+
+    private void OnDisable()
+    {
+        PlayerInput.SetRope -= SetRope;
+        PlayerInput.EndRope -= EndRope;
+
+        PlayerMovement.CheckHook -= CheckHook;
+    }
+
+    private void Update()
+    {
+        if (_distanceJoint.enabled)
+        {
+            _lineRenderer.SetPosition(1, transform.position);
+        }
+    }
+
+    private void SetRope()
+    {
+        nearestGrabPointPos = SetPoint();
+        if (nearestGrabPointPos != Vector2.zero)
         {
             _lineRenderer.SetPosition(0, nearestGrabPointPos);
             _lineRenderer.SetPosition(1, transform.position);
             _distanceJoint.connectedAnchor = nearestGrabPointPos;
             _distanceJoint.enabled = true;
             _lineRenderer.enabled = true;
+
+            _isHooked = true;
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse0))
+    }
+    private void EndRope()
+    {
+        _distanceJoint.enabled = false;
+        _lineRenderer.enabled = false;
+
+        _isHooked = false;
+    }
+
+    private Vector2 SetPoint()
+    {
+        GameObject[] pointsList = GameObject.FindGameObjectsWithTag("GrabPoint");
+        GameObject nearestPoint = null;
+        foreach (GameObject point in pointsList)
         {
-            _distanceJoint.enabled = false;
-            _lineRenderer.enabled = false;
+            if (point.GetComponent<GrabPointPlayerDetector>().isDetecting)
+            {
+                nearestPoint = point;
+            }
+
+            // de momento solo checkea si lo está detectando cerca
+            // si hubiera algun momento que se solapan areas, solo hace
+            // falta hacer que coja siempre el que tiene mas cerca
         }
-        if (_distanceJoint.enabled)
+        if (nearestPoint != null)
         {
-            _lineRenderer.SetPosition(1, transform.position);
+            Vector2 playerToPointDirection = (nearestPoint.transform.position - gameObject.transform.position).normalized;
+
+            RaycastHit2D ray = Physics2D.Raycast((Vector2)gameObject.transform.position + playerToPointDirection, playerToPointDirection);
+            // añado el modulo de la dirección a la posición de origen para que el raycast no colisione con el propio player
+
+            Debug.Log(ray.collider);
+            Debug.Log(nearestPoint.GetComponent<Collider2D>());
+            if (ray.collider == nearestPoint.GetComponent<Collider2D>())
+            {
+                Debug.Log("??");
+                return nearestPoint.transform.position;
+            }
         }
+        return Vector2.zero;
+
+    }
+
+    private bool CheckHook()
+    {
+        return _isHooked;
     }
 }
