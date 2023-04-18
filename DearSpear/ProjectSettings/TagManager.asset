@@ -7,6 +7,7 @@ TagManager:
   - GrabPoint
   - Ground
   - Spear
+  - Vine
   layers:
   - Default
   - TransparentFX
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: floor
     uniqueID: 1015448557
+    locked: 0
+  - name: block vines
+    uniqueID: 2808975983
     locked: 0
   - name: enemies
     uniqueID: 3821402767

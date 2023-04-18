@@ -7,6 +7,7 @@ public class PlayerInput : MonoBehaviour
 {
 
     public float MovementHorizontal { get; private set; }
+    public float MovementVertical { get; private set; }
 
     [SerializeField]
     private float jumpForceStart = 10;
@@ -38,6 +39,7 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
+        MovementVertical = Input.GetAxis("Vertical");
         MovementHorizontal = Input.GetAxis("Horizontal");
 
         if (Input.GetKey(KeyCode.Space) && playerCollisionDetector.isGrounded)
