@@ -1,19 +1,21 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCollisionDetector : MonoBehaviour
+public class PlayerVineDetector : MonoBehaviour
 {
-    public bool isGrounded;
-
+    bool canClimb;
+    // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true;
+            canClimb = true;
         }
     }
 
@@ -21,7 +23,7 @@ public class PlayerCollisionDetector : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = false;
+            canClimb = false;
         }
     }
 }

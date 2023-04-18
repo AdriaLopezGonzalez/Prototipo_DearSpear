@@ -31,7 +31,7 @@ public class PlayerInput : MonoBehaviour
 
     void Start()
     {
-        playerCollisionDetector = gameObject.GetComponent<PlayerCollisionDetector>();
+        playerCollisionDetector = gameObject.GetComponentInChildren<PlayerCollisionDetector>();
 
         jumpForce = jumpForceStart;
     }
@@ -59,12 +59,12 @@ public class PlayerInput : MonoBehaviour
             playerCollisionDetector.isGrounded = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             SetRope?.Invoke();
         }
 
-        if (Input.GetKeyUp(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             EndRope?.Invoke();
         }

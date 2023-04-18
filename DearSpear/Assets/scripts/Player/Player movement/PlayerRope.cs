@@ -84,11 +84,8 @@ public class PlayerRope : MonoBehaviour
             RaycastHit2D ray = Physics2D.Raycast((Vector2)gameObject.transform.position + playerToPointDirection, playerToPointDirection);
             // añado el modulo de la dirección a la posición de origen para que el raycast no colisione con el propio player
 
-            Debug.Log(ray.collider);
-            Debug.Log(nearestPoint.GetComponent<Collider2D>());
             if (ray.collider == nearestPoint.GetComponent<Collider2D>())
             {
-                Debug.Log("??");
                 return nearestPoint.transform.position;
             }
         }

@@ -33,8 +33,9 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector2 direction = new Vector2(_input.MovementHorizontal * Speed, _rigidbody.velocity.y);
 
-            _rigidbody.velocity += new Vector2(_input.MovementHorizontal * Speed /100, 0);
+            _rigidbody.velocity += new Vector2(_input.MovementHorizontal * Speed / 100, 0);
             _isMoving = direction.magnitude > 0.01f;
+            //MIRAR LO DEL DELTA TIME Y SI NO SE PUEDE ARREGLAR LO QUITAMO
         }
         else
         {
