@@ -1402,7 +1402,7 @@ GameObject:
   - component: {fileID: 1363172716}
   m_Layer: 0
   m_Name: VineChecker
-  m_TagString: Untagged
+  m_TagString: VineChecker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1720,7 +1720,7 @@ GameObject:
   - component: {fileID: 1675377722}
   m_Layer: 0
   m_Name: GroundChecker
-  m_TagString: Untagged
+  m_TagString: GroundChecker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
