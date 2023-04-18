@@ -27,6 +27,10 @@ public class SpearLauncher : MonoBehaviour
         PlayerInput.LaunchSpear += LaunchSpear;
         spearCollisionDetector.SpearGrabbed += SpearGrabbed;
         Spear.SpearGrabbed += SpearGrabbed;
+
+
+        PlayerInput.DrawPoints += DrawPoints;
+        PlayerInput.ErasePoints += ErasePoints;
     }
 
     private void OnDisable()
@@ -34,6 +38,9 @@ public class SpearLauncher : MonoBehaviour
         PlayerInput.LaunchSpear -= LaunchSpear;
         spearCollisionDetector.SpearGrabbed -= SpearGrabbed;
         Spear.SpearGrabbed -= SpearGrabbed;
+
+        PlayerInput.DrawPoints -= DrawPoints;
+        PlayerInput.ErasePoints += ErasePoints;
     }
 
     [SerializeField]
@@ -50,16 +57,30 @@ public class SpearLauncher : MonoBehaviour
         for (int index = 0; index < numberOfPoints; index++)
         {
             points[index] = Instantiate(point, launchPoint.position, Quaternion.identity);
+            points[index].SetActive(false);
         }
     }
 
     void Update()
     {
         GetSpearDirection();
+    }
 
+    public void DrawPoints()
+    {
         for (int index = 0; index < numberOfPoints; index++)
         {
             points[index].transform.position = PointPosition(index * spaceBetweenPoints);
+            points[index].SetActive(true);
+        }
+    }
+
+    public void ErasePoints()
+    {
+        for (int index = 0; index < numberOfPoints; index++)
+        {
+            points[index].transform.position = PointPosition(index * spaceBetweenPoints);
+            points[index].SetActive(false);
         }
     }
 

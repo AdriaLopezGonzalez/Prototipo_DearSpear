@@ -27,8 +27,8 @@ public class PlayerInput : MonoBehaviour
 
     public static Action LaunchSpear;
 
-    [SerializeField]
-    private GameObject spearLauncher;
+    public static Action DrawPoints;
+    public static Action ErasePoints;
 
     void Start()
     {
@@ -71,13 +71,14 @@ public class PlayerInput : MonoBehaviour
             EndRope?.Invoke();
         }
 
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    spearLauncher.SetActive(true);
-        //}
+        if (Input.GetMouseButton(0))
+        {
+            DrawPoints?.Invoke();
+        }
         if (Input.GetMouseButtonUp(0))
         {
             LaunchSpear?.Invoke();
+            ErasePoints?.Invoke();
         }
     }
 }
