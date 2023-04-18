@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerVineDetector : MonoBehaviour
 {
-    bool canClimb;
+    public bool canClimb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        canClimb = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision)

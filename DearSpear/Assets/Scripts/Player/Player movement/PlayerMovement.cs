@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _input = GetComponent<PlayerInput>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _canClimb = GetComponentInChildren<PlayerVineDetector>();
+        _canClimb = gameObject.GetComponentInChildren<PlayerVineDetector>().canClimb;
     }
 
     void Update()
@@ -39,9 +39,12 @@ public class PlayerMovement : MonoBehaviour
             _isMoving = direction.magnitude > 0.01f;
             //MIRAR LO DEL DELTA TIME Y SI NO SE PUEDE ARREGLAR LO QUITAMO
         }
-        else if (false)
+        else if (_canClimb)
         {
+            Vector2 direction = new Vector2(_input.MovementHorizontal * Speed, _input.MovementVertical * Speed);
 
+            _rigidbody.velocity = direction;
+            _isMoving = direction.magnitude > 0.01f;
         }
         else
         {
@@ -50,6 +53,6 @@ public class PlayerMovement : MonoBehaviour
             _rigidbody.velocity = direction;
             _isMoving = direction.magnitude > 0.01f;
         }
-        
+
     }
 }
