@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
             _isMoving = direction.magnitude > 0.01f;
             //MIRAR LO DEL DELTA TIME Y SI NO SE PUEDE ARREGLAR LO QUITAMO
         }
-        else if ()
+        else if (false)
         {
 
         }
