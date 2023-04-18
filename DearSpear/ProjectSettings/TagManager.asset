@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - GrabPoint
+  - Ground
+  - Spear
   layers:
   - Default
   - TransparentFX
@@ -41,4 +43,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 3834024835
+    locked: 0
+  - name: floor
+    uniqueID: 1015448557
+    locked: 0
+  - name: enemies
+    uniqueID: 3821402767
+    locked: 0
+  - name: player
+    uniqueID: 1809415947
+    locked: 0
+  - name: weapon
+    uniqueID: 3231283591
+    locked: 0
+  - name: shootDirection
+    uniqueID: 3966110413
     locked: 0

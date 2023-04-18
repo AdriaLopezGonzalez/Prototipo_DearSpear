@@ -8,6 +8,9 @@ public class PlayerInput : MonoBehaviour
 
     public float MovementHorizontal { get; private set; }
 
+    [SerializeField]
+    private float jumpForceStart = 10;
+
     private float jumpForce;
     [SerializeField]
     private float JumpForceAddition = 15;
@@ -15,25 +18,34 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     private const float maxJumpForce = 25;
 
+    private PlayerCollisionDetector playerCollisionDetector;
+
     public static Action<float> Jump;
     public static Action SetRope;
     public static Action EndRope;
 
-    //void Start()
-    //{
-    //    collisionDetected = gameObject.GetComponent<CollisionDetected>();
-    //}
+    public static Action LaunchSpear;
+
+    [SerializeField]
+    private GameObject spearLauncher;
+
+    void Start()
+    {
+        playerCollisionDetector = gameObject.GetComponent<PlayerCollisionDetector>();
+
+        jumpForce = jumpForceStart;
+    }
 
     void Update()
     {
         MovementHorizontal = Input.GetAxis("Horizontal");
 
-        if (Input.GetKey(KeyCode.Space) /*&& (collisionDetected.IsGrounded || collisionDetected.IsTouchingRoof)*/)
+        if (Input.GetKey(KeyCode.Space) && playerCollisionDetector.isGrounded)
         {
             jumpForce += JumpForceAddition * Time.deltaTime;
         }
         
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space) && playerCollisionDetector.isGrounded)
         {
             if(jumpForce > maxJumpForce)
             {
@@ -42,7 +54,9 @@ public class PlayerInput : MonoBehaviour
 
             Jump?.Invoke(jumpForce);
 
-            jumpForce = 0;
+            jumpForce = jumpForceStart;
+
+            playerCollisionDetector.isGrounded = false;
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -53,6 +67,15 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.E))
         {
             EndRope?.Invoke();
+        }
+
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    spearLauncher.SetActive(true);
+        //}
+        if (Input.GetMouseButtonUp(0))
+        {
+            LaunchSpear?.Invoke();
         }
     }
 }
