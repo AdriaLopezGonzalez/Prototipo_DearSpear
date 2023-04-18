@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PlayerVineDetector : MonoBehaviour
 {
-    bool canClimb;
+    public bool canClimb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        canClimb = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Vine"))
         {
             canClimb = true;
         }
@@ -21,7 +21,7 @@ public class PlayerVineDetector : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Vine"))
         {
             canClimb = false;
         }

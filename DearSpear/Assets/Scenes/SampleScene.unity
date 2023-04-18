@@ -1399,6 +1399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1363172714}
   - component: {fileID: 1363172716}
+  - component: {fileID: 1363172717}
   m_Layer: 0
   m_Name: VineChecker
   m_TagString: VineChecker
@@ -1447,6 +1448,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.11, y: 0.9946107}
   m_EdgeRadius: 0
+--- !u!114 &1363172717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363172713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb261e85c57fdf54f94d437d0c550b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canClimb: 0
 --- !u!1 &1418779456
 GameObject:
   m_ObjectHideFlags: 0
