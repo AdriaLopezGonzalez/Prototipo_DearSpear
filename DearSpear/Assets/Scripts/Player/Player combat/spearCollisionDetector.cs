@@ -43,9 +43,9 @@ public class spearCollisionDetector : MonoBehaviour
         {
             if (_spear.spearCollided)
             {
-                timeHanging += 1;
+                timeHanging += 5 * Time.deltaTime;
 
-                if (timeHanging >= 25)
+                if (timeHanging >= 2)
                 {
                     _spear.spearCollided = false;
                     spearRb.velocity = new Vector2(0, -7);

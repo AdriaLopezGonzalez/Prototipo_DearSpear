@@ -19,11 +19,17 @@ public class Spear : MonoBehaviour
     {
         rotateSpear();
 
-        if(transform.position.y < -10)
-        {
-            SpearGrabbed?.Invoke();
-            Destroy(gameObject);
-        }
+        //if(transform.position.y < -10)
+        //{
+        //    SpearGrabbed?.Invoke();
+        //    Destroy(gameObject);
+        //}
+    }
+
+    private void OnBecameInvisible()
+    {
+        SpearGrabbed?.Invoke();
+        Destroy(gameObject);
     }
 
     private void rotateSpear()
