@@ -17,13 +17,11 @@ public class GrabPointPlayerDetector : MonoBehaviour
         Gizmos.color = Color.white;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (IsInRange())
