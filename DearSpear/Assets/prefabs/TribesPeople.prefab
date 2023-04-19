@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5829945917980083153}
   - component: {fileID: 5829945917980083152}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tribes2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5829945919091849019}
   - component: {fileID: 5829945919091849018}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5829945919150858807}
   - component: {fileID: 5829945919150858806}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tribes1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5829945919169632186}
   - component: {fileID: 5829945919169632181}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tribes3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 5829945919743853759}
   - component: {fileID: 5829945919743853758}
   - component: {fileID: 5829945919743853753}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TribesPeople
   m_TagString: Untagged
   m_Icon: {fileID: 0}
