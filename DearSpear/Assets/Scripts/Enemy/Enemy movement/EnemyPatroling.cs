@@ -16,11 +16,17 @@ public class EnemyPatroling : MonoBehaviour
     private void OnEnable()
     {
         EnemyWallCollider.CanFlip += CanFlip;
+
+        EnemyVisionDetector.DetectedThePlayer += DetectedThePlayer;
+        EnemyVisionDetector.ContinuePatrolling += ContinuePatrolling;
     }
 
     private void OnDisable()
     {
-        EnemyWallCollider.CanFlip += CanFlip;
+        EnemyWallCollider.CanFlip -= CanFlip;
+
+        EnemyVisionDetector.DetectedThePlayer -= DetectedThePlayer;
+        EnemyVisionDetector.ContinuePatrolling -= ContinuePatrolling;
     }
 
     private void Awake()
@@ -71,5 +77,13 @@ public class EnemyPatroling : MonoBehaviour
         transform.Translate(transform.right * Speed * Time.deltaTime, Space.World);
     }
 
+    public void DetectedThePlayer()
+    {
+        Speed = 0;
+    }
 
+    public void ContinuePatrolling()
+    {
+        Speed = baseSpeed;
+    }
 }

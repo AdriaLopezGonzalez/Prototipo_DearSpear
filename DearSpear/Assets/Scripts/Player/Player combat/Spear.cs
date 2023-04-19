@@ -10,6 +10,17 @@ public class Spear : MonoBehaviour
     public bool spearCollided;
 
     public static Action SpearGrabbed;
+
+    private void OnEnable()
+    {
+        EnemyCombatCollider.SpearFall += SpearFall;
+    }
+
+    private void OnDisable()
+    {
+        EnemyCombatCollider.SpearFall -= SpearFall;
+    }
+
     void Start()
     {
         spearRb = GetComponent<Rigidbody2D>();
@@ -39,5 +50,12 @@ public class Spear : MonoBehaviour
             float angle = Mathf.Atan2(spearRb.velocity.y, spearRb.velocity.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
+    }
+
+    public void SpearFall()
+    {
+        transform.rotation = Quaternion.AngleAxis(90, Vector3.forward);
+
+        spearRb.velocity = new Vector2(0, -4);
     }
 }

@@ -12,6 +12,7 @@ TagManager:
   - GroundChecker
   - Roof
   - Background
+  - Enemy
   layers:
   - Default
   - TransparentFX

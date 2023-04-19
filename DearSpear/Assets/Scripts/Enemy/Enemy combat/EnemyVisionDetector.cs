@@ -18,8 +18,8 @@ public class EnemyVisionDetector : MonoBehaviour
 
     public bool isDetectingPlayer;
 
-    public static Action OnPlayerDetected;
-    public static Action OnPlayerUndetected;
+    public static Action DetectedThePlayer;
+    public static Action ContinuePatrolling;
 
     private void OnDrawGizmos()
     {
@@ -62,14 +62,13 @@ public class EnemyVisionDetector : MonoBehaviour
             {
                 if (IsNotBlocked())
                 {
-                    Debug.Log("grita muy mal");
-                    //OnPlayerDetected?.Invoke();
+                    DetectedThePlayer?.Invoke();
                 }
             }
         }
         if (!IsInRange() || !IsInFOV() || !IsNotBlocked())
         {
-            //OnPlayerUndetected?.Invoke();
+            ContinuePatrolling?.Invoke();
         }
 
     }
