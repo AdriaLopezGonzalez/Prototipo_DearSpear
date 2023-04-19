@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         oldGravityScale = _rigidbody.gravityScale;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Move();
     }
