@@ -61,6 +61,9 @@ TagManager:
   - name: block vines
     uniqueID: 2808975983
     locked: 0
+  - name: TribesPeople
+    uniqueID: 1033714639
+    locked: 0
   - name: enemies
     uniqueID: 3821402767
     locked: 0
