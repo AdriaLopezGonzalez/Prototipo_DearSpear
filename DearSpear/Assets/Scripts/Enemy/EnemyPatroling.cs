@@ -14,12 +14,12 @@ public class EnemyPatroling : MonoBehaviour
 
     private void OnEnable()
     {
-        EnemyCollider.Flip += Flip;
+        EnemyWallCollider.Flip += Flip;
     }
 
     private void OnDisable()
     {
-        EnemyCollider.Flip += Flip;
+        EnemyWallCollider.Flip += Flip;
     }
 
     private void Awake()
