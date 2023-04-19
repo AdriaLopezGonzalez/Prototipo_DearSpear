@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class EnemyWallCollider : MonoBehaviour
 {
-    public static Action Flip;
+    public static Action CanFlip;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ground") /*|| collision.gameObject.CompareTag("Wall")*/)
         {
-            Flip?.Invoke();
+            CanFlip?.Invoke();
         }
     }
 }

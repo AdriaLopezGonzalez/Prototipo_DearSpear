@@ -9,17 +9,18 @@ public class EnemyPatroling : MonoBehaviour
 
     private float Speed;
 
-    private bool flipped;
     private float pauseAfterFlip;
+
+    private bool canFlip;
 
     private void OnEnable()
     {
-        EnemyWallCollider.Flip += Flip;
+        EnemyWallCollider.CanFlip += CanFlip;
     }
 
     private void OnDisable()
     {
-        EnemyWallCollider.Flip += Flip;
+        EnemyWallCollider.CanFlip += CanFlip;
     }
 
     private void Awake()
@@ -31,12 +32,7 @@ public class EnemyPatroling : MonoBehaviour
 
     void Update()
     {
-        if (GroundNotDetected())
-        {
-            Flip();
-        }
-
-        if (flipped)
+        if (GroundNotDetected() || canFlip)
         {
             Speed = 0;
 
@@ -44,7 +40,9 @@ public class EnemyPatroling : MonoBehaviour
 
             if (pauseAfterFlip >= 3)
             {
-                flipped = false;
+                Flip();
+
+                canFlip = false;
                 Speed = baseSpeed;
                 pauseAfterFlip = 0;
             }
@@ -58,15 +56,20 @@ public class EnemyPatroling : MonoBehaviour
         return _groundDetector.NotGround;
     }
 
+    private void CanFlip()
+    {
+        canFlip = true;
+    }
+
     public void Flip()
     {
         transform.Rotate(new Vector3(0, 180, 0));
-
-        flipped = true;
     }
 
     private void Move()
     {
         transform.Translate(transform.right * Speed * Time.deltaTime, Space.World);
     }
+
+
 }
