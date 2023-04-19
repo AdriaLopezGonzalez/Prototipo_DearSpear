@@ -11,7 +11,7 @@ public class GrabPointPlayerDetector : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, DetectionRange);
 
         Gizmos.color = Color.white;
