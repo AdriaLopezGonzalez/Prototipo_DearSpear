@@ -10,6 +10,7 @@ TagManager:
   - Vine
   - VineChecker
   - GroundChecker
+  - Roof
   layers:
   - Default
   - TransparentFX
@@ -50,7 +51,7 @@ TagManager:
   - name: background
     uniqueID: 3834024835
     locked: 0
-  - name: floor
+  - name: floor & roof
     uniqueID: 1015448557
     locked: 0
   - name: block vines

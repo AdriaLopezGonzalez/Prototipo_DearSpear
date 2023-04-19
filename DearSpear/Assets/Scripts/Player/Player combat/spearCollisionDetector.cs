@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class spearCollisionDetector : MonoBehaviour
@@ -10,6 +8,10 @@ public class spearCollisionDetector : MonoBehaviour
     private Rigidbody2D spearRb;
 
     public static Action SpearGrabbed;
+
+    private float timeHanging;
+
+    private bool isFalling;
     private void Start()
     {
         _spear = GetComponent<Spear>();
@@ -20,9 +22,12 @@ public class spearCollisionDetector : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("GroundChecker") && !collision.gameObject.CompareTag("VineChecker"))
         {
-            _spear.spearCollided = true;
-            spearRb.velocity = Vector2.zero;
-            spearRb.isKinematic = true;
+            if (!(collision.gameObject.CompareTag("Roof") && isFalling))
+            {
+                _spear.spearCollided = true;
+                spearRb.velocity = Vector2.zero;
+                spearRb.isKinematic = true;
+            }
         }
 
         if (collision.gameObject.CompareTag("Player"))
@@ -31,6 +36,23 @@ public class spearCollisionDetector : MonoBehaviour
             {
                 SpearGrabbed?.Invoke();
                 Destroy(gameObject);
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Roof"))
+        {
+            if (_spear.spearCollided)
+            {
+                timeHanging += 1;
+
+                if (timeHanging >= 25)
+                {
+                    _spear.spearCollided = false;
+                    spearRb.velocity = new Vector2(0, -7);
+
+                    timeHanging = 0;
+                    isFalling = true;
+                }
             }
         }
     }
