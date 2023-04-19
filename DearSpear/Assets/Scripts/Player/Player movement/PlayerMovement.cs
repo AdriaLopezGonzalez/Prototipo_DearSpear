@@ -43,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
 
             _rigidbody.velocity += new Vector2(_input.MovementHorizontal * Speed / 100, 0);
             _isMoving = direction.magnitude > 0.01f;
-            //MIRAR LO DEL DELTA TIME Y SI NO SE PUEDE ARREGLAR LO QUITAMO
         }
         else if (_vineDetect.canClimb)
         {
