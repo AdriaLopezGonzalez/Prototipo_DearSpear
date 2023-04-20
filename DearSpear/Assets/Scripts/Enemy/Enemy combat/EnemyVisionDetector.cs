@@ -18,8 +18,9 @@ public class EnemyVisionDetector : MonoBehaviour
 
     public bool isDetectingPlayer;
 
-    public static Action DetectedThePlayer;
-    public static Action ContinuePatrolling;
+    //public static Action DetectedThePlayer;
+    //public static Action ContinuePatrolling;
+    private EnemyPatroling _patroling;
 
     private void OnDrawGizmos()
     {
@@ -51,6 +52,8 @@ public class EnemyVisionDetector : MonoBehaviour
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        _patroling = GetComponent<EnemyPatroling>();
     }
 
     // Update is called once per frame
@@ -62,13 +65,15 @@ public class EnemyVisionDetector : MonoBehaviour
             {
                 if (IsNotBlocked())
                 {
-                    DetectedThePlayer?.Invoke();
+                    //DetectedThePlayer?.Invoke();
+                    _patroling.DetectedThePlayer();
                 }
             }
         }
         if (!IsInRange() || !IsInFOV() || !IsNotBlocked())
         {
-            ContinuePatrolling?.Invoke();
+            //ContinuePatrolling?.Invoke();
+            _patroling.ContinuePatrolling();
         }
 
     }

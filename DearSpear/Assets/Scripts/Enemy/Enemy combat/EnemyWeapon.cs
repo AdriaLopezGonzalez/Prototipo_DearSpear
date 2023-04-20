@@ -10,18 +10,18 @@ public class EnemyWeapon : MonoBehaviour
     [SerializeField]
     private Transform _bulletSpawnPosition;
 
-    private float timeBeforeShoot;
+    private float timeBeforeShoot = 3;
     private bool canShoot;
 
-    private void OnEnable()
-    {
-        EnemyPatroling.Shoot += Shoot;
-    }
-
-    private void OnDisable()
-    {
-        EnemyPatroling.Shoot -= Shoot;
-    }
+    //private void OnEnable()
+    //{
+    //    EnemyPatroling.Shoot += Shoot;
+    //}
+    //
+    //private void OnDisable()
+    //{
+    //    EnemyPatroling.Shoot -= Shoot;
+    //}
 
     public void Shoot()
     {
@@ -41,7 +41,7 @@ public class EnemyWeapon : MonoBehaviour
     {
         timeBeforeShoot += Time.deltaTime;
 
-        if (timeBeforeShoot >= 0.25f)
+        if (timeBeforeShoot >= 3f)
         {
             canShoot = true;
         }

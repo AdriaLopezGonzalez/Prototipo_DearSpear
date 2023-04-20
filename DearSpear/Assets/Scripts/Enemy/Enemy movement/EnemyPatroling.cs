@@ -14,27 +14,31 @@ public class EnemyPatroling : MonoBehaviour
 
     private bool canFlip;
 
-    public static Action Shoot;
+    //public static Action Shoot;
 
-    private void OnEnable()
-    {
-        EnemyWallCollider.CanFlip += CanFlip;
+    private EnemyWeapon _weapon;
 
-        EnemyVisionDetector.DetectedThePlayer += DetectedThePlayer;
-        EnemyVisionDetector.ContinuePatrolling += ContinuePatrolling;
-    }
-
-    private void OnDisable()
-    {
-        EnemyWallCollider.CanFlip -= CanFlip;
-
-        EnemyVisionDetector.DetectedThePlayer -= DetectedThePlayer;
-        EnemyVisionDetector.ContinuePatrolling -= ContinuePatrolling;
-    }
+    //private void OnEnable()
+    //{
+    //    EnemyWallCollider.CanFlip += CanFlip;
+    //
+    //    EnemyVisionDetector.DetectedThePlayer += DetectedThePlayer;
+    //    EnemyVisionDetector.ContinuePatrolling += ContinuePatrolling;
+    //}
+    //
+    //private void OnDisable()
+    //{
+    //    EnemyWallCollider.CanFlip -= CanFlip;
+    //
+    //    EnemyVisionDetector.DetectedThePlayer -= DetectedThePlayer;
+    //    EnemyVisionDetector.ContinuePatrolling -= ContinuePatrolling;
+    //}
 
     private void Awake()
     {
         _groundDetector = GetComponentInChildren<EnemyGroundDetector>();
+
+        _weapon = GetComponentInChildren<EnemyWeapon>();
 
         Speed = baseSpeed;
     }
@@ -65,7 +69,7 @@ public class EnemyPatroling : MonoBehaviour
         return _groundDetector.NotGround;
     }
 
-    private void CanFlip()
+    public void CanFlip()
     {
         canFlip = true;
     }
@@ -84,7 +88,8 @@ public class EnemyPatroling : MonoBehaviour
     {
         Speed = 0;
 
-        Shoot?.Invoke();
+        //Shoot?.Invoke();
+        _weapon.Shoot();
     }
 
     public void ContinuePatrolling()
