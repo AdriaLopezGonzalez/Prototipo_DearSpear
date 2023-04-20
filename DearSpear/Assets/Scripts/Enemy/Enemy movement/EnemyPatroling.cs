@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyPatroling : MonoBehaviour
@@ -12,6 +13,8 @@ public class EnemyPatroling : MonoBehaviour
     private float pauseAfterFlip;
 
     private bool canFlip;
+
+    public static Action Shoot;
 
     private void OnEnable()
     {
@@ -80,6 +83,8 @@ public class EnemyPatroling : MonoBehaviour
     public void DetectedThePlayer()
     {
         Speed = 0;
+
+        Shoot?.Invoke();
     }
 
     public void ContinuePatrolling()

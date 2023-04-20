@@ -51,7 +51,7 @@ public class SpearLauncher : MonoBehaviour
     [SerializeField]
     private float spaceBetweenPoints;
 
-    private void Start()
+    private void Awake()
     {
         points = new GameObject[numberOfPoints];
         for (int index = 0; index < numberOfPoints; index++)
@@ -79,8 +79,11 @@ public class SpearLauncher : MonoBehaviour
     {
         for (int index = 0; index < numberOfPoints; index++)
         {
-            points[index].transform.position = PointPosition(index * spaceBetweenPoints);
-            points[index].SetActive(false);
+            if(points[index] != null)
+            {
+                points[index].transform.position = PointPosition(index * spaceBetweenPoints);
+                points[index].SetActive(false);
+            }
         }
     }
 
