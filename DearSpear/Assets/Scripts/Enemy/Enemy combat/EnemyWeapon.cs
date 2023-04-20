@@ -41,7 +41,7 @@ public class EnemyWeapon : MonoBehaviour
     {
         timeBeforeShoot += Time.deltaTime;
 
-        if (timeBeforeShoot >= 0.75f)
+        if (timeBeforeShoot >= 0.25f)
         {
             canShoot = true;
         }
