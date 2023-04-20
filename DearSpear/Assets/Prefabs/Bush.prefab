@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3170095763250314813}
   - component: {fileID: 3170095763250314815}
   - component: {fileID: 3170095763250314814}
+  - component: {fileID: 1520474208810960739}
   m_Layer: 7
   m_Name: Bush
   m_TagString: Ground
@@ -111,3 +112,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1520474208810960739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3170095763250314812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000839386e4ed83863cdd55ce706f926da7cf3b9d3d8ffac5e30b7fd96b877999c0cd0a66ec
+  m_ShapePath:
+  - {x: -0.49752334, y: -0.49108997, z: 0}
+  - {x: -0.49752337, y: 0.49108955, z: 0}
+  - {x: 0.50067174, y: 0.4784779, z: 0}
+  - {x: 0.49631995, y: -0.47847694, z: 0}
+  m_ShapePathHash: -615124188
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -31880

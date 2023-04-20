@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3793122632891901005}
   - component: {fileID: 3793122632891901007}
   - component: {fileID: 3793122632891901006}
+  - component: {fileID: 5173346478839218660}
   m_Layer: 7
   m_Name: BushVine
   m_TagString: Ground
@@ -112,6 +113,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5173346478839218660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793122632891901004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000839386e4ed83863cdd55ce706f926da7cf3b9d3d8ffac5e30b7fd96b877999c0cd0a66ec
+  m_ShapePath:
+  - {x: -0.51072073, y: -0.49070114, z: 0}
+  - {x: -0.5027043, y: 0.5272774, z: 0}
+  - {x: 0.50322086, y: 0.57729155, z: 0}
+  - {x: 0.503221, y: -0.4907015, z: 0}
+  m_ShapePathHash: -924291966
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 39496
 --- !u!1 &3793122634370042495
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +151,7 @@ GameObject:
   - component: {fileID: 3793122634370042480}
   - component: {fileID: 3793122634370042482}
   - component: {fileID: 3793122634370042481}
+  - component: {fileID: 8188347829790389212}
   m_Layer: 7
   m_Name: Vine
   m_TagString: Vine
@@ -184,7 +213,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1485991313
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.1320008, g: 0.38679248, b: 0.11190221, a: 1}
@@ -223,3 +252,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1281452, y: 0.9792372}
   m_EdgeRadius: 0
+--- !u!114 &8188347829790389212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793122634370042495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000839386e4ed83863cdd55ce706f926da7cf3b9d3d8ffac5e30b7fd96b877999c0cd0a66ec
+  m_ShapePath:
+  - {x: -0.5, y: -0.50000006, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+  - {x: 0.50001526, y: 0.5, z: 0}
+  - {x: 0.50001526, y: -0.50000006, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 39498
