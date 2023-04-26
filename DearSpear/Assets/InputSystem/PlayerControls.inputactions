@@ -22,6 +22,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "56d20e56-e011-4a16-8bd4-dea10c09330c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "49499b6b-524b-406c-93fa-9a76dbf31d0a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Rope",
+                    "type": "Button",
+                    "id": "a3cd4b16-9e1e-4f45-8e56-1413362c9b0d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -81,59 +108,70 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Mouse",
-                    "id": "2d7f4814-5d71-484f-813d-2f55796c9dce",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "3ea95fee-7df0-4923-8bde-14ad34bb2fdd",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Aim",
-                    "isComposite": true,
+                    "action": "Jump",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "72ff9aa8-8276-489a-962e-735a22ddc662",
-                    "path": "<Mouse>/position/y",
+                    "name": "",
+                    "id": "ea3486ed-690b-4783-8870-e0dffae80012",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Aim",
+                    "action": "Jump",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "down",
-                    "id": "782c1ee2-b658-4734-bf00-fc104ac566b0",
-                    "path": "<Mouse>/position/y",
+                    "name": "",
+                    "id": "a68ec2ba-7331-49b9-bc4d-7ddb6fa5e1ed",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Aim",
+                    "action": "Attack",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "left",
-                    "id": "9b5b6062-681c-43ac-b6d6-df75244cede8",
-                    "path": "<Mouse>/position/x",
+                    "name": "",
+                    "id": "d0f3f709-70e2-4bae-b343-48d90644484e",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Aim",
+                    "action": "Attack",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "right",
-                    "id": "b9b7f098-bb30-4e7e-85af-2064001c3f30",
-                    "path": "<Mouse>/position/x",
+                    "name": "",
+                    "id": "ccd3bd34-7b74-40bb-bccf-701b8e220212",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Aim",
+                    "action": "Rope",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f7420b9c-f473-41e0-a53a-cc20a64f9e30",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rope",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
