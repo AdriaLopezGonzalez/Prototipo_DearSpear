@@ -19,8 +19,6 @@ public class SpearLauncher : MonoBehaviour
 
     public bool spearActive = true;
 
-    [SerializeField]
-    private GameObject spearInHand;
 
     private void OnEnable()
     {
@@ -28,8 +26,6 @@ public class SpearLauncher : MonoBehaviour
         spearCollisionDetector.SpearGrabbed += SpearGrabbed;
         Spear.SpearGrabbed += SpearGrabbed;
 
-
-        PlayerInput.DrawPoints += DrawPoints;
         PlayerInput.ErasePoints += ErasePoints;
     }
 
@@ -39,7 +35,6 @@ public class SpearLauncher : MonoBehaviour
         spearCollisionDetector.SpearGrabbed -= SpearGrabbed;
         Spear.SpearGrabbed -= SpearGrabbed;
 
-        PlayerInput.DrawPoints -= DrawPoints;
         PlayerInput.ErasePoints += ErasePoints;
     }
 
@@ -64,6 +59,10 @@ public class SpearLauncher : MonoBehaviour
     void Update()
     {
         GetSpearDirection();
+        if (spearActive)
+        {
+            DrawPoints();
+        }
     }
 
     public void DrawPoints()
@@ -105,7 +104,6 @@ public class SpearLauncher : MonoBehaviour
 
             spearActive = false;
 
-            spearInHand.SetActive(false);
         }
     }
 
@@ -117,8 +115,6 @@ public class SpearLauncher : MonoBehaviour
 
     public void SpearGrabbed()
     {
-        spearInHand.SetActive(true);
-
         spearActive = true;
     }
 }

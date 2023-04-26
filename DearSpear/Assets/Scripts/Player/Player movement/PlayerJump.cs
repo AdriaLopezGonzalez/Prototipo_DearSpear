@@ -8,6 +8,8 @@ public class PlayerJump : MonoBehaviour
     PlayerInput _input;
     private Rigidbody2D _rigidbody;
 
+    [SerializeField]
+    private float jumpForce = 10;
 
     //private CollisionDetected collisionDetection;
 
@@ -34,11 +36,7 @@ public class PlayerJump : MonoBehaviour
         //collisionDetection = GetComponent<CollisionDetected>();
     }
 
-    void FixedUpdate()
-    {
-    }
-
-    public void Jump(float jumpForce)
+    public void Jump()
     {
         var vel = new Vector2(_rigidbody.velocity.x, jumpForce);
 
