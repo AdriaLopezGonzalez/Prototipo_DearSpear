@@ -19,6 +19,9 @@ public class PlayerInput : MonoBehaviour
 
     public static Action ErasePoints;
 
+    public static Action KillEnemy;
+    public static Func<bool> CheckEnemyDistance;
+
     void Start()
     {
         playerCollisionDetector = gameObject.GetComponentInChildren<PlayerCollisionDetector>();
@@ -50,8 +53,16 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            LaunchSpear?.Invoke();
-            ErasePoints?.Invoke();
+            //CHECKEAR SI TENEMOS LANZA, SI NO TENEMOS NO HACE NA
+            if (CheckEnemyDistance())
+            {
+                KillEnemy?.Invoke();
+            }
+            else
+            {
+                LaunchSpear?.Invoke();
+                ErasePoints?.Invoke();
+            }
         }
     }
 }
