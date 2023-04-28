@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class PlayerCloseKill : MonoBehaviour
 {
     private PlayerEnemyDetector enemyDetector;
+
+    public static Action ActivateCloseKill;
 
     private void Start()
     {
@@ -25,6 +28,7 @@ public class PlayerCloseKill : MonoBehaviour
         //HACER ANIMACIÓN
         //ESCONDER PLAYER
         //ZOOM DE CAMARA
+        ActivateCloseKill?.Invoke();
         Destroy(enemyDetector._enemyTransform.gameObject);
 
     }
