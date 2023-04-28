@@ -23,6 +23,9 @@ public class PlayerInput : MonoBehaviour
     public static Action KillEnemy;
     public static Func<bool> CheckEnemyDistance;
 
+    [SerializeField]
+    private InputActionReference pointerPosition;
+
     void Start()
     {
         playerCollisionDetector = gameObject.GetComponentInChildren<PlayerCollisionDetector>();
@@ -82,18 +85,21 @@ public class PlayerInput : MonoBehaviour
     public void UseSpear(InputAction.CallbackContext context)
     {
         //CHECKEAR SI TENEMOS LANZA, SI NO TENEMOS NO HACE NA
-        if (CheckEnemyDistance())
+        if (context.performed)
         {
-            KillEnemy?.Invoke();
-        }
-        else
-        {
-            LaunchSpear?.Invoke();
-            ErasePoints?.Invoke();
+            if (CheckEnemyDistance())
+            {
+                KillEnemy?.Invoke();
+            }
+            else
+            {
+                LaunchSpear?.Invoke();
+                ErasePoints?.Invoke();
+            }
         }
     }
 
-    public void RotateSpear(InputAction.CallbackContext context)
+    public void AimSpear(InputAction.CallbackContext context)
     {
 
     }
