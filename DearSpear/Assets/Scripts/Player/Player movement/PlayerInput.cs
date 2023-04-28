@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -34,36 +35,68 @@ public class PlayerInput : MonoBehaviour
 
 
         
-        if (Input.GetKeyDown(KeyCode.Space) && playerCollisionDetector.isGrounded)
+        //if (Input.GetKeyDown(KeyCode.Space) && playerCollisionDetector.isGrounded)
+        //{
+        //    UseJump();
+        //}
+        //
+        //if (Input.GetKeyDown(KeyCode.Mouse1))
+        //{
+        //    UseRope();
+        //}
+        //
+        //if (Input.GetKeyUp(KeyCode.Mouse1))
+        //{
+        //    EndRope?.Invoke();
+        //}
+        //
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    UseSpear();
+        //}
+    }
+
+    public void UseJump(InputAction.CallbackContext context)
+    {
+        if (playerCollisionDetector.isGrounded)
         {
             Jump?.Invoke();
 
             playerCollisionDetector.isGrounded = false;
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+    public void UseRope(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
             SetRope?.Invoke();
         }
-
-        if (Input.GetKeyUp(KeyCode.Mouse1))
+        
+        if (context.canceled)
         {
             EndRope?.Invoke();
         }
+    }
 
-        if (Input.GetMouseButtonDown(0))
+    public void UseSpear(InputAction.CallbackContext context)
+    {
+        //CHECKEAR SI TENEMOS LANZA, SI NO TENEMOS NO HACE NA
+        if (CheckEnemyDistance())
         {
-            //CHECKEAR SI TENEMOS LANZA, SI NO TENEMOS NO HACE NA
-            if (CheckEnemyDistance())
-            {
-                KillEnemy?.Invoke();
-            }
-            else
-            {
-                LaunchSpear?.Invoke();
-                ErasePoints?.Invoke();
-            }
+            KillEnemy?.Invoke();
+        }
+        else
+        {
+            LaunchSpear?.Invoke();
+            ErasePoints?.Invoke();
         }
     }
+
+    public void RotateSpear(InputAction.CallbackContext context)
+    {
+
+    }
+
 }
 

@@ -16,6 +16,8 @@ public class EnemyVisionDetector : MonoBehaviour
 
     Transform _player;
 
+    PlayerMovement _playerMovement;
+
     public bool isDetectingPlayer;
 
     //public static Action DetectedThePlayer;
@@ -52,6 +54,7 @@ public class EnemyVisionDetector : MonoBehaviour
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
+        _playerMovement = _player.GetComponent<PlayerMovement>();
 
         _patroling = GetComponent<EnemyPatroling>();
     }
@@ -67,6 +70,8 @@ public class EnemyVisionDetector : MonoBehaviour
                 {
                     //DetectedThePlayer?.Invoke();
                     _patroling.DetectedThePlayer();
+
+                    //_playerMovement.GotCaught();
                 }
             }
         }
