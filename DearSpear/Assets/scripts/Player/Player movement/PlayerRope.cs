@@ -18,16 +18,16 @@ public class PlayerRope : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerInput.SetRope += SetRope;
-        PlayerInput.EndRope += EndRope;
+        PlayerInputs.SetRope += SetRope;
+        PlayerInputs.EndRope += EndRope;
 
         PlayerMovement.CheckHook += CheckHook;
     }
 
     private void OnDisable()
     {
-        PlayerInput.SetRope -= SetRope;
-        PlayerInput.EndRope -= EndRope;
+        PlayerInputs.SetRope -= SetRope;
+        PlayerInputs.EndRope -= EndRope;
 
         PlayerMovement.CheckHook -= CheckHook;
     }

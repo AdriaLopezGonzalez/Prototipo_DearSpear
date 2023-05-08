@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
-    PlayerInput _input;
+    PlayerInputs _input;
     private Rigidbody2D _rigidbody;
 
     [SerializeField]
@@ -21,16 +21,16 @@ public class PlayerJump : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerInput.Jump += Jump;
+        PlayerInputs.Jump += Jump;
     }
     
     private void OnDisable()
     {
-        PlayerInput.Jump -= Jump;
+        PlayerInputs.Jump -= Jump;
     }
     void Start()
     {
-        _input = GetComponent<PlayerInput>();
+        _input = GetComponent<PlayerInputs>();
         _rigidbody = GetComponent<Rigidbody2D>();
         //collisionDetected = gameObject.GetComponent<CollisionDetected>();
         //collisionDetection = GetComponent<CollisionDetected>();

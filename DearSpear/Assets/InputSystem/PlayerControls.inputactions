@@ -122,7 +122,7 @@
                 },
                 {
                     "name": "",
-                    "id": "ae606283-8faf-4e89-b784-eb845637573a",
+                    "id": "fa28f42c-1647-457e-8f25-88595de69420",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
@@ -134,5 +134,33 @@
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Controller",
+            "bindingGroup": "Controller",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Keyboard&Mouse",
+            "bindingGroup": "Keyboard&Mouse",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

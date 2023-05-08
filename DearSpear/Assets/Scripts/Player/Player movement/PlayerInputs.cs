@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInput : MonoBehaviour
+[RequireComponent(typeof(PlayerInput))]
+public class PlayerInputs : MonoBehaviour
 {
 
     public float MovementHorizontal { get; private set; }
@@ -26,8 +27,28 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     private InputActionReference pointerPosition;
 
-    void Start()
+    private PlayerControls _playerControls;
+    private PlayerInput _playerInput;
+
+    public Vector2 AimSpearPosition;
+
+    public bool usingController;
+
+    private void OnEnable()
     {
+        _playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _playerControls.Disable();
+    }
+
+    private void Awake()
+    {
+        _playerControls = new PlayerControls();
+
+        _playerInput = GetComponent<PlayerInput>();
         playerCollisionDetector = gameObject.GetComponentInChildren<PlayerCollisionDetector>();
     }
 
@@ -36,7 +57,7 @@ public class PlayerInput : MonoBehaviour
         MovementVertical = Input.GetAxis("Vertical");
         MovementHorizontal = Input.GetAxis("Horizontal");
 
-
+        AimSpearPosition = AimSpear();
         
         //if (Input.GetKeyDown(KeyCode.Space) && playerCollisionDetector.isGrounded)
         //{
@@ -99,10 +120,35 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    public void AimSpear(InputAction.CallbackContext context)
+    public Vector2 AimSpear()
     {
+        if (usingController)
+        {
+            //aimingInputs = _playerControls.Gameplay.Aim.ReadValue<Vector2>();
+            //if(Mathf.Abs(aimingInputs.x) > 0.1f || Mathf.Abs(aimingInputs.y) > 0.1f)
+            //{
+            //    Vector3 playerAimingDirection = Vector3.right * aimingInputs.x + Vector3.forward * aimingInputs.y;
+            //    if(playerAimingDirection.sqrMagnitude > 0.0f)
+            //    {
+            //        Quaternion newRotation = Quaternion.LookRotation(playerAimingDirection, Vector3.up);
+            //        transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, 1000f * Time.deltaTime);
+            //    }
+            //}
+            Vector2 mousePos = pointerPosition.action.ReadValue<Vector2>();
 
+            return Camera.main.ScreenToWorldPoint(mousePos);
+        }
+        else
+        {
+            Vector2 mousePos = pointerPosition.action.ReadValue<Vector2>();
+
+            return Camera.main.ScreenToWorldPoint(mousePos);
+        }
     }
 
+    public void OnDeviceChange(PlayerInput pi)
+    {
+        usingController = pi.currentControlScheme.Equals("Controller") ? true : false;
+    }
 }
 
