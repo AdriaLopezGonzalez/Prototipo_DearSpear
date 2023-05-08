@@ -34,6 +34,10 @@ public class PlayerInputs : MonoBehaviour
 
     public bool usingController;
 
+    [SerializeField]
+    private Transform twistPoint;
+
+    public bool controlChanged;
     private void OnEnable()
     {
         _playerControls.Enable();
@@ -124,19 +128,32 @@ public class PlayerInputs : MonoBehaviour
     {
         if (usingController)
         {
-            //aimingInputs = _playerControls.Gameplay.Aim.ReadValue<Vector2>();
-            //if(Mathf.Abs(aimingInputs.x) > 0.1f || Mathf.Abs(aimingInputs.y) > 0.1f)
-            //{
-            //    Vector3 playerAimingDirection = Vector3.right * aimingInputs.x + Vector3.forward * aimingInputs.y;
-            //    if(playerAimingDirection.sqrMagnitude > 0.0f)
-            //    {
-            //        Quaternion newRotation = Quaternion.LookRotation(playerAimingDirection, Vector3.up);
-            //        transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, 1000f * Time.deltaTime);
-            //    }
-            //}
-            Vector2 mousePos = pointerPosition.action.ReadValue<Vector2>();
+            Vector3 angle = twistPoint.transform.localEulerAngles;
+            float horizontalAxis = Input.GetAxis("HorizontalAim");
+            float verticalAxis = Input.GetAxis("VerticalAim");
 
-            return Camera.main.ScreenToWorldPoint(mousePos);
+            if(horizontalAxis == 0.0f && verticalAxis == 0.0f)
+            {
+                Vector3 currentRotation = twistPoint.transform.localEulerAngles;
+                Vector3 homeRotation;
+
+                if(currentRotation.z > 100f)
+                {
+                    homeRotation = new Vector3(0, 0, 359.999f);
+                }
+                else
+                {
+                    homeRotation = Vector3.zero;
+                }
+
+                twistPoint.transform.localEulerAngles = Vector3.Slerp(currentRotation, homeRotation, Time.deltaTime * 0.8f);
+            }
+            else
+            {
+                twistPoint.transform.localEulerAngles = new Vector3(0, 0, Mathf.Atan2(horizontalAxis, verticalAxis) * Mathf.Rad2Deg + 90f);
+            }
+
+            return Vector2.zero;
         }
         else
         {
@@ -149,6 +166,8 @@ public class PlayerInputs : MonoBehaviour
     public void OnDeviceChange(PlayerInput pi)
     {
         usingController = pi.currentControlScheme.Equals("Controller") ? true : false;
+
+        controlChanged = true;
     }
 }
 

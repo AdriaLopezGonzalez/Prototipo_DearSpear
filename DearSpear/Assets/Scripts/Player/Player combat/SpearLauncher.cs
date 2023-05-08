@@ -91,11 +91,25 @@ public class SpearLauncher : MonoBehaviour
 
     private void GetSpearDirection()
     {
-        spearStartPosition = transform.position;
-        aimPosition = _playerInput.AimSpearPosition;
-        
-        direction = aimPosition - spearStartPosition;
-        transform.right = direction;
+        if (_playerInput.usingController)
+        {
+            if (_playerInput.controlChanged)
+            {
+                direction = new Vector2(1.0f, 1.0f);
+
+                transform.right = direction.normalized;
+
+                _playerInput.controlChanged = false;
+            }
+        }
+        else
+        {
+            spearStartPosition = transform.position;
+            aimPosition = _playerInput.AimSpearPosition;
+
+            direction = aimPosition - spearStartPosition;
+            transform.right = direction;
+        }
     }
 
     public void LaunchSpear()
