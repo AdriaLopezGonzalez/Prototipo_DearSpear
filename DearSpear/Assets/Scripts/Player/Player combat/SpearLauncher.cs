@@ -1,11 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpearLauncher : MonoBehaviour
 {
     private Vector2 spearStartPosition;
+    private Vector2 lastAimedPosition;
     private Vector2 aimPosition;
 
     private Vector2 direction;
@@ -81,7 +79,7 @@ public class SpearLauncher : MonoBehaviour
     {
         for (int index = 0; index < numberOfPoints; index++)
         {
-            if(points[index] != null)
+            if (points[index] != null)
             {
                 points[index].transform.position = PointPosition(index * spaceBetweenPoints);
                 points[index].SetActive(false);
@@ -91,25 +89,20 @@ public class SpearLauncher : MonoBehaviour
 
     private void GetSpearDirection()
     {
-        if (_playerInput.usingController)
+
+        spearStartPosition = transform.position;
+
+        if(_playerInput.AimSpearPosition != Vector2.zero)
         {
-            if (_playerInput.controlChanged)
-            {
-                direction = new Vector2(1.0f, 1.0f);
-
-                transform.right = direction.normalized;
-
-                _playerInput.controlChanged = false;
-            }
+            lastAimedPosition = _playerInput.AimSpearPosition;
         }
-        else
-        {
-            spearStartPosition = transform.position;
-            aimPosition = _playerInput.AimSpearPosition;
 
-            direction = aimPosition - spearStartPosition;
-            transform.right = direction;
-        }
+        aimPosition = _playerInput.AimSpearPosition;
+        if (aimPosition == Vector2.zero)
+            aimPosition = lastAimedPosition;
+
+        direction = aimPosition - spearStartPosition;
+        transform.right = direction;
     }
 
     public void LaunchSpear()

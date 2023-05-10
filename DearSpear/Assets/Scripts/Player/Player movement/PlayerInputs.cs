@@ -128,9 +128,9 @@ public class PlayerInputs : MonoBehaviour
     {
         if (usingController)
         {
-            Vector3 angle = twistPoint.transform.localEulerAngles;
             float horizontalAxis = Input.GetAxis("HorizontalAim");
             float verticalAxis = Input.GetAxis("VerticalAim");
+            /*Vector3 angle = twistPoint.transform.localEulerAngles;
 
             if(horizontalAxis == 0.0f && verticalAxis == 0.0f)
             {
@@ -151,9 +151,13 @@ public class PlayerInputs : MonoBehaviour
             else
             {
                 twistPoint.transform.localEulerAngles = new Vector3(0, 0, -Mathf.Atan2(horizontalAxis, verticalAxis) * Mathf.Rad2Deg + 90f);
-            }
+            }*/
+            float m_JoystickDistance = 20.0f;
+            Vector2 l_Direction = new Vector2(horizontalAxis, verticalAxis);
+            l_Direction.Normalize();
+            Vector2 l_Position = twistPoint.position;
 
-            return Vector2.zero;
+            return l_Position + l_Direction * m_JoystickDistance;
         }
         else
         {
