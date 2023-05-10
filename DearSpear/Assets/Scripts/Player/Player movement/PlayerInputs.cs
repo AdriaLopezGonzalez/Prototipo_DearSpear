@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerInput))]
+//[RequireComponent(typeof(PlayerInput))]
 public class PlayerInputs : MonoBehaviour
 {
 
@@ -28,6 +28,7 @@ public class PlayerInputs : MonoBehaviour
     private InputActionReference pointerPosition;
 
     private PlayerControls _playerControls;
+    [SerializeField]
     private PlayerInput _playerInput;
 
     public Vector2 AimSpearPosition;
@@ -36,8 +37,6 @@ public class PlayerInputs : MonoBehaviour
 
     [SerializeField]
     private Transform twistPoint;
-
-    public bool controlChanged;
     private void OnEnable()
     {
         _playerControls.Enable();
@@ -128,9 +127,9 @@ public class PlayerInputs : MonoBehaviour
     {
         if (usingController)
         {
-            Vector3 angle = twistPoint.transform.localEulerAngles;
             float horizontalAxis = Input.GetAxis("HorizontalAim");
             float verticalAxis = Input.GetAxis("VerticalAim");
+            /*Vector3 angle = twistPoint.transform.localEulerAngles;
 
             if(horizontalAxis == 0.0f && verticalAxis == 0.0f)
             {
@@ -151,9 +150,13 @@ public class PlayerInputs : MonoBehaviour
             else
             {
                 twistPoint.transform.localEulerAngles = new Vector3(0, 0, -Mathf.Atan2(horizontalAxis, verticalAxis) * Mathf.Rad2Deg + 90f);
-            }
+            }*/
+            float m_JoystickDistance = 20.0f;
+            Vector2 l_Direction = new Vector2(horizontalAxis, verticalAxis);
+            l_Direction.Normalize();
+            Vector2 l_Position = twistPoint.position;
 
-            return Vector2.zero;
+            return l_Position + l_Direction * m_JoystickDistance;
         }
         else
         {
@@ -166,8 +169,6 @@ public class PlayerInputs : MonoBehaviour
     public void OnDeviceChange(PlayerInput pi)
     {
         usingController = pi.currentControlScheme.Equals("Controller") ? true : false;
-
-        controlChanged = true;
     }
 
     public void FreezePlayer()

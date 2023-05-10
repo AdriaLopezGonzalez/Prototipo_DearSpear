@@ -12,9 +12,10 @@ TagManager:
   - GroundChecker
   - Roof
   - Background
-  - Enemy
-  - EnemyBullet
   - Checkpoint
+  - BaseEnemy
+  - RadarEnemy
+  - DogEnemy
   layers:
   - Default
   - TransparentFX

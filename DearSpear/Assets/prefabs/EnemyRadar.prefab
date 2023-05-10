@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 1964302919393799923}
   m_Layer: 13
   m_Name: EnemyRadar
-  m_TagString: Enemy
+  m_TagString: RadarEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
