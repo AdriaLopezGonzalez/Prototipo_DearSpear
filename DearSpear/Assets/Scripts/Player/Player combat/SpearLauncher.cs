@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpearLauncher : MonoBehaviour
 {
     private Vector2 spearStartPosition;
-    private Vector2 mousePosition;
+    private Vector2 aimPosition;
 
     private Vector2 direction;
 
@@ -19,23 +19,24 @@ public class SpearLauncher : MonoBehaviour
 
     public bool spearActive = true;
 
+    private PlayerInputs _playerInput;
 
     private void OnEnable()
     {
-        PlayerInput.LaunchSpear += LaunchSpear;
+        PlayerInputs.LaunchSpear += LaunchSpear;
         spearCollisionDetector.SpearGrabbed += SpearGrabbed;
         Spear.SpearGrabbed += SpearGrabbed;
 
-        PlayerInput.ErasePoints += ErasePoints;
+        PlayerInputs.ErasePoints += ErasePoints;
     }
 
     private void OnDisable()
     {
-        PlayerInput.LaunchSpear -= LaunchSpear;
+        PlayerInputs.LaunchSpear -= LaunchSpear;
         spearCollisionDetector.SpearGrabbed -= SpearGrabbed;
         Spear.SpearGrabbed -= SpearGrabbed;
 
-        PlayerInput.ErasePoints += ErasePoints;
+        PlayerInputs.ErasePoints += ErasePoints;
     }
 
     [SerializeField]
@@ -48,6 +49,8 @@ public class SpearLauncher : MonoBehaviour
 
     private void Awake()
     {
+        _playerInput = GetComponentInParent<PlayerInputs>();
+
         points = new GameObject[numberOfPoints];
         for (int index = 0; index < numberOfPoints; index++)
         {
@@ -88,11 +91,25 @@ public class SpearLauncher : MonoBehaviour
 
     private void GetSpearDirection()
     {
-        spearStartPosition = transform.position;
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (_playerInput.usingController)
+        {
+            if (_playerInput.controlChanged)
+            {
+                direction = new Vector2(1.0f, 1.0f);
 
-        direction = mousePosition - spearStartPosition;
-        transform.right = direction;
+                transform.right = direction.normalized;
+
+                _playerInput.controlChanged = false;
+            }
+        }
+        else
+        {
+            spearStartPosition = transform.position;
+            aimPosition = _playerInput.AimSpearPosition;
+
+            direction = aimPosition - spearStartPosition;
+            transform.right = direction;
+        }
     }
 
     public void LaunchSpear()

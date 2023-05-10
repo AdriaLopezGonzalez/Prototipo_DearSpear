@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool _isMoving;
     private PlayerVineDetector _vineDetect;
-    PlayerInput _input;
+    PlayerInputs _input;
     Rigidbody2D _rigidbody;
 
     private float oldGravityScale;
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        _input = GetComponent<PlayerInput>();
+        _input = GetComponent<PlayerInputs>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _vineDetect = gameObject.GetComponentInChildren<PlayerVineDetector>();
 

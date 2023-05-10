@@ -15,12 +15,12 @@ public class PlayerCloseKill : MonoBehaviour
     }
     private void OnEnable()
     {
-        PlayerInput.KillEnemy += KillEnemy;
+        PlayerInputs.KillEnemy += KillEnemy;
     }
 
     private void OnDisable()
     {
-        PlayerInput.KillEnemy -= KillEnemy;
+        PlayerInputs.KillEnemy -= KillEnemy;
     }
 
     private void KillEnemy()

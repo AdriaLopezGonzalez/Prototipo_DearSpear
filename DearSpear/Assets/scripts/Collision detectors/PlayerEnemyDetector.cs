@@ -13,12 +13,12 @@ public class PlayerEnemyDetector : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerInput.CheckEnemyDistance += CheckIfEnemyClose;
+        PlayerInputs.CheckEnemyDistance += CheckIfEnemyClose;
     }
 
     private void OnDisable()
     {
-        PlayerInput.CheckEnemyDistance -= CheckIfEnemyClose;
+        PlayerInputs.CheckEnemyDistance -= CheckIfEnemyClose;
     }
 
     private bool CheckIfEnemyClose()
