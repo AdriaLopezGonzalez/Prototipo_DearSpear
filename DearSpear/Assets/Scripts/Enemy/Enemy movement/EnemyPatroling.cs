@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class EnemyPatroling : MonoBehaviour
 {
@@ -91,10 +92,17 @@ public class EnemyPatroling : MonoBehaviour
     {
         Speed = 0;
 
-        player.gameObject.GetComponent<PlayerInputs>().enabled = false;
+        FreezePlayer(player);
         DeathCamera?.Invoke();
         
         //_weapon.Shoot();
+    }
+
+    private void FreezePlayer(Transform player)
+    {
+        player.GetComponent<PlayerInput>().enabled = false;
+        player.GetComponent<PlayerInputs>().FreezePlayer();
+        player.GetComponent<PlayerInputs>().enabled = false;
     }
 
     public void ContinuePatrolling()
