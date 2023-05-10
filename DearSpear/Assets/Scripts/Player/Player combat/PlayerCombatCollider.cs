@@ -11,7 +11,7 @@ public class PlayerCombatCollider : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("EnemyBullet"))
         {
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Destroy(collision.transform.gameObject);
             Respawn?.Invoke();
         }
     }

@@ -69,7 +69,7 @@ public class EnemyVisionDetector : MonoBehaviour
                 if (IsNotBlocked())
                 {
                     //DetectedThePlayer?.Invoke();
-                    _patroling.DetectedThePlayer();
+                    _patroling.DetectedThePlayer(_player);
 
                     //_playerMovement.GotCaught();
                 }

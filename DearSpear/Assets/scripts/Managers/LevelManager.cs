@@ -20,12 +20,12 @@ public class LevelManager : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerCombatCollider.Respawn += Respawn;
+        CameraAnimations.Respawn += Respawn;
     }
 
     private void OnDisable()
     {
-        PlayerCombatCollider.Respawn -= Respawn;
+        CameraAnimations.Respawn -= Respawn;
     }
 
     // Start is called before the first frame update
@@ -45,6 +45,7 @@ public class LevelManager : MonoBehaviour
             }
             else
             {
+                // AQUI DA ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 enemyTypeList.Add(dogEnemy);
             }
         }
@@ -63,15 +64,19 @@ public class LevelManager : MonoBehaviour
     {
         player.transform.position = activeCheckpoint;
 
-        foreach (GameObject enemy in enemyList)
+        player.GetComponent<PlayerInputs>().enabled = true;
+
+        /*foreach (GameObject enemy in enemyList)
         {
             Destroy(enemy);
             enemyList.Remove(enemy);
-        }
+        }*/
         enemyList.Clear();
 
+        Debug.Log("hay "+enemyPositionList.Count+" enemigos");
         for (int i = 0; i < enemyPositionList.Count; i++)
         {
+            Debug.Log("spawneo a " + enemyTypeList[i]);
             Instantiate(enemyTypeList[i], enemyPositionList[i], Quaternion.identity);
         }
 
@@ -79,6 +84,8 @@ public class LevelManager : MonoBehaviour
         {
             enemyList.Add(en);
         }
+
+        //CAMERA RESET
     }
 
     private void SetActiveCheckpoint()

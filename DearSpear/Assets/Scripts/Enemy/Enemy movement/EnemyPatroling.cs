@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class EnemyPatroling : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class EnemyPatroling : MonoBehaviour
     //public static Action Shoot;
 
     private EnemyWeapon _weapon;
+
+    public static Action DeathCamera;
 
     //private void OnEnable()
     //{
@@ -84,16 +87,20 @@ public class EnemyPatroling : MonoBehaviour
         transform.Translate(transform.right * Speed * Time.deltaTime, Space.World);
     }
 
-    public void DetectedThePlayer()
+    public void DetectedThePlayer(Transform player)
     {
         Speed = 0;
 
-        //Shoot?.Invoke();
-        _weapon.Shoot();
+        player.gameObject.GetComponent<PlayerInputs>().enabled = false;
+        DeathCamera?.Invoke();
+        
+        //_weapon.Shoot();
     }
 
     public void ContinuePatrolling()
     {
         Speed = baseSpeed;
     }
+
+
 }
