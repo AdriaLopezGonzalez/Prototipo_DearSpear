@@ -150,7 +150,7 @@ public class PlayerInputs : MonoBehaviour
             }
             else
             {
-                twistPoint.transform.localEulerAngles = new Vector3(0, 0, Mathf.Atan2(horizontalAxis, verticalAxis) * Mathf.Rad2Deg + 90f);
+                twistPoint.transform.localEulerAngles = new Vector3(0, 0, -Mathf.Atan2(horizontalAxis, verticalAxis) * Mathf.Rad2Deg + 90f);
             }
 
             return Vector2.zero;
