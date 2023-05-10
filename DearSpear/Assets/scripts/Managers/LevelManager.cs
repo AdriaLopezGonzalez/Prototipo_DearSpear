@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEditor;
 
-[RequireComponent(typeof(PlayerInput))]
 public class LevelManager : MonoBehaviour
 {
     private List<GameObject> enemyList = new List<GameObject>();
@@ -41,7 +41,7 @@ public class LevelManager : MonoBehaviour
             enemyPositionList.Add(en.transform.position);
             Debug.Log(en);
             Debug.Log(baseEnemy);
-            if(en == baseEnemy)
+            if(PrefabUtility.GetPrefabParent(en) == baseEnemy)
             {
                 enemyTypeList.Add(baseEnemy);
             }
