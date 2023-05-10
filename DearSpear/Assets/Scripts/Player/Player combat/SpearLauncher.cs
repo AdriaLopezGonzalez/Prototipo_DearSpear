@@ -24,6 +24,7 @@ public class SpearLauncher : MonoBehaviour
         PlayerInputs.LaunchSpear += LaunchSpear;
         spearCollisionDetector.SpearGrabbed += SpearGrabbed;
         Spear.SpearGrabbed += SpearGrabbed;
+        LevelManager.SpearGrab += SpearGrabbed;
 
         PlayerInputs.ErasePoints += ErasePoints;
     }
@@ -33,6 +34,7 @@ public class SpearLauncher : MonoBehaviour
         PlayerInputs.LaunchSpear -= LaunchSpear;
         spearCollisionDetector.SpearGrabbed -= SpearGrabbed;
         Spear.SpearGrabbed -= SpearGrabbed;
+        LevelManager.SpearGrab -= SpearGrabbed;
 
         PlayerInputs.ErasePoints += ErasePoints;
     }
@@ -123,6 +125,10 @@ public class SpearLauncher : MonoBehaviour
 
     public void SpearGrabbed()
     {
-        spearActive = true;
+        if (!spearActive)
+        {
+            spearActive = true;
+            Destroy(GameObject.FindGameObjectWithTag("Spear"));
+        }
     }
 }

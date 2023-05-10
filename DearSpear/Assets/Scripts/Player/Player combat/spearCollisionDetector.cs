@@ -35,7 +35,6 @@ public class spearCollisionDetector : MonoBehaviour
             if (_spear.spearCollided)
             {
                 SpearGrabbed?.Invoke();
-                Destroy(gameObject);
             }
         }
 
