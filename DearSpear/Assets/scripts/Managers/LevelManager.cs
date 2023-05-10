@@ -35,13 +35,32 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (GameObject en in GameObject.FindGameObjectsWithTag("Enemy"))
+        foreach (GameObject en in PrefabUtility.FindAllInstancesOfPrefab(baseEnemy))
+        {
+            enemyList.Add(en);
+            Debug.Log(en);
+            enemyPositionList.Add(en.transform.position);
+            enemyTypeList.Add(baseEnemy);
+        }
+        foreach (GameObject en in PrefabUtility.FindAllInstancesOfPrefab(radarEnemy))
+        {
+            enemyList.Add(en);
+            Debug.Log(en);
+            enemyPositionList.Add(en.transform.position);
+            enemyTypeList.Add(radarEnemy);
+        }
+        foreach (GameObject en in PrefabUtility.FindAllInstancesOfPrefab(dogEnemy))
         {
             enemyList.Add(en);
             enemyPositionList.Add(en.transform.position);
-            Debug.Log(en);
-            Debug.Log(baseEnemy);
-            if(PrefabUtility.GetPrefabParent(en) == baseEnemy)
+            enemyTypeList.Add(radarEnemy);
+        }
+        /*foreach (GameObject en in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            enemyList.Add(en);
+            enemyPositionList.Add(en.transform.position);
+
+            if(PrefabUtility.FindAllInstancesOfPrefab(baseEnemy) == baseEnemy)
             {
                 enemyTypeList.Add(baseEnemy);
             }
@@ -53,7 +72,7 @@ public class LevelManager : MonoBehaviour
             {
                 enemyTypeList.Add(dogEnemy);
             }
-        }
+        }*/
 
         foreach (GameObject ch in GameObject.FindGameObjectsWithTag("Checkpoint"))
         {
