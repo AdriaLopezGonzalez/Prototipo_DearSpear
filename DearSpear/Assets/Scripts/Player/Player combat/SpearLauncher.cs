@@ -92,13 +92,11 @@ public class SpearLauncher : MonoBehaviour
 
         spearStartPosition = transform.position;
 
-        if(_playerInput.AimSpearPosition != Vector2.zero)
-        {
+        if(_playerInput.AimSpearPosition != (Vector2)transform.position)
             lastAimedPosition = _playerInput.AimSpearPosition;
-        }
 
         aimPosition = _playerInput.AimSpearPosition;
-        if (aimPosition == Vector2.zero)
+        if (aimPosition == (Vector2)transform.position)
             aimPosition = lastAimedPosition;
 
         direction = aimPosition - spearStartPosition;
