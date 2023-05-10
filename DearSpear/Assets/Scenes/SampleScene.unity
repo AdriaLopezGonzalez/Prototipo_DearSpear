@@ -266,6 +266,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1964302919393799924, guid: 0eca5f2fd1232654caeb06f566f09f3b, type: 3}
+      propertyPath: m_Direction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1964302919393799927, guid: 0eca5f2fd1232654caeb06f566f09f3b, type: 3}
       propertyPath: m_BodyType
       value: 0
@@ -1220,9 +1224,9 @@ GameObject:
   - component: {fileID: 1254891754}
   - component: {fileID: 1254891756}
   - component: {fileID: 1254891755}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundTilemap2.0
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2289,7 +2293,7 @@ GameObject:
   - component: {fileID: 1839198804}
   - component: {fileID: 1839198803}
   - component: {fileID: 1839198805}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundTilemap
   m_TagString: Ground
   m_Icon: {fileID: 0}
