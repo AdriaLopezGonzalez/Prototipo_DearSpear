@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,6 +13,8 @@ public class LevelManager : MonoBehaviour
     private List<Transform> checkpointsList = new List<Transform>();
 
     private Vector3 activeCheckpoint;
+
+    public static Action SpearGrab;
 
     [SerializeField]
     private GameObject player;
@@ -35,44 +38,26 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (GameObject en in PrefabUtility.FindAllInstancesOfPrefab(baseEnemy))
+        foreach (GameObject en in GameObject.FindGameObjectsWithTag("BaseEnemy"))
         {
             enemyList.Add(en);
             Debug.Log(en);
             enemyPositionList.Add(en.transform.position);
             enemyTypeList.Add(baseEnemy);
         }
-        foreach (GameObject en in PrefabUtility.FindAllInstancesOfPrefab(radarEnemy))
+        foreach (GameObject en in GameObject.FindGameObjectsWithTag("RadarEnemy"))
         {
             enemyList.Add(en);
             Debug.Log(en);
             enemyPositionList.Add(en.transform.position);
             enemyTypeList.Add(radarEnemy);
         }
-        foreach (GameObject en in PrefabUtility.FindAllInstancesOfPrefab(dogEnemy))
+        foreach (GameObject en in GameObject.FindGameObjectsWithTag("DogEnemy"))
         {
             enemyList.Add(en);
             enemyPositionList.Add(en.transform.position);
             enemyTypeList.Add(radarEnemy);
         }
-        /*foreach (GameObject en in GameObject.FindGameObjectsWithTag("Enemy"))
-        {
-            enemyList.Add(en);
-            enemyPositionList.Add(en.transform.position);
-
-            if(PrefabUtility.FindAllInstancesOfPrefab(baseEnemy) == baseEnemy)
-            {
-                enemyTypeList.Add(baseEnemy);
-            }
-            else if(en == radarEnemy)
-            {
-                enemyTypeList.Add(radarEnemy);
-            }
-            else
-            {
-                enemyTypeList.Add(dogEnemy);
-            }
-        }*/
 
         foreach (GameObject ch in GameObject.FindGameObjectsWithTag("Checkpoint"))
         {
@@ -98,13 +83,10 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < enemyPositionList.Count; i++)
         {
             Debug.Log("spawneo a " + enemyTypeList[i]);
-            Instantiate(enemyTypeList[i], enemyPositionList[i], Quaternion.identity);
+            enemyList.Add(Instantiate(enemyTypeList[i], enemyPositionList[i], Quaternion.identity));
         }
 
-        foreach (GameObject en in GameObject.FindGameObjectsWithTag("Enemy"))
-        {
-            enemyList.Add(en);
-        }
+        SpearGrab?.Invoke();
 
         cam.GetComponent<MainCameraMove>().CameraRespawn();
     }

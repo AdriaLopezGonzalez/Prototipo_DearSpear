@@ -9,10 +9,6 @@ public class PlayerCombatCollider : MonoBehaviour
     public static Action Respawn;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("EnemyBullet"))
-        {
-            Destroy(collision.transform.gameObject);
-            Respawn?.Invoke();
-        }
+        //BORRAR
     }
 }
