@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerInput))]
+//[RequireComponent(typeof(PlayerInput))]
 public class PlayerInputs : MonoBehaviour
 {
 
@@ -28,6 +28,7 @@ public class PlayerInputs : MonoBehaviour
     private InputActionReference pointerPosition;
 
     private PlayerControls _playerControls;
+    [SerializeField]
     private PlayerInput _playerInput;
 
     public Vector2 AimSpearPosition;
@@ -36,8 +37,6 @@ public class PlayerInputs : MonoBehaviour
 
     [SerializeField]
     private Transform twistPoint;
-
-    public bool controlChanged;
     private void OnEnable()
     {
         _playerControls.Enable();
@@ -170,8 +169,6 @@ public class PlayerInputs : MonoBehaviour
     public void OnDeviceChange(PlayerInput pi)
     {
         usingController = pi.currentControlScheme.Equals("Controller") ? true : false;
-
-        controlChanged = true;
     }
 
     public void FreezePlayer()
