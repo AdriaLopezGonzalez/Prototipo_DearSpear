@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerInput))]
 public class LevelManager : MonoBehaviour
 {
     private List<GameObject> enemyList = new List<GameObject>();
@@ -17,6 +19,8 @@ public class LevelManager : MonoBehaviour
     public GameObject baseEnemy;
     public GameObject radarEnemy;
     public GameObject dogEnemy;
+
+    public Camera cam;
 
     private void OnEnable()
     {
@@ -35,6 +39,8 @@ public class LevelManager : MonoBehaviour
         {
             enemyList.Add(en);
             enemyPositionList.Add(en.transform.position);
+            Debug.Log(en);
+            Debug.Log(baseEnemy);
             if(en == baseEnemy)
             {
                 enemyTypeList.Add(baseEnemy);
@@ -45,7 +51,6 @@ public class LevelManager : MonoBehaviour
             }
             else
             {
-                // AQUI DA ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 enemyTypeList.Add(dogEnemy);
             }
         }
@@ -55,8 +60,6 @@ public class LevelManager : MonoBehaviour
             checkpointsList.Add(ch.transform);
         }
 
-
-        //TEMPORAL
         activeCheckpoint = player.transform.position;
     }
 
@@ -64,16 +67,15 @@ public class LevelManager : MonoBehaviour
     {
         player.transform.position = activeCheckpoint;
 
+        player.GetComponent<PlayerInput>().enabled = true;
         player.GetComponent<PlayerInputs>().enabled = true;
 
-        /*foreach (GameObject enemy in enemyList)
+        foreach (GameObject enemy in enemyList)
         {
             Destroy(enemy);
-            enemyList.Remove(enemy);
-        }*/
+        }
         enemyList.Clear();
 
-        Debug.Log("hay "+enemyPositionList.Count+" enemigos");
         for (int i = 0; i < enemyPositionList.Count; i++)
         {
             Debug.Log("spawneo a " + enemyTypeList[i]);
@@ -85,7 +87,7 @@ public class LevelManager : MonoBehaviour
             enemyList.Add(en);
         }
 
-        //CAMERA RESET
+        cam.GetComponent<MainCameraMove>().CameraRespawn();
     }
 
     private void SetActiveCheckpoint()

@@ -24,4 +24,9 @@ public class MainCameraMove : MonoBehaviour
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
         }
     }
+
+    public void CameraRespawn()
+    {
+        transform.position = target.position + offset;
+    }
 }

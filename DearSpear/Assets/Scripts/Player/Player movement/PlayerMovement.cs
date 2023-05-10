@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsMoving => _isMoving;
 
-
     [SerializeField]
     private float Speed = 8f;
 

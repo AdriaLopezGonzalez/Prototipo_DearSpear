@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraAnimations : MonoBehaviour
@@ -14,8 +12,9 @@ public class CameraAnimations : MonoBehaviour
     private float timeCameraApproach = 0.5f;
     private float timeToKeepCamera = 1f;
 
+    [SerializeField]
+    private float constantCameraSize = 5;
     private Vector3 oldCameraPosition;
-    private float oldCameraSize;
     private Camera cam;
 
     //private float smoothTime = 0.5f;
@@ -23,7 +22,7 @@ public class CameraAnimations : MonoBehaviour
     private float plainVelocity = 0;
 
     private Vector3 zoomOffset = new Vector3(1f, 0f, -10f);
-    private float zoomSizeObjective = 3.5f;
+    private float zoomSizeObjective = 4f;
 
     public static Action Respawn;
 
@@ -59,7 +58,6 @@ public class CameraAnimations : MonoBehaviour
         animationOngoing = true;
         playerDeathActive = true;
         oldCameraPosition = transform.position;
-        oldCameraSize = cam.orthographicSize;
     }
 
     private void ActivateCloseKill()
@@ -67,7 +65,6 @@ public class CameraAnimations : MonoBehaviour
         animationOngoing = true;
         closeKillActive = true;
         oldCameraPosition = transform.position;
-        oldCameraSize = cam.orthographicSize;
     }
 
     private void PlayerZoom(Transform target)
@@ -77,8 +74,8 @@ public class CameraAnimations : MonoBehaviour
         if (timer < timeCameraApproach)
         {
             Vector3 targetPosition = target.position + zoomOffset;
-            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, timeCameraApproach);
-            cam.orthographicSize = Mathf    .SmoothDamp(cam.orthographicSize, zoomSizeObjective, ref plainVelocity, timeCameraApproach);
+            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, timeCameraApproach / 2);
+            cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, zoomSizeObjective, ref plainVelocity, timeCameraApproach / 2);
         }
         else if (timer < timeCameraApproach + timeToKeepCamera)
         {
@@ -86,22 +83,30 @@ public class CameraAnimations : MonoBehaviour
         }
         else if (timer < timeCameraApproach + timeToKeepCamera + timeCameraApproach)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, oldCameraPosition, ref velocity, timeCameraApproach);
-            cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, oldCameraSize, ref plainVelocity, timeCameraApproach);
-        }
-        else
-        {
-            animationOngoing = false;
-            if (closeKillActive)
-            {
-                closeKillActive = false;
-            }
             if (playerDeathActive)
             {
                 playerDeathActive = false;
                 Respawn?.Invoke();
+                cam.orthographicSize = constantCameraSize;
+                animationOngoing = false;
+                timer = 0;
             }
+            else
+            {
+                transform.position = Vector3.SmoothDamp(transform.position, oldCameraPosition, ref velocity, timeCameraApproach / 2);
+                cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, constantCameraSize, ref plainVelocity, timeCameraApproach / 2);
+            }
+        }
+        else
+        {
+            cam.orthographicSize = constantCameraSize;
+            animationOngoing = false;
             timer = 0;
+            if (closeKillActive)
+            {
+                closeKillActive = false;
+            }
+
         }
     }
 

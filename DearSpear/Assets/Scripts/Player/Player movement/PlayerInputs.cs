@@ -173,5 +173,11 @@ public class PlayerInputs : MonoBehaviour
 
         controlChanged = true;
     }
+
+    public void FreezePlayer()
+    {
+        MovementHorizontal = 0;
+        MovementVertical = 0;
+    }
 }
 
