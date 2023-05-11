@@ -13,7 +13,7 @@ public class CameraAnimations : MonoBehaviour
     private float timeToKeepCamera = 1f;
 
     [SerializeField]
-    private float constantCameraSize = 5;
+    private float constantCameraSize = 6;
     private Vector3 oldCameraPosition;
     private Camera cam;
 
