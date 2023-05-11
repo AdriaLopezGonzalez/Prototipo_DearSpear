@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8598681897419039471}
   - component: {fileID: 1018922737342802682}
-  m_Layer: 6
+  m_Layer: 15
   m_Name: PlatformTileMap_4
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3816796783956292909}
   - component: {fileID: 4104159740431449150}
-  m_Layer: 6
+  m_Layer: 15
   m_Name: PlatformTileMap_5
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 1047827069165670067}
   - component: {fileID: 5520778332923718829}
   - component: {fileID: -3741671428532850127}
-  m_Layer: 6
+  m_Layer: 15
   m_Name: flyingPlatform3
   m_TagString: Ground
   m_Icon: {fileID: 0}

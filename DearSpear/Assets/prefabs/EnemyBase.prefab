@@ -419,7 +419,7 @@ MonoBehaviour:
   FieldOfView: 90
   WhatIsVisible:
     serializedVersion: 2
-    m_Bits: 3776
+    m_Bits: 36544
   isDetectingPlayer: 0
 --- !u!114 &1964302919393799923
 MonoBehaviour:
@@ -551,4 +551,4 @@ MonoBehaviour:
   DetectionDistance: 1
   WhatIsGround:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 32832
