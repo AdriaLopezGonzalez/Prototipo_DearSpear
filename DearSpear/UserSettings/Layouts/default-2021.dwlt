@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 104
+  controlID: 25
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 311.19995
     height: 722.8
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 105
+  controlID: 102
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 106
+  controlID: 103
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -561,13 +561,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\adria\OneDrive\Escritorio\Adri\tercer trimestre (any
     2)\proyectoFinal\Prototipo_DearSpear\DearSpear
@@ -575,9 +575,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 59}
-    m_SelectedIDs: 74710000
-    m_LastClickedID: 29044
-    m_ExpandedIDs: 000000007471000076710000787100002273000000ca9a3b
+    m_SelectedIDs: 68730000
+    m_LastClickedID: 29544
+    m_ExpandedIDs: 00000000c4710000c6710000c87100006873000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -605,7 +605,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000747100007671000078710000
+    m_ExpandedIDs: 00000000c4710000c6710000c8710000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -733,23 +733,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d0ab0000
-      m_LastClickedID: 43984
-      m_ExpandedIDs: 1688feff1e88feff56cafeff90d7feff5610ffff3c72ffff0482fffff68fffff489bffff24fbffffc86f000070a7000060ab0000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: a4c5fcff3aeffcff4a33fdffce9bfdff84a0fdffb2a6feff18e3feffe203ffffeefaffff4c7000005270000088700000c4bc0000c8bc0000d4bc000096c30000a2c300002cc40000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: GroundTilemap
+        m_OriginalName: GroundTilemap
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 50272
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -836,7 +836,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -1039,9 +1039,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 37.921196, y: -2.019254, z: 5.3643208}
+    m_Target: {x: -0.16131108, y: 0.2276068, z: -0.49707016}
     speed: 2
-    m_Value: {x: 37.921196, y: -2.019254, z: 5.3643208}
+    m_Value: {x: -0.14070886, y: 0.34993243, z: -0.500212}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1075,7 +1075,7 @@ MonoBehaviour:
         m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
-      m_Size: {x: 0, y: 0}
+      m_Size: {x: 0.5, y: 0.5}
     zGrid:
       m_Fade:
         m_Target: 0
@@ -1090,11 +1090,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_Value: {x: -0.0000000049877777, y: 0.000000027674199, z: -0.000000002506077, w: -1}
   m_Size:
-    m_Target: 18.871578
+    m_Target: 6.6676784
     speed: 2
-    m_Value: 18.871578
+    m_Value: 6.981862
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1112,7 +1112,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+  m_LastSceneViewRotation: {x: -0.08058722, y: 0.44713035, z: -0.04049053, w: -0.8899158}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 

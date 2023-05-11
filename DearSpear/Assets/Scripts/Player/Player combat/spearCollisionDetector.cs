@@ -20,6 +20,12 @@ public class spearCollisionDetector : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            gameObject.tag = "SpearInGround";
+        }
+
         if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("GroundChecker") && !collision.gameObject.CompareTag("VineChecker"))
         {
             if (!(collision.gameObject.CompareTag("Roof") && isFalling))
@@ -34,6 +40,7 @@ public class spearCollisionDetector : MonoBehaviour
         {
             if (_spear.spearCollided)
             {
+                gameObject.tag = "Spear";
                 SpearGrabbed?.Invoke();
             }
         }

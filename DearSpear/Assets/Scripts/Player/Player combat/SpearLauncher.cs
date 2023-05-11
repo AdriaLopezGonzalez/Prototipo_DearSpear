@@ -129,6 +129,7 @@ public class SpearLauncher : MonoBehaviour
         {
             spearActive = true;
             Destroy(GameObject.FindGameObjectWithTag("Spear"));
+            Destroy(GameObject.FindGameObjectWithTag("SpearInGround"));
         }
     }
 }

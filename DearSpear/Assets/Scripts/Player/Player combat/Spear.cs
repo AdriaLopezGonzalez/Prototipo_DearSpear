@@ -54,6 +54,8 @@ public class Spear : MonoBehaviour
 
     public void SpearFall()
     {
+        Debug.Log(gameObject.tag);
+
         transform.rotation = Quaternion.AngleAxis(90, Vector3.forward);
 
         spearRb.velocity = new Vector2(0, -4);
