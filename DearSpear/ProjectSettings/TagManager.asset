@@ -29,7 +29,7 @@ TagManager:
   - Wall
   - Roof
   - Player
-  - EnemyBullet
+  - Checkpoint
   - Enemy
   - GrabPoint
   - 
@@ -67,6 +67,9 @@ TagManager:
     locked: 0
   - name: TribesPeople
     uniqueID: 1033714639
+    locked: 0
+  - name: checkpoint
+    uniqueID: 1162247001
     locked: 0
   - name: enemies
     uniqueID: 3821402767

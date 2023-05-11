@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     private List<GameObject> enemyList = new List<GameObject>();
     private List<GameObject> enemyTypeList = new List<GameObject>();
     private List<Vector3> enemyPositionList = new List<Vector3>();
-    private List<Transform> checkpointsList = new List<Transform>();
+    //private List<Transform> checkpointsList = new List<Transform>();
 
     private Vector3 activeCheckpoint;
 
@@ -28,11 +28,13 @@ public class LevelManager : MonoBehaviour
     private void OnEnable()
     {
         CameraAnimations.Respawn += Respawn;
+        SetCheckpoint.SetActiveCheckpoint += SetActiveCheckpoint;
     }
 
     private void OnDisable()
     {
         CameraAnimations.Respawn -= Respawn;
+        SetCheckpoint.SetActiveCheckpoint -= SetActiveCheckpoint;
     }
 
     // Start is called before the first frame update
@@ -57,11 +59,6 @@ public class LevelManager : MonoBehaviour
             enemyList.Add(en);
             enemyPositionList.Add(en.transform.position);
             enemyTypeList.Add(radarEnemy);
-        }
-
-        foreach (GameObject ch in GameObject.FindGameObjectsWithTag("Checkpoint"))
-        {
-            checkpointsList.Add(ch.transform);
         }
 
         activeCheckpoint = player.transform.position;
@@ -91,8 +88,8 @@ public class LevelManager : MonoBehaviour
         cam.GetComponent<MainCameraMove>().CameraRespawn();
     }
 
-    private void SetActiveCheckpoint()
+    private void SetActiveCheckpoint(Transform checkPoint)
     {
-
+        activeCheckpoint = checkPoint.position;
     }
 }
