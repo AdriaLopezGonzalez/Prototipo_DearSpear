@@ -43,7 +43,6 @@ public class LevelManager : MonoBehaviour
         foreach (GameObject en in GameObject.FindGameObjectsWithTag("BaseEnemy"))
         {
             enemyList.Add(en);
-            Debug.Log(en);
             enemyPositionList.Add(en.transform.position);
             enemyTypeList.Add(baseEnemy);
         }

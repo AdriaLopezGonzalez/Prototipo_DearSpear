@@ -27,7 +27,7 @@ public class PlayerEnemyDetector : MonoBehaviour
         var hit = Physics2D.Raycast(transform.position, Vector2.right, detectDistance);
         if (hit.transform != null)
         {
-            if (hit.transform.gameObject.tag == "Enemy")
+            if (hit.transform.gameObject.tag == "BaseEnemy")
             {
                 enemyTransform = hit.transform;
                 return true;
