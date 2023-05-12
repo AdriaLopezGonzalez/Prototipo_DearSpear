@@ -12111,6 +12111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrounded: 0
+  _animator: {fileID: 787092553}
 --- !u!61 &1675377723
 BoxCollider2D:
   m_ObjectHideFlags: 0
