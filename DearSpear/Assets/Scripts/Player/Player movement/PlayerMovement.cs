@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     PlayerInputs _input;
     Rigidbody2D _rigidbody;
 
+    private Animator _animator;
+
     private float oldGravityScale;
 
     public static Func<bool> CheckHook;
@@ -23,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         _input = GetComponent<PlayerInputs>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _vineDetect = gameObject.GetComponentInChildren<PlayerVineDetector>();
+        _animator = GetComponent<Animator>();
 
         oldGravityScale = _rigidbody.gravityScale;
     }
@@ -60,7 +63,22 @@ public class PlayerMovement : MonoBehaviour
 
             _rigidbody.velocity = direction;
             _isMoving = direction.magnitude > 0.01f;
+
+            SetAnimator();
+
         }
 
+    }
+
+    private void SetAnimator()
+    {
+        if (_isMoving)
+        {
+            _animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            _animator.SetBool("isRunning", false);
+        }
     }
 }
