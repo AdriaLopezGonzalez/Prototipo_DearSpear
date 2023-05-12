@@ -40,7 +40,7 @@ public class GrabPointPlayerDetector : MonoBehaviour
     {
         if (detectorCheck)
         {
-            gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+            gameObject.GetComponent<SpriteRenderer>().color = Color.white;
 
         }
         else
