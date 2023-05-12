@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
 
+    private Transform _enemyChecker;
+
     private float oldGravityScale;
 
     public static Func<bool> CheckHook;
@@ -29,6 +31,14 @@ public class PlayerMovement : MonoBehaviour
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
+        foreach (Transform child in gameObject.transform)
+        {
+            if (child.name == "EnemyChecker")
+            {
+                _enemyChecker = child;
+            }
+        }
+
         oldGravityScale = _rigidbody.gravityScale;
     }
 
@@ -39,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        CheckFlip();
+        FlipX();
 
         if (CheckHook())
         {
@@ -74,20 +84,28 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void CheckFlip()
+    private void FlipX()
     {
+        bool oldFlip = _spriteRenderer.flipX;
+
         if (_input.MovementHorizontal > 0)
         {
             _spriteRenderer.flipX = false;
         }
-        if (_input.MovementHorizontal < 0)
+        else if (_input.MovementHorizontal < 0)
         {
             _spriteRenderer.flipX = true;
+        }
+
+        if (oldFlip != _spriteRenderer.flipX)
+        {
+            _enemyChecker.localPosition = new Vector3(-_enemyChecker.localPosition.x, _enemyChecker.localPosition.y, _enemyChecker.localPosition.z);
         }
     }
 
     private void SetAnimator()
     {
+        //hacer script con FSM para el animator
         if (_isMoving)
         {
             _animator.SetBool("isRunning", true);

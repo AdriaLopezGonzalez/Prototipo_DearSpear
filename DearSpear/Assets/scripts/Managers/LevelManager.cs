@@ -49,7 +49,6 @@ public class LevelManager : MonoBehaviour
         foreach (GameObject en in GameObject.FindGameObjectsWithTag("RadarEnemy"))
         {
             enemyList.Add(en);
-            Debug.Log(en);
             enemyPositionList.Add(en.transform.position);
             enemyTypeList.Add(radarEnemy);
         }
@@ -57,7 +56,7 @@ public class LevelManager : MonoBehaviour
         {
             enemyList.Add(en);
             enemyPositionList.Add(en.transform.position);
-            enemyTypeList.Add(radarEnemy);
+            enemyTypeList.Add(dogEnemy);
         }
 
         activeCheckpoint = player.transform.position;
