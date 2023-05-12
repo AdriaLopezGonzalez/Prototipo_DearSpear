@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D _rigidbody;
 
     private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
 
     private float oldGravityScale;
 
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _vineDetect = gameObject.GetComponentInChildren<PlayerVineDetector>();
         _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
 
         oldGravityScale = _rigidbody.gravityScale;
     }
@@ -37,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        CheckFlip();
+
         if (CheckHook())
         {
             _rigidbody.gravityScale = oldGravityScale;
@@ -44,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
             Vector2 direction = new Vector2(_input.MovementHorizontal * Speed, _rigidbody.velocity.y);
 
             _rigidbody.velocity += new Vector2(_input.MovementHorizontal * Speed / 100, 0);
-            _isMoving = direction.magnitude > 0.01f;
+            _isMoving = direction.magnitude > 1f;
         }
         else if (_vineDetect.canClimb)
         {
@@ -53,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
             Vector2 direction = new Vector2(_input.MovementHorizontal * Speed, _input.MovementVertical * Speed);
 
             _rigidbody.velocity = direction;
-            _isMoving = direction.magnitude > 0.01f;
+            _isMoving = direction.magnitude > 1f;
         }
         else
         {
@@ -62,12 +66,24 @@ public class PlayerMovement : MonoBehaviour
             Vector2 direction = new Vector2(_input.MovementHorizontal * Speed, _rigidbody.velocity.y);
 
             _rigidbody.velocity = direction;
-            _isMoving = direction.magnitude > 0.01f;
+            _isMoving = direction.magnitude > 1f;
 
             SetAnimator();
 
         }
 
+    }
+
+    private void CheckFlip()
+    {
+        if (_input.MovementHorizontal > 0)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        if (_input.MovementHorizontal < 0)
+        {
+            _spriteRenderer.flipX = true;
+        }
     }
 
     private void SetAnimator()
