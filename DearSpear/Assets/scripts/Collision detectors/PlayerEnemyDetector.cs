@@ -23,7 +23,7 @@ public class PlayerEnemyDetector : MonoBehaviour
 
     private bool CheckIfEnemyClose()
     {
-        //AHORA LA DIRECCIÓN NO ESTÁ FLIP, SOLO SEÑALA A LA DERECHA
+
         var hit = new RaycastHit2D();
 
         if (gameObject.transform.localPosition.x > 0)

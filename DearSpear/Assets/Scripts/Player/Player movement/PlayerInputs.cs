@@ -24,6 +24,7 @@ public class PlayerInputs : MonoBehaviour
 
     public static Action KillEnemy;
     public static Func<bool> CheckEnemyDistance;
+    public static Func<bool> CheckPlayerHasSpear;
 
     [SerializeField]
     private InputActionReference pointerPosition;
@@ -119,7 +120,7 @@ public class PlayerInputs : MonoBehaviour
             ErasePoints?.Invoke();
             if (context.canceled)
             {
-                if (CheckEnemyDistance())
+                if (CheckEnemyDistance() && CheckPlayerHasSpear())
                 {
                     KillEnemy?.Invoke();
                 }
