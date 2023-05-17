@@ -26,7 +26,6 @@ public class PlayerCollisionDetector : MonoBehaviour
 
     private void SetAnimator(bool _isGrounded)
     {
-        Debug.Log(_isGrounded);
         //hacer script con FSM para el animator
         if (_isGrounded)
         {
