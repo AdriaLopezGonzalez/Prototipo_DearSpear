@@ -20,6 +20,7 @@ public class PlayerInputs : MonoBehaviour
     public static Action LaunchSpear;
 
     public static Action ErasePoints;
+    public static Action IsAiming;
 
     public static Action KillEnemy;
     public static Func<bool> CheckEnemyDistance;
@@ -111,14 +112,22 @@ public class PlayerInputs : MonoBehaviour
         //CHECKEAR SI TENEMOS LANZA, SI NO TENEMOS NO HACE NA
         if (context.performed)
         {
-            if (CheckEnemyDistance())
+            IsAiming?.Invoke();
+        }
+        else
+        {
+            ErasePoints?.Invoke();
+            if (context.canceled)
             {
-                KillEnemy?.Invoke();
-            }
-            else
-            {
-                LaunchSpear?.Invoke();
-                ErasePoints?.Invoke();
+                if (CheckEnemyDistance())
+                {
+                    KillEnemy?.Invoke();
+                }
+                else
+                {
+                    LaunchSpear?.Invoke();
+                    ErasePoints?.Invoke();
+                }
             }
         }
     }

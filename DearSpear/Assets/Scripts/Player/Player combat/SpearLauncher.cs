@@ -17,6 +17,8 @@ public class SpearLauncher : MonoBehaviour
 
     public bool spearActive = true;
 
+    private bool isAiming = false;
+
     private PlayerInputs _playerInput;
 
     private void OnEnable()
@@ -27,6 +29,7 @@ public class SpearLauncher : MonoBehaviour
         LevelManager.SpearGrab += SpearGrabbed;
 
         PlayerInputs.ErasePoints += ErasePoints;
+        PlayerInputs.IsAiming += IsAiming;
     }
 
     private void OnDisable()
@@ -36,7 +39,8 @@ public class SpearLauncher : MonoBehaviour
         Spear.SpearGrabbed -= SpearGrabbed;
         LevelManager.SpearGrab -= SpearGrabbed;
 
-        PlayerInputs.ErasePoints += ErasePoints;
+        PlayerInputs.ErasePoints -= ErasePoints;
+        PlayerInputs.IsAiming -= IsAiming;
     }
 
     [SerializeField]
@@ -62,7 +66,7 @@ public class SpearLauncher : MonoBehaviour
     void Update()
     {
         GetSpearDirection();
-        if (spearActive)
+        if (spearActive && isAiming)
         {
             DrawPoints();
         }
@@ -79,6 +83,7 @@ public class SpearLauncher : MonoBehaviour
 
     public void ErasePoints()
     {
+        isAiming = false;
         for (int index = 0; index < numberOfPoints; index++)
         {
             if (points[index] != null)
@@ -87,6 +92,11 @@ public class SpearLauncher : MonoBehaviour
                 points[index].SetActive(false);
             }
         }
+    }
+
+    private void IsAiming()
+    {
+        isAiming = true;
     }
 
     private void GetSpearDirection()
