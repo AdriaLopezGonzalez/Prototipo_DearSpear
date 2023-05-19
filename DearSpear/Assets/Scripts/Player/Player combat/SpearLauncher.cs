@@ -30,6 +30,7 @@ public class SpearLauncher : MonoBehaviour
 
         PlayerInputs.ErasePoints += ErasePoints;
         PlayerInputs.IsAiming += IsAiming;
+        PlayerInputs.CheckPlayerHasSpear += CheckPlayerHasSpear;
     }
 
     private void OnDisable()
@@ -41,6 +42,7 @@ public class SpearLauncher : MonoBehaviour
 
         PlayerInputs.ErasePoints -= ErasePoints;
         PlayerInputs.IsAiming -= IsAiming;
+        PlayerInputs.CheckPlayerHasSpear -= CheckPlayerHasSpear;
     }
 
     [SerializeField]
@@ -141,5 +143,10 @@ public class SpearLauncher : MonoBehaviour
             Destroy(GameObject.FindGameObjectWithTag("Spear"));
             Destroy(GameObject.FindGameObjectWithTag("SpearInGround"));
         }
+    }
+
+    private bool CheckPlayerHasSpear()
+    {
+        return spearActive;
     }
 }

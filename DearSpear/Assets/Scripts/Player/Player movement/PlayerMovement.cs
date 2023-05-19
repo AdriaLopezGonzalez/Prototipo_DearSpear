@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     PlayerInputs _input;
     Rigidbody2D _rigidbody;
 
-    private Animator _animator;
+    //private PlayerAnimator pAnimator;
     private SpriteRenderer _spriteRenderer;
 
     private Transform _enemyChecker;
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         _input = GetComponent<PlayerInputs>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _vineDetect = gameObject.GetComponentInChildren<PlayerVineDetector>();
-        _animator = GetComponent<Animator>();
+        //pAnimator = GetComponent<PlayerAnimator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
         foreach (Transform child in gameObject.transform)
@@ -77,9 +77,6 @@ public class PlayerMovement : MonoBehaviour
 
             _rigidbody.velocity = direction;
             _isMoving = direction.magnitude > 1f;
-
-            SetAnimator();
-
         }
 
     }
@@ -103,16 +100,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void SetAnimator()
+    /*private void SetAnimator()
     {
         //hacer script con FSM para el animator
         if (_isMoving)
         {
-            _animator.SetBool("isRunning", true);
+            pAnimator.ChangeState(PlayerState.Running);
         }
         else
         {
-            _animator.SetBool("isRunning", false);
+            pAnimator.ChangeState(PlayerState.Idle);
         }
-    }
+    }*/
 }

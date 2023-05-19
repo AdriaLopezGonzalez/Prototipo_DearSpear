@@ -3,7 +3,7 @@ using UnityEngine;
 public class MainCameraMove : MonoBehaviour
 {
     private Vector3 offset = new Vector3(2.5f, 2.5f, -10f);
-    private float smoothTime = 0.15f;
+    private float smoothTime = 0.30f;
     private Vector3 velocity = Vector3.zero;
 
     [SerializeField]

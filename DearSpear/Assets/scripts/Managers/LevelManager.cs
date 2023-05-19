@@ -77,7 +77,6 @@ public class LevelManager : MonoBehaviour
 
         for (int i = 0; i < enemyPositionList.Count; i++)
         {
-            Debug.Log("spawneo a " + enemyTypeList[i]);
             enemyList.Add(Instantiate(enemyTypeList[i], enemyPositionList[i], Quaternion.identity));
         }
 

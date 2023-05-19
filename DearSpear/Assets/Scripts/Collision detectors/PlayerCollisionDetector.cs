@@ -4,14 +4,14 @@ using UnityEngine;
 public class PlayerCollisionDetector : MonoBehaviour
 {
     public bool isGrounded;
-    public Animator _animator;
+    //public PlayerAnimator pAnimator;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-            SetAnimator(isGrounded);
+            //SetAnimator(isGrounded);
         }
     }
 
@@ -20,21 +20,20 @@ public class PlayerCollisionDetector : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
-            SetAnimator(isGrounded);
+            //SetAnimator(isGrounded);
         }
     }
 
-    private void SetAnimator(bool _isGrounded)
+    /*private void SetAnimator(bool _isGrounded)
     {
-        //Debug.Log(_isGrounded);
         //hacer script con FSM para el animator
         if (_isGrounded)
         {
-            _animator.SetBool("onAir", false);
+            pAnimator.ChangeState(PlayerState.Idle);
         }
         else
         {
-            _animator.SetBool("onAir", true);
+            pAnimator.ChangeState(PlayerState.Jumping);
         }
-    }
+    }*/
 }
