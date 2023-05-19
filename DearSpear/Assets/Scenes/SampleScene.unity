@@ -4679,6 +4679,7 @@ GameObject:
   - component: {fileID: 787092548}
   - component: {fileID: 787092551}
   - component: {fileID: 787092545}
+  - component: {fileID: 787092554}
   - component: {fileID: 787092552}
   - component: {fileID: 787092553}
   m_Layer: 11
@@ -5107,6 +5108,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &787092554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787092540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87658ac3c287dd04c838c64618add8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  _groundDetector: {fileID: 1675377722}
 --- !u!1 &789672473
 GameObject:
   m_ObjectHideFlags: 0
@@ -12111,7 +12126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrounded: 0
-  _animator: {fileID: 787092553}
 --- !u!61 &1675377723
 BoxCollider2D:
   m_ObjectHideFlags: 0
