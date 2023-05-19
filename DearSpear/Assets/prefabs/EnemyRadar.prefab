@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4aa61f3ad7ba64ebb694752d4779f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBlood: {fileID: 4493307331408125464, guid: 994e50f9c80aa364f9a4d6edf23fbf16, type: 3}
 --- !u!114 &3839279079096451200
 MonoBehaviour:
   m_ObjectHideFlags: 0
