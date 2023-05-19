@@ -52,9 +52,9 @@ public class Spear : MonoBehaviour
         }
     }
 
-    public void SpearFall()
+    public void SpearFall(Vector3 enemyPosition)
     {
-
+        transform.position = new Vector3(enemyPosition.x, transform.position.y, transform.position.z);
         transform.rotation = Quaternion.AngleAxis(-90, Vector3.forward);
 
         spearRb.velocity = new Vector2(0, -4);
