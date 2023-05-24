@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     private List<GameObject> enemyList = new List<GameObject>();
     private List<GameObject> enemyTypeList = new List<GameObject>();
     private List<Vector3> enemyPositionList = new List<Vector3>();
+    private List<Quaternion> enemyRotationList = new List<Quaternion>();
     //private List<Transform> checkpointsList = new List<Transform>();
 
     private Vector3 activeCheckpoint;
@@ -20,6 +21,7 @@ public class LevelManager : MonoBehaviour
     private GameObject player;
 
     public GameObject baseEnemy;
+    public GameObject baseEnemyStanding;
     public GameObject radarEnemy;
     public GameObject dogEnemy;
 
@@ -44,18 +46,28 @@ public class LevelManager : MonoBehaviour
         {
             enemyList.Add(en);
             enemyPositionList.Add(en.transform.position);
+            enemyRotationList.Add(en.transform.rotation);
             enemyTypeList.Add(baseEnemy);
+        }
+        foreach (GameObject en in GameObject.FindGameObjectsWithTag("BaseEnemy_Standing"))
+        {
+            enemyList.Add(en);
+            enemyPositionList.Add(en.transform.position);
+            enemyRotationList.Add(en.transform.rotation);
+            enemyTypeList.Add(baseEnemyStanding);
         }
         foreach (GameObject en in GameObject.FindGameObjectsWithTag("RadarEnemy"))
         {
             enemyList.Add(en);
             enemyPositionList.Add(en.transform.position);
+            enemyRotationList.Add(en.transform.rotation);
             enemyTypeList.Add(radarEnemy);
         }
         foreach (GameObject en in GameObject.FindGameObjectsWithTag("DogEnemy"))
         {
             enemyList.Add(en);
             enemyPositionList.Add(en.transform.position);
+            enemyRotationList.Add(en.transform.rotation);
             enemyTypeList.Add(dogEnemy);
         }
 
@@ -77,7 +89,7 @@ public class LevelManager : MonoBehaviour
 
         for (int i = 0; i < enemyPositionList.Count; i++)
         {
-            enemyList.Add(Instantiate(enemyTypeList[i], enemyPositionList[i], Quaternion.identity));
+            enemyList.Add(Instantiate(enemyTypeList[i], enemyPositionList[i], enemyRotationList[i]));
         }
 
         SpearGrab?.Invoke();
