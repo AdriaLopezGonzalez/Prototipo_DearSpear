@@ -160,3 +160,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52044f86b2154e4a856f01bee53eb7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dirtHit: {fileID: 286420180495230208, guid: ac3e75d4d9b548146a7e3437839fed48, type: 3}
