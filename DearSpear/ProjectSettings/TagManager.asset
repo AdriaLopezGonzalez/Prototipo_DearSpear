@@ -17,6 +17,7 @@ TagManager:
   - RadarEnemy
   - DogEnemy
   - SpearInGround
+  - BaseEnemy_Standing
   layers:
   - Default
   - TransparentFX
@@ -86,4 +87,7 @@ TagManager:
     locked: 0
   - name: shootDirection
     uniqueID: 3966110413
+    locked: 0
+  - name: Menu
+    uniqueID: 2269436739
     locked: 0
