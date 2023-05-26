@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class MainCameraMove : MonoBehaviour
 {
-    private Vector3 offset = new Vector3(2.5f, 2.5f, -10f);
-    private float smoothTime = 0.30f;
-    private Vector3 velocity = Vector3.zero;
+    private Vector3 offset = new Vector3(2.2f, 2.7f, -10f);
+    private float smoothTimeX = 0.15f;
+    private float smoothTimeY = 0.50f;
+    private float velocityX = 0;
+    private float velocityY = 0;
 
     [SerializeField]
     private Transform target;
@@ -21,7 +23,9 @@ public class MainCameraMove : MonoBehaviour
         else
         {
             Vector3 targetPosition = target.position + offset;
-            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+            float xPosition = Mathf.SmoothDamp(transform.position.x, targetPosition.x, ref velocityX, smoothTimeX);
+            float yPosition = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocityY, smoothTimeY);
+            transform.position = new Vector3(xPosition, yPosition, transform.position.z);
         }
     }
 
