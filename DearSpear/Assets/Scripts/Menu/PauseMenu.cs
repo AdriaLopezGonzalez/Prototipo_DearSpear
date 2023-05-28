@@ -11,6 +11,16 @@ public class PauseMenu : MonoBehaviour
     private Transform _player;
 
     // Update is called once per frame
+    //private void OnEnable()
+    //{
+    //    PlayerInputs.ActivateMenu += ActivateMenu;
+    //}
+    //
+    //private void OnDisable()
+    //{
+    //    PlayerInputs.ActivateMenu -= ActivateMenu;
+    //}
+
     private void Start()
     {
        _player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -68,7 +78,7 @@ public class PauseMenu : MonoBehaviour
         _player.GetComponent<PlayerInputs>().enabled = true;
     }
 
-    public void ActivateMenu(InputAction.CallbackContext context)
+    public void ActivateMenu()
     {
         if (GameIsPaused)
         {
