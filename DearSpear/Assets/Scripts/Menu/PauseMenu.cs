@@ -18,17 +18,17 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (GameIsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        } 
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    if (GameIsPaused)
+        //    {
+        //        Resume();
+        //    }
+        //    else
+        //    {
+        //        Pause();
+        //    }
+        //} 
     }
     public void Resume()
     {
@@ -66,6 +66,18 @@ public class PauseMenu : MonoBehaviour
     {
         _player.GetComponent<PlayerInput>().enabled = true;
         _player.GetComponent<PlayerInputs>().enabled = true;
+    }
+
+    public void ActivateMenu(InputAction.CallbackContext context)
+    {
+        if (GameIsPaused)
+        {
+            Resume();
+        }
+        else
+        {
+            Pause();
+        }
     }
 }
     
