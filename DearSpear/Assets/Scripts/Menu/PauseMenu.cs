@@ -11,15 +11,15 @@ public class PauseMenu : MonoBehaviour
     private Transform _player;
 
     // Update is called once per frame
-    //private void OnEnable()
-    //{
-    //    PlayerInputs.ActivateMenu += ActivateMenu;
-    //}
-    //
-    //private void OnDisable()
-    //{
-    //    PlayerInputs.ActivateMenu -= ActivateMenu;
-    //}
+    private void OnEnable()
+    {
+        PlayerInputs.ActivateMenu += ActivateMenu;
+    }
+    
+    private void OnDisable()
+    {
+        PlayerInputs.ActivateMenu -= ActivateMenu;
+    }
 
     private void Start()
     {

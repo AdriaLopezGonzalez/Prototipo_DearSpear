@@ -23,6 +23,8 @@ public class PlayerInputs : MonoBehaviour
     public static Action IsAiming;
 
     public static Action KillEnemy;
+    public static Action ActivateMenu; 
+
     public static Func<bool> CheckEnemyDistance;
     public static Func<bool> CheckPlayerHasSpear;
 
@@ -87,11 +89,14 @@ public class PlayerInputs : MonoBehaviour
 
     public void UseJump(InputAction.CallbackContext context)
     {
-        if (playerCollisionDetector.isGrounded)
+        if (context.performed)
         {
-            Jump?.Invoke();
+            if (playerCollisionDetector.isGrounded)
+            {
+                Jump?.Invoke();
 
-            playerCollisionDetector.isGrounded = false;
+                playerCollisionDetector.isGrounded = false;
+            }
         }
     }
 
@@ -185,6 +190,14 @@ public class PlayerInputs : MonoBehaviour
     {
         MovementHorizontal = 0;
         MovementVertical = 0;
+    }
+
+    public void ActivatePauseMenu(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            ActivateMenu?.Invoke();
+        }
     }
 }
 
