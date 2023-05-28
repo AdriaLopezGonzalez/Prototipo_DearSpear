@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SpearLauncher : MonoBehaviour
@@ -119,16 +120,19 @@ public class SpearLauncher : MonoBehaviour
 
     public void LaunchSpear()
     {
-        var hit = new RaycastHit2D();
-        hit = Physics2D.Raycast(transform.position, transform.right);
-
-        Debug.Log(hit.distance);
-        if (spearActive && (hit.distance>1))
+        if (spearActive && CheckDistanceFromCollision())
         {
             GameObject newSpear = Instantiate(spear, launchPoint.position, launchPoint.rotation);
             newSpear.GetComponent<Rigidbody2D>().velocity = transform.right * launchForce;
             spearActive = false;
         }
+    }
+
+    private bool CheckDistanceFromCollision()
+    {
+        var hit = new RaycastHit2D();
+        hit = Physics2D.Raycast(spearStartPosition + (direction.normalized * 0.9f), direction.normalized);
+        return ((hit.distance > 2f) || (hit.distance == 0 && direction.normalized.y > 0));
     }
 
     private Vector2 PointPosition(float t)
