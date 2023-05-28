@@ -8,6 +8,7 @@ public class GrabPointPlayerDetector : MonoBehaviour
     Transform _player;
 
     public bool isDetecting;
+    private ParticleSystem glowParticles;
 
     private void OnDrawGizmos()
     {
@@ -20,6 +21,7 @@ public class GrabPointPlayerDetector : MonoBehaviour
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
+        glowParticles = transform.parent.GetComponentInChildren<ParticleSystem>();
     }
 
     void Update()
@@ -27,12 +29,20 @@ public class GrabPointPlayerDetector : MonoBehaviour
         if (IsInRange())
         {
             isDetecting = true;
-            ChangeColor(isDetecting);
+            //ChangeColor(isDetecting);
+            //ACTIVAR PARTICULAS
+            if (!glowParticles.isPlaying)
+            {
+                glowParticles.Play();
+            }
+
         }
         if (!IsInRange() && isDetecting)
         {
             isDetecting = false;
-            ChangeColor(isDetecting);
+            //ChangeColor(isDetecting);
+            //DESACTIVAR PARTICULAS
+            glowParticles.Stop();
         }
     }
 

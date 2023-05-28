@@ -30,12 +30,14 @@ public class LevelManager : MonoBehaviour
     private void OnEnable()
     {
         CameraAnimations.Respawn += Respawn;
+        CameraAnimations.PlayerStillAlive += PlayerStillAlive;
         SetCheckpoint.SetActiveCheckpoint += SetActiveCheckpoint;
     }
 
     private void OnDisable()
     {
         CameraAnimations.Respawn -= Respawn;
+        CameraAnimations.PlayerStillAlive += PlayerStillAlive;
         SetCheckpoint.SetActiveCheckpoint -= SetActiveCheckpoint;
     }
 
@@ -95,6 +97,12 @@ public class LevelManager : MonoBehaviour
         SpearGrab?.Invoke();
 
         cam.GetComponent<MainCameraMove>().CameraRespawn();
+    }
+
+    private void PlayerStillAlive()
+    {
+        player.GetComponent<PlayerInput>().enabled = true;
+        player.GetComponent<PlayerInputs>().enabled = true;
     }
 
     private void SetActiveCheckpoint(Transform checkPoint)

@@ -20,7 +20,7 @@ public class EnemyPatroling : MonoBehaviour
 
     private EnemyWeapon _weapon;
 
-    public static Action DeathCamera;
+    public static Action<GameObject> DeathCamera;
 
     //private void OnEnable()
     //{
@@ -93,7 +93,7 @@ public class EnemyPatroling : MonoBehaviour
         Speed = 0;
 
         FreezePlayer(player);
-        DeathCamera?.Invoke();
+        DeathCamera?.Invoke(gameObject);
         
         //_weapon.Shoot();
     }

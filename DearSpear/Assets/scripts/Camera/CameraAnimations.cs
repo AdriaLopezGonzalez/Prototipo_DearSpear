@@ -4,7 +4,6 @@ using UnityEngine;
 public class CameraAnimations : MonoBehaviour
 {
     public bool animationOngoing;
-    private bool longShotActive;
     private bool closeKillActive;
     private bool playerDeathActive;
 
@@ -17,6 +16,8 @@ public class CameraAnimations : MonoBehaviour
     private Vector3 oldCameraPosition;
     private Camera cam;
 
+    GameObject playerKiller;
+
     //private float smoothTime = 0.5f;
     private Vector3 velocity = Vector3.zero;
     private float plainVelocity = 0;
@@ -25,6 +26,7 @@ public class CameraAnimations : MonoBehaviour
     private float zoomSizeObjective = 4f;
 
     public static Action Respawn;
+    public static Action PlayerStillAlive;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +34,6 @@ public class CameraAnimations : MonoBehaviour
         cam = GetComponent<Camera>();
 
         animationOngoing = false;
-        longShotActive = false;
         closeKillActive = false;
     }
 
@@ -48,16 +49,13 @@ public class CameraAnimations : MonoBehaviour
         EnemyPatroling.DeathCamera -= ActivatePlayerDeath;
     }
 
-    private void LongShot()
-    {
-
-    }
-
-    private void ActivatePlayerDeath()
+    private void ActivatePlayerDeath(GameObject enemy)
     {
         animationOngoing = true;
         playerDeathActive = true;
         oldCameraPosition = transform.position;
+
+        playerKiller = enemy;
     }
 
     private void ActivateCloseKill()
@@ -76,6 +74,14 @@ public class CameraAnimations : MonoBehaviour
             Vector3 targetPosition = target.position + zoomOffset;
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, timeCameraApproach / 2);
             cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, zoomSizeObjective, ref plainVelocity, timeCameraApproach / 2);
+            /*if (playerDeathActive && playerKiller == null)
+            {
+                playerDeathActive = false;
+                cam.orthographicSize = constantCameraSize;
+                animationOngoing = false;
+                timer = 0;
+                PlayerStillAlive?.Invoke();
+            }*/
         }
         else if (timer < timeCameraApproach + timeToKeepCamera)
         {
@@ -86,10 +92,18 @@ public class CameraAnimations : MonoBehaviour
             if (playerDeathActive)
             {
                 playerDeathActive = false;
-                Respawn?.Invoke();
                 cam.orthographicSize = constantCameraSize;
                 animationOngoing = false;
                 timer = 0;
+                if (playerKiller != null)
+                {
+                    Respawn?.Invoke();
+                }
+                else
+                {
+                    PlayerStillAlive?.Invoke();
+                }
+
             }
             else
             {
@@ -115,10 +129,6 @@ public class CameraAnimations : MonoBehaviour
         if (playerDeathActive)
         {
             PlayerZoom(target);
-        }
-        else if (longShotActive)
-        {
-            LongShot();
         }
         else if (closeKillActive)
         {

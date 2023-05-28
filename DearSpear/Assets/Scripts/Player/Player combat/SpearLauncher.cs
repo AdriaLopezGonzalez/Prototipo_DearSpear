@@ -119,13 +119,15 @@ public class SpearLauncher : MonoBehaviour
 
     public void LaunchSpear()
     {
-        if (spearActive)
+        var hit = new RaycastHit2D();
+        hit = Physics2D.Raycast(transform.position, transform.right);
+
+        Debug.Log(hit.distance);
+        if (spearActive && (hit.distance>1))
         {
             GameObject newSpear = Instantiate(spear, launchPoint.position, launchPoint.rotation);
             newSpear.GetComponent<Rigidbody2D>().velocity = transform.right * launchForce;
-
             spearActive = false;
-
         }
     }
 
