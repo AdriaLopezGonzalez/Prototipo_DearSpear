@@ -112,7 +112,7 @@ public class EnemyPatroling : MonoBehaviour
 
     public bool isMoving()
     {
-        return Speed > 0.1;
+        return Speed > 0.3;
     }
 
 
