@@ -110,5 +110,10 @@ public class EnemyPatroling : MonoBehaviour
         Speed = baseSpeed;
     }
 
+    public bool isMoving()
+    {
+        return Speed > 0.1;
+    }
+
 
 }

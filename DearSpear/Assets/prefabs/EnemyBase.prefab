@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 1964302919393799925}
   - component: {fileID: 1964302919393799920}
   - component: {fileID: 1964302919393799923}
+  - component: {fileID: 6807561561659841056}
   - component: {fileID: 4434003250869233039}
   m_Layer: 13
   m_Name: EnemyBase
@@ -435,6 +436,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBlood: {fileID: 286420180495230208, guid: 994e50f9c80aa364f9a4d6edf23fbf16, type: 3}
+--- !u!114 &6807561561659841056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964302919393799930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b47aabbbac2f79346b50d663a1e6a8af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
 --- !u!95 &4434003250869233039
 Animator:
   serializedVersion: 5
