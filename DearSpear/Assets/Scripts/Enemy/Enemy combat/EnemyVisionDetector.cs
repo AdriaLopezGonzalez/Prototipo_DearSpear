@@ -78,7 +78,11 @@ public class EnemyVisionDetector : MonoBehaviour
         if (!IsInRange() || !IsInFOV() || !IsNotBlocked())
         {
             //ContinuePatrolling?.Invoke();
-            _patroling.ContinuePatrolling();
+            // ARREGLAR ESTÁ FEOOOOOOOOOOOOOOOOOOOO
+            if (_patroling.pauseBeforeFlip >= 3 || _patroling.pauseBeforeFlip == 0)
+            {
+                _patroling.ContinuePatrolling();
+            }
         }
 
     }
