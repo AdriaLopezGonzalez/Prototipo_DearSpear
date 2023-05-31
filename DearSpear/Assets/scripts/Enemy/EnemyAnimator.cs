@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAnimator : MonoBehaviour
@@ -14,7 +11,7 @@ public class EnemyAnimator : MonoBehaviour
         _animator = GetComponent<Animator>();
         _movement = GetComponent<EnemyPatroling>();
     }
-    
+
     private void Update()
     {
         UpdateState();
@@ -35,6 +32,7 @@ public class EnemyAnimator : MonoBehaviour
 
     private void UpdateState()
     {
+
         if (_movement.isMoving())
         {
             currentState = EnemyState.Patroling;

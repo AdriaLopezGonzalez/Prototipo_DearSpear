@@ -12,7 +12,7 @@ public class EnemyPatroling : MonoBehaviour
 
     private float Speed;
 
-    private float pauseAfterFlip;
+    public float pauseBeforeFlip = 0;
 
     private bool canFlip;
 
@@ -53,15 +53,15 @@ public class EnemyPatroling : MonoBehaviour
         {
             Speed = 0;
 
-            pauseAfterFlip += 1 * Time.deltaTime;
+            pauseBeforeFlip += 1 * Time.deltaTime;
 
-            if (pauseAfterFlip >= 3)
+            if (pauseBeforeFlip >= 3)
             {
                 Flip();
 
                 canFlip = false;
                 Speed = baseSpeed;
-                pauseAfterFlip = 0;
+                pauseBeforeFlip = 0;
             }
         }
 

@@ -50,7 +50,7 @@ public class EnemyRadarDetector : MonoBehaviour
         if (!IsInRange() || !IsNotBlocked())
         {
             //ContinuePatrolling?.Invoke();
-            _patroling.ContinuePatrolling();
+                _patroling.ContinuePatrolling();
         }
 
     }

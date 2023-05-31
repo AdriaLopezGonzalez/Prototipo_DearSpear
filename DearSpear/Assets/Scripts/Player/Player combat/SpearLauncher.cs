@@ -134,7 +134,6 @@ public class SpearLauncher : MonoBehaviour
     {
         var hit = new RaycastHit2D();
         hit = Physics2D.Raycast(spearStartPosition + (direction.normalized * 0.9f), direction.normalized, 100f, layerMask);
-        Debug.Log(hit.distance);
         return ((hit.distance > 2f) || (hit.distance == 0 && direction.normalized.y > 0));
     }
 

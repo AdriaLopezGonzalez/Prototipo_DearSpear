@@ -405,6 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 0.5
+  pauseBeforeFlip: 0
 --- !u!114 &1964302919393799920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,7 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35cc85bffcd08474192cf23e9dab2a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DetectionDistance: 1
+  DetectionDistance: 2
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 32832
