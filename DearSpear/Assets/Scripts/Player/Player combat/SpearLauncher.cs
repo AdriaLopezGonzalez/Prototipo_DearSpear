@@ -9,6 +9,8 @@ public class SpearLauncher : MonoBehaviour
 
     private Vector2 direction;
 
+    public LayerMask layerMask;
+
     [SerializeField]
     private GameObject spear;
     [SerializeField]
@@ -131,7 +133,8 @@ public class SpearLauncher : MonoBehaviour
     private bool CheckDistanceFromCollision()
     {
         var hit = new RaycastHit2D();
-        hit = Physics2D.Raycast(spearStartPosition + (direction.normalized * 0.9f), direction.normalized);
+        hit = Physics2D.Raycast(spearStartPosition + (direction.normalized * 0.9f), direction.normalized, 100f, layerMask);
+        Debug.Log(hit.distance);
         return ((hit.distance > 2f) || (hit.distance == 0 && direction.normalized.y > 0));
     }
 
