@@ -14,11 +14,13 @@ public class PlayerAnimator : MonoBehaviour
     private void OnEnable()
     {
         PlayerCloseKill.ActivateCloseKillAnim += ActivateCloseKill;
+        EnemyPatroling.PlayerSurrender += ActivateSurrender;
     }
 
     private void OnDisable()
     {
         PlayerCloseKill.ActivateCloseKillAnim -= ActivateCloseKill;
+        EnemyPatroling.PlayerSurrender -= ActivateSurrender;
     }
 
     private void Start()
@@ -44,6 +46,7 @@ public class PlayerAnimator : MonoBehaviour
             case PlayerState.Jumping:
                 _animator.SetBool("onAir", true);
                 _animator.SetBool("isClimbing", false);
+                _animator.SetBool("isSwinging", false);
                 break;
             case PlayerState.Shooting:
                 _animator.SetTrigger("Throw");
@@ -52,10 +55,12 @@ public class PlayerAnimator : MonoBehaviour
                 _animator.SetBool("isClimbing", true);
                 break;
             case PlayerState.Swinging:
+                _animator.SetBool("isSwinging", true);
                 break;
             case PlayerState.CloseKilling:
                 break;
-            case PlayerState.Dying:
+            case PlayerState.Surrendering:
+                //_animator.SetTrigger("Surrender");
                 break;
             case PlayerState.Idle:
                 _animator.SetBool("isRunning", false);
@@ -80,6 +85,10 @@ public class PlayerAnimator : MonoBehaviour
             {
                 currentState = PlayerState.Climbing;
             }
+            else if (_movement.isSwinging())
+            {
+                currentState = PlayerState.Swinging;
+            }
             else if (!_groundDetector.isGrounded)
             {
                 currentState = PlayerState.Jumping;
@@ -103,6 +112,10 @@ public class PlayerAnimator : MonoBehaviour
             else if (_movement.isClimbing())
             {
                 currentState = PlayerState.Climbing;
+            }
+            else if (_movement.isSwinging())
+            {
+                currentState = PlayerState.Swinging;
             }
             else if (!_groundDetector.isGrounded)
             {
@@ -129,6 +142,11 @@ public class PlayerAnimator : MonoBehaviour
     {
         _animator.SetTrigger("CloseKill");
     }
+
+    private void ActivateSurrender()
+    {
+        _animator.SetTrigger("Surrender");
+    }
     /*public void ChangeState(PlayerState newState)
     {
         currentState = newState;
@@ -146,5 +164,5 @@ public enum PlayerState
     Climbing,
     Swinging,
     CloseKilling,
-    Dying,
+    Surrendering,
 }

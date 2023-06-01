@@ -21,6 +21,7 @@ public class EnemyPatroling : MonoBehaviour
     private EnemyWeapon _weapon;
 
     public static Action<GameObject> DeathCamera;
+    public static Action PlayerSurrender;
 
     //private void OnEnable()
     //{
@@ -93,6 +94,8 @@ public class EnemyPatroling : MonoBehaviour
         Speed = 0;
 
         DeathCamera?.Invoke(gameObject);
+        PlayerSurrender?.Invoke();
+        Debug.Log("ho he fet");
         
         //_weapon.Shoot();
     }

@@ -19,6 +19,7 @@ public class EnemyVisionDetector : MonoBehaviour
     PlayerMovement _playerMovement;
 
     public bool isDetectingPlayer;
+    private bool playerHasBeenDetected;
 
     //public static Action DetectedThePlayer;
     //public static Action ContinuePatrolling;
@@ -62,7 +63,7 @@ public class EnemyVisionDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsInRange())
+        if (IsInRange()&&(!playerHasBeenDetected))
         {
             if (IsInFOV())
             {
@@ -70,6 +71,7 @@ public class EnemyVisionDetector : MonoBehaviour
                 {
                     //DetectedThePlayer?.Invoke();
                     _patroling.DetectedThePlayer(_player);
+                    playerHasBeenDetected = true;
 
                     //_playerMovement.GotCaught();
                 }
