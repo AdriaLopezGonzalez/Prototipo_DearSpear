@@ -95,8 +95,6 @@ public class EnemyPatroling : MonoBehaviour
 
         DeathCamera?.Invoke(gameObject);
         PlayerSurrender?.Invoke();
-        Debug.Log("ho he fet");
-        
         //_weapon.Shoot();
     }
 
