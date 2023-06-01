@@ -13499,7 +13499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 1600
+    m_Bits: 34368
   spear: {fileID: 7991346944986208052, guid: f16e14e730ecf2e4280758ddeeb1a689, type: 3}
   launchForce: 15
   launchPoint: {fileID: 167380384}
