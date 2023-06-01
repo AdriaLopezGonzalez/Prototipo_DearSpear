@@ -100,6 +100,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public bool isClimbing()
+    {
+        return _vineDetect.canClimb;
+    }
     /*private void SetAnimator()
     {
         //hacer script con FSM para el animator

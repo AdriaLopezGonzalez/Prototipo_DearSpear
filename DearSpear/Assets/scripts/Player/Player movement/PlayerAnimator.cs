@@ -39,16 +39,19 @@ public class PlayerAnimator : MonoBehaviour
             case PlayerState.Running:
                 _animator.SetBool("isRunning", true);
                 _animator.SetBool("onAir", false);
+                _animator.SetBool("isClimbing", false);
                 break;
             case PlayerState.Jumping:
                 _animator.SetBool("onAir", true);
+                _animator.SetBool("isClimbing", false);
                 break;
             case PlayerState.Shooting:
                 _animator.SetTrigger("Throw");
                 break;
             case PlayerState.Climbing:
+                _animator.SetBool("isClimbing", true);
                 break;
-            case PlayerState.Grappling:
+            case PlayerState.Swinging:
                 break;
             case PlayerState.CloseKilling:
                 break;
@@ -57,6 +60,7 @@ public class PlayerAnimator : MonoBehaviour
             case PlayerState.Idle:
                 _animator.SetBool("isRunning", false);
                 _animator.SetBool("onAir", false);
+                _animator.SetBool("isClimbing", false);
                 break;
             default:
                 break;
@@ -72,7 +76,11 @@ public class PlayerAnimator : MonoBehaviour
     {
         if (_launcher.spearActive)
         {
-            if (!_groundDetector.isGrounded)
+            if (_movement.isClimbing())
+            {
+                currentState = PlayerState.Climbing;
+            }
+            else if (!_groundDetector.isGrounded)
             {
                 currentState = PlayerState.Jumping;
             }
@@ -91,6 +99,10 @@ public class PlayerAnimator : MonoBehaviour
             {
                 spearNotShooted = false;
                 currentState = PlayerState.Shooting;
+            }
+            else if (_movement.isClimbing())
+            {
+                currentState = PlayerState.Climbing;
             }
             else if (!_groundDetector.isGrounded)
             {
@@ -132,7 +144,7 @@ public enum PlayerState
     Jumping,
     Shooting,
     Climbing,
-    Grappling,
+    Swinging,
     CloseKilling,
     Dying,
 }
