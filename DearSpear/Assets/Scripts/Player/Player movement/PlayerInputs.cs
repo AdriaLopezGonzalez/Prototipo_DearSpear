@@ -199,5 +199,29 @@ public class PlayerInputs : MonoBehaviour
             ActivateMenu?.Invoke();
         }
     }
+
+    public void Teleport1(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            transform.position = new Vector2(90.5f,1.7f);
+        }
+    }
+
+    public void Teleport2(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            transform.position = new Vector2(216.3f, 4.8f);
+        }
+    }
+
+    public void Teleport3(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            transform.position = new Vector2(356f, 6.7f);
+        }
+    }
 }
 
