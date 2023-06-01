@@ -37,7 +37,7 @@ public class PlayerEnemyDetector : MonoBehaviour
 
         if (hit.transform != null)
         {
-            if (hit.transform.gameObject.tag == "BaseEnemy")
+            if (hit.transform.gameObject.tag == "BaseEnemy" || hit.transform.gameObject.tag == "BaseEnemy_Standing")
             {
                 enemyTransform = hit.transform;
                 return true;

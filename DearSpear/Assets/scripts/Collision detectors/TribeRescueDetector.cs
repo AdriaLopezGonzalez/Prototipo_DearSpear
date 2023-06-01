@@ -25,6 +25,7 @@ public class TribeRescueDetector : MonoBehaviour
         //tribe2 = transform.GetChild(1);
         //tribe3 = transform.GetChild(2);
         tribesPeople = new Transform[transform.childCount - 1];
+        tribesAnim = new Animator[transform.childCount - 1];
 
         for (int i = 0; i < transform.childCount - 1; i++)
         {
