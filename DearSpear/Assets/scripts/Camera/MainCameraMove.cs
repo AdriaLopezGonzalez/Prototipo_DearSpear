@@ -4,7 +4,7 @@ public class MainCameraMove : MonoBehaviour
 {
     private Vector3 offset = new Vector3(2.2f, 1f, -10f);
     private float smoothTimeX = 0.15f;
-    private float smoothTimeY = 0.05f;
+    private float smoothTimeY = 0.9f;
     private float velocityX = 0;
     private float velocityY = 0;
 
