@@ -92,18 +92,11 @@ public class EnemyPatroling : MonoBehaviour
     {
         Speed = 0;
 
-        FreezePlayer(player);
         DeathCamera?.Invoke(gameObject);
         
         //_weapon.Shoot();
     }
 
-    private void FreezePlayer(Transform player)
-    {
-        player.GetComponent<PlayerInput>().enabled = false;
-        player.GetComponent<PlayerInputs>().FreezePlayer();
-        player.GetComponent<PlayerInputs>().enabled = false;
-    }
 
     public void ContinuePatrolling()
     {

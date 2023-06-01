@@ -11,6 +11,16 @@ public class PlayerAnimator : MonoBehaviour
 
     private bool spearNotShooted;
 
+    private void OnEnable()
+    {
+        PlayerCloseKill.ActivateCloseKillAnim += ActivateCloseKill;
+    }
+
+    private void OnDisable()
+    {
+        PlayerCloseKill.ActivateCloseKillAnim -= ActivateCloseKill;
+    }
+
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -81,8 +91,6 @@ public class PlayerAnimator : MonoBehaviour
             {
                 spearNotShooted = false;
                 currentState = PlayerState.Shooting;
-
-                _animator.SetTrigger("Throw");
             }
             else if (!_groundDetector.isGrounded)
             {
@@ -105,7 +113,10 @@ public class PlayerAnimator : MonoBehaviour
         _animator.SetBool("spearActive", _launcher.spearActive);
     }
 
-
+    private void ActivateCloseKill()
+    {
+        _animator.SetTrigger("CloseKill");
+    }
     /*public void ChangeState(PlayerState newState)
     {
         currentState = newState;

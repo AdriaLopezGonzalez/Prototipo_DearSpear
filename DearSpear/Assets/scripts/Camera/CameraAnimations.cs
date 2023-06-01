@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraAnimations : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class CameraAnimations : MonoBehaviour
     private bool playerDeathActive;
 
     private float timer;
-    private float timeCameraApproach = 0.5f;
-    private float timeToKeepCamera = 1f;
+    private float timeCameraApproach = 0.3f;
+    private float timeToKeepCamera = 0.7f;
 
     [SerializeField]
     private float constantCameraSize = 6;
@@ -17,6 +18,7 @@ public class CameraAnimations : MonoBehaviour
     private Camera cam;
 
     GameObject playerKiller;
+    Transform _player;
 
     //private float smoothTime = 0.5f;
     private Vector3 velocity = Vector3.zero;
@@ -27,6 +29,7 @@ public class CameraAnimations : MonoBehaviour
 
     public static Action Respawn;
     public static Action PlayerStillAlive;
+    public static Action DropBlood;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,8 @@ public class CameraAnimations : MonoBehaviour
 
         animationOngoing = false;
         closeKillActive = false;
+
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void OnEnable()
@@ -51,6 +56,8 @@ public class CameraAnimations : MonoBehaviour
 
     private void ActivatePlayerDeath(GameObject enemy)
     {
+        FreezePlayer();
+
         animationOngoing = true;
         playerDeathActive = true;
         oldCameraPosition = transform.position;
@@ -60,6 +67,8 @@ public class CameraAnimations : MonoBehaviour
 
     private void ActivateCloseKill()
     {
+        FreezePlayer();
+
         animationOngoing = true;
         closeKillActive = true;
         oldCameraPosition = transform.position;
@@ -119,6 +128,8 @@ public class CameraAnimations : MonoBehaviour
             if (closeKillActive)
             {
                 closeKillActive = false;
+                UnfreezePlayer();
+                DropBlood?.Invoke();
             }
 
         }
@@ -138,6 +149,19 @@ public class CameraAnimations : MonoBehaviour
         {
             animationOngoing = false;
         }
+    }
+
+    private void FreezePlayer()
+    {
+        _player.GetComponent<PlayerInput>().enabled = false;
+        _player.GetComponent<PlayerInputs>().FreezePlayer();
+        _player.GetComponent<PlayerInputs>().enabled = false;
+    }
+
+    private void UnfreezePlayer()
+    {
+        _player.GetComponent<PlayerInput>().enabled = true;
+        _player.GetComponent<PlayerInputs>().enabled = true;
     }
 
 }
