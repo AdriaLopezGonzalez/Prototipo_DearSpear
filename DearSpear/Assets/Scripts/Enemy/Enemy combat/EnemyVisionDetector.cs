@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyVisionDetector : MonoBehaviour
@@ -63,7 +60,7 @@ public class EnemyVisionDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsInRange()&&(!playerHasBeenDetected))
+        if (IsInRange() && (!playerHasBeenDetected))
         {
             if (IsInFOV())
             {
@@ -138,7 +135,7 @@ public class EnemyVisionDetector : MonoBehaviour
 
     private bool IsInRange()
     {
-        
+
         if (Vector2.Distance(_player.position, transform.position) < DetectionRange)
         {
             isDetectingPlayer = true;

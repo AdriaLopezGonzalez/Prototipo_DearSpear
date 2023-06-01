@@ -13,6 +13,7 @@ public class EnemyRadarDetector : MonoBehaviour
     PlayerMovement _playerMovement;
 
     public bool isDetectingPlayer;
+    private bool playerHasBeenDetected;
 
     //public static Action DetectedThePlayer;
     //public static Action ContinuePatrolling;
@@ -37,12 +38,13 @@ public class EnemyRadarDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsInRange())
+        if (IsInRange() && (!playerHasBeenDetected))
         {
             if (IsNotBlocked())
             {
                 //DetectedThePlayer?.Invoke();
                 _patroling.DetectedThePlayer(_player);
+                playerHasBeenDetected = true;
 
                 //_playerMovement.GotCaught();
             }
@@ -50,7 +52,10 @@ public class EnemyRadarDetector : MonoBehaviour
         if (!IsInRange() || !IsNotBlocked())
         {
             //ContinuePatrolling?.Invoke();
+            if (_patroling.pauseBeforeFlip >= 3 || _patroling.pauseBeforeFlip == 0)
+            {
                 _patroling.ContinuePatrolling();
+            }
         }
 
     }

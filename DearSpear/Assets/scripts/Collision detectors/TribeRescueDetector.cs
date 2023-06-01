@@ -11,6 +11,7 @@ public class TribeRescueDetector : MonoBehaviour
     //private Transform tribe3;
     private Transform bush;
     private Transform[] tribesPeople;
+    private Animator[] tribesAnim;
 
     public float tribeSpeed = 1f;
 
@@ -28,6 +29,7 @@ public class TribeRescueDetector : MonoBehaviour
         for (int i = 0; i < transform.childCount - 1; i++)
         {
             tribesPeople[i] = transform.GetChild(i);
+            tribesAnim[i] = tribesPeople[i].GetComponent<Animator>();
         }
 
         bush = transform.GetChild(transform.childCount - 1);
@@ -39,6 +41,10 @@ public class TribeRescueDetector : MonoBehaviour
         {
             _collider.enabled = false;
             theyLeaving = true;
+            foreach (Animator _an in tribesAnim)
+            {
+                _an.SetBool("Rescued", true);
+            }
         }
     }
 
