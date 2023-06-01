@@ -5248,6 +5248,54 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 451da1e6-7bb6-45cf-9d7c-fbafefded6b3
     m_ActionName: Gameplay/OpenMenu[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 787092545}
+        m_TargetAssemblyTypeName: PlayerInputs, Assembly-CSharp
+        m_MethodName: Teleport1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 285ca0e9-8952-43b5-bd3b-87b57ca769c4
+    m_ActionName: Gameplay/Teleport[/Keyboard/1,/Keyboard/2,/Keyboard/3]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 787092545}
+        m_TargetAssemblyTypeName: PlayerInputs, Assembly-CSharp
+        m_MethodName: Teleport2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1f82e676-ab8e-4b4f-baf1-234c5944a997
+    m_ActionName: Gameplay/Teleport2[/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 787092545}
+        m_TargetAssemblyTypeName: PlayerInputs, Assembly-CSharp
+        m_MethodName: Teleport3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c0c3eeef-ef98-42cf-982b-0e7cc14e0b5e
+    m_ActionName: Gameplay/Teleport3[/Keyboard/3]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
