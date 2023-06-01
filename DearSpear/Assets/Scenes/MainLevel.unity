@@ -6354,7 +6354,7 @@ GameObject:
   - component: {fileID: 1020870683}
   - component: {fileID: 1020870685}
   - component: {fileID: 1020870684}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: EnemyChecker
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -6388,6 +6388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88cb93d2d2dca0840b7e4f260575a683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBlood: {fileID: 286420180495230208, guid: 994e50f9c80aa364f9a4d6edf23fbf16, type: 3}
 --- !u!114 &1020870685
 MonoBehaviour:
   m_ObjectHideFlags: 0
