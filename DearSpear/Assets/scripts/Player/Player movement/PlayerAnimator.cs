@@ -11,10 +11,6 @@ public class PlayerAnimator : MonoBehaviour
 
     private bool spearNotShooted;
 
-    private bool timerActive;
-    private float timeToAchieve;
-    private float timePast;
-
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -24,25 +20,18 @@ public class PlayerAnimator : MonoBehaviour
 
     private void Update()
     {
-        //if (!timerActive)
-        //{
-            UpdateState();
-        //}
-        //else
-        //{
-            //Timer();
-        //}
+        UpdateSpear();
+        UpdateState();
+
 
         switch (currentState)
         {
-            case PlayerState.RunningWithSpear:
+            case PlayerState.Running:
                 _animator.SetBool("isRunning", true);
                 _animator.SetBool("onAir", false);
-                _animator.SetBool("isThrowing", false);
                 break;
             case PlayerState.Jumping:
                 _animator.SetBool("onAir", true);
-                _animator.SetBool("isThrowing", false);
                 break;
             case PlayerState.Shooting:
                 _animator.SetTrigger("Throw");
@@ -58,7 +47,6 @@ public class PlayerAnimator : MonoBehaviour
             case PlayerState.Idle:
                 _animator.SetBool("isRunning", false);
                 _animator.SetBool("onAir", false);
-                _animator.SetBool("isThrowing", false);
                 break;
             default:
                 break;
@@ -72,40 +60,51 @@ public class PlayerAnimator : MonoBehaviour
 
     private void UpdateState()
     {
-        if (!_launcher.spearActive && spearNotShooted)
+        if (_launcher.spearActive)
         {
-            Debug.Log("La hago va");
-            spearNotShooted = false;
-            currentState = PlayerState.Shooting;
-
-            //timerActive = true;
-            timeToAchieve = 1f;
-            _animator.SetTrigger("Throw");
-        }
-        else if (!_groundDetector.isGrounded)
-        {
-            currentState = PlayerState.Jumping;
-        }
-        else if (_movement.IsMoving)
-        {
-            currentState = PlayerState.RunningWithSpear;
+            if (!_groundDetector.isGrounded)
+            {
+                currentState = PlayerState.Jumping;
+            }
+            else if (_movement.IsMoving)
+            {
+                currentState = PlayerState.Running;
+            }
+            else
+            {
+                currentState = PlayerState.Idle;
+            }
         }
         else
         {
-            currentState = PlayerState.Idle;
+            if (spearNotShooted)
+            {
+                spearNotShooted = false;
+                currentState = PlayerState.Shooting;
+
+                _animator.SetTrigger("Throw");
+            }
+            else if (_movement.IsMoving)
+            {
+                currentState = PlayerState.Running;
+            }
+            else if (!_groundDetector.isGrounded)
+            {
+                currentState = PlayerState.Jumping;
+                //MIRAR SIN SPEARS EN ESTOSSSSSSS
+            }
+            else
+            {
+                currentState = PlayerState.Idle;
+            }
         }
     }
 
-    /*private void Timer()
+    private void UpdateSpear()
     {
-        timePast += Time.deltaTime;
+        _animator.SetBool("spearActive", _launcher.spearActive);
+    }
 
-        if (timePast > timeToAchieve)
-        {
-            timerActive = false;
-            timeToAchieve = 0;
-        }
-    }*/
 
     /*public void ChangeState(PlayerState newState)
     {
@@ -116,7 +115,8 @@ public class PlayerAnimator : MonoBehaviour
 public enum PlayerState
 {
     Idle,
-    RunningWithSpear,
+    IdleWithoutSpear,
+    Running,
     RunningWithoutSpear,
     Jumping,
     Shooting,
