@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 44e9be1171558e447ba54ecdc11837cb
+guid: c3e41b08c2143f24bbade376d9031e92
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SoundSoldierWalkGun_0
+      name: NoSpearSurrender_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c355fef8f7223c0498f921760344df89
-      internalID: 1762341238
+      spriteID: 333ed992a8f2d0740a23b74566054bd7
+      internalID: -1997298973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SoundSoldierWalkGun_1
+      name: NoSpearSurrender_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cb21286208378e45942d91ff2b18ba8
-      internalID: 863800971
+      spriteID: fc3b3c1b5f7aa91449057a3ad48315c3
+      internalID: -2064633169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SoundSoldierWalkGun_2
+      name: NoSpearSurrender_2
       rect:
         serializedVersion: 2
         x: 64
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f40316b530837f4398a3d5a329d9e7f
-      internalID: -513012331
+      spriteID: 2f6ee77152d8d0640a2ddcb7894daa04
+      internalID: 693284287
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SoundSoldierWalkGun_3
+      name: NoSpearSurrender_3
       rect:
         serializedVersion: 2
         x: 96
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 424a285ed3e0d8248bf2f1b47459c776
-      internalID: -104978994
+      spriteID: 29b2e1994b2f320499c31603886aae29
+      internalID: -1431255461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SoundSoldierWalkGun_4
+      name: NoSpearSurrender_4
       rect:
         serializedVersion: 2
         x: 128
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cf3aafc494d89847ae86c0e3fcdb955
-      internalID: -1292241853
+      spriteID: acbc6c823ac770443aa0b14b5aa174c4
+      internalID: -1871503277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SoundSoldierWalkGun_5
+      name: NoSpearSurrender_5
       rect:
         serializedVersion: 2
         x: 160
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e0fe4b0075005e459d90a9681851f54
-      internalID: -1005582620
+      spriteID: fda0e19c84790e54589cd79be35ac259
+      internalID: 1825748524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SoundSoldierWalkGun_6
+      name: NoSpearSurrender_6
       rect:
         serializedVersion: 2
         x: 192
@@ -257,8 +257,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ac3809899d28604ea5f5bf96f3aa948
-      internalID: 1780743028
+      spriteID: b79dee96cdce79d449ecbd786d3eb8bf
+      internalID: -362134367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoSpearSurrender_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08a89be106435d5418c3c72ece8ccf15
+      internalID: -2493695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoSpearSurrender_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97c9bb18acb3f8e43811c632abb3bf23
+      internalID: 159536794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoSpearSurrender_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bab0b8619b129df4fb3b8761698aafc2
+      internalID: 763736507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoSpearSurrender_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea49f53fbbeef5c43821cb216d5ed6c0
+      internalID: -2045908524
       vertices: []
       indices: 
       edges: []
@@ -274,13 +358,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SoundSoldierWalkGun_2: -513012331
-      SoundSoldierWalkGun_3: -104978994
-      SoundSoldierWalkGun_1: 863800971
-      SoundSoldierWalkGun_4: -1292241853
-      SoundSoldierWalkGun_6: 1780743028
-      SoundSoldierWalkGun_0: 1762341238
-      SoundSoldierWalkGun_5: -1005582620
+      NoSpearSurrender_4: -1871503277
+      NoSpearSurrender_1: -2064633169
+      NoSpearSurrender_5: 1825748524
+      NoSpearSurrender_0: -1997298973
+      NoSpearSurrender_7: -2493695
+      NoSpearSurrender_6: -362134367
+      NoSpearSurrender_10: -2045908524
+      NoSpearSurrender_3: -1431255461
+      NoSpearSurrender_9: 763736507
+      NoSpearSurrender_2: 693284287
+      NoSpearSurrender_8: 159536794
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
