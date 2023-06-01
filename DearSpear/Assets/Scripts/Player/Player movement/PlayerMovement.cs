@@ -104,6 +104,11 @@ public class PlayerMovement : MonoBehaviour
     {
         return _vineDetect.canClimb;
     }
+
+    public bool isSwinging()
+    {
+        return CheckHook();
+    }
     /*private void SetAnimator()
     {
         //hacer script con FSM para el animator
