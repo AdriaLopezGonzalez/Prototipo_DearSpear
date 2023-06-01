@@ -84,14 +84,14 @@ public class PlayerAnimator : MonoBehaviour
 
                 _animator.SetTrigger("Throw");
             }
-            else if (_movement.IsMoving)
-            {
-                currentState = PlayerState.Running;
-            }
             else if (!_groundDetector.isGrounded)
             {
                 currentState = PlayerState.Jumping;
                 //MIRAR SIN SPEARS EN ESTOSSSSSSS
+            }
+            else if (_movement.IsMoving)
+            {
+                currentState = PlayerState.Running;
             }
             else
             {
