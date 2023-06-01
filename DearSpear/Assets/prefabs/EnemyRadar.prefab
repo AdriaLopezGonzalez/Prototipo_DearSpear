@@ -132,6 +132,8 @@ GameObject:
   - component: {fileID: 1964302919393799925}
   - component: {fileID: 1964302919393799923}
   - component: {fileID: 3839279079096451200}
+  - component: {fileID: 4786927629417701616}
+  - component: {fileID: 6477412311075612991}
   m_Layer: 13
   m_Name: EnemyRadar
   m_TagString: RadarEnemy
@@ -199,7 +201,7 @@ SpriteRenderer:
   m_SortingLayerID: -473564529
   m_SortingLayer: 8
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2ff71419fa06d624fa2412914b5209d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1f9703e9fffcdc04dbb40499490006ef, type: 3}
   m_Color: {r: 0.6761006, g: 0.81040037, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -291,6 +293,39 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 35520
   isDetectingPlayer: 0
+--- !u!95 &4786927629417701616
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964302919393799930}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d8ef2f6975de02643b96011c15085b5c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &6477412311075612991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964302919393799930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b47aabbbac2f79346b50d663a1e6a8af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
 --- !u!1 &1964302920077654804
 GameObject:
   m_ObjectHideFlags: 0
