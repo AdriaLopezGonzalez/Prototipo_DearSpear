@@ -8,7 +8,7 @@ public class EnemyWallCollider : MonoBehaviour
     //public static Action CanFlip;
     private EnemyPatroling _patroling;
 
-    private void Start()
+    private void Awake()
     {
         _patroling = GetComponentInParent<EnemyPatroling>();
     }
