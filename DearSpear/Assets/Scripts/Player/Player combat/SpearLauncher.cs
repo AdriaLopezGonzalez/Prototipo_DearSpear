@@ -133,7 +133,7 @@ public class SpearLauncher : MonoBehaviour
     private bool CheckDistanceFromCollision()
     {
         var hit = new RaycastHit2D();
-        hit = Physics2D.Raycast(spearStartPosition + (direction.normalized * 0.9f), direction.normalized, 100f, layerMask);
+        hit = Physics2D.Raycast(spearStartPosition + (direction.normalized * 0.8f), direction.normalized, 100f, layerMask);
         return ((hit.distance > 2f) || (hit.distance == 0 && direction.normalized.y > 0));
     }
 

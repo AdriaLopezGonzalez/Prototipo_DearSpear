@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 5906419591837251045}
   - component: {fileID: 1808422226174096433}
   - component: {fileID: 5761017148792228115}
+  - component: {fileID: 2681451120218601056}
   m_Layer: 15
   m_Name: TreePlatform3
   m_TagString: Ground
@@ -196,3 +197,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5608902, y: 0.567678}
   m_EdgeRadius: 0
+--- !u!114 &2681451120218601056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651095509135934712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000839386e4d9d7f015ed83863cdd55ce706f926da7cf3b9d3d597b46458ffac5e30b7fd96b877999c0cd0a66ec43db4487
+  m_ShapePath:
+  - {x: -0.43380737, y: -0.25887918, z: 0}
+  - {x: -0.43309784, y: 0.13165045, z: 0}
+  - {x: 0.029525757, y: 0.44799328, z: 0}
+  - {x: 1.0106125, y: 0.43380976, z: 0}
+  - {x: 1.4438629, y: 0.10328293, z: 0}
+  - {x: 1.4550323, y: -0.26360703, z: 0}
+  m_ShapePathHash: 2114871261
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -65804
