@@ -52,7 +52,7 @@ public class EnemyRadarDetector : MonoBehaviour
         if (!IsInRange() || !IsNotBlocked())
         {
             //ContinuePatrolling?.Invoke();
-            if (_patroling.pauseBeforeFlip >= 3 || _patroling.pauseBeforeFlip == 0)
+            if (_patroling.pauseAfterFlip >= 3 || _patroling.pauseAfterFlip == 0)
             {
                 _patroling.ContinuePatrolling();
             }

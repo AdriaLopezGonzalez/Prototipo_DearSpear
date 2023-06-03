@@ -11,8 +11,8 @@ public class EnemyPatroling : MonoBehaviour
     private float baseSpeed = 0.5f;
 
     private float Speed;
-
-    public float pauseBeforeFlip = 0;
+    private bool playerDetected;
+    public float pauseAfterFlip = 0;
 
     private bool canFlip;
 
@@ -50,28 +50,36 @@ public class EnemyPatroling : MonoBehaviour
 
     void Update()
     {
-        if (GroundNotDetected() || canFlip)
+        CheckGroundDetection();
+        if (canFlip)
         {
+
             Speed = 0;
 
-            pauseBeforeFlip += 1 * Time.deltaTime;
-
-            if (pauseBeforeFlip >= 3)
+            if (pauseAfterFlip == 0)
             {
                 Flip();
+            }
 
+            pauseAfterFlip += 1 * Time.deltaTime;
+
+            if (pauseAfterFlip >= 3)
+            {
                 canFlip = false;
                 Speed = baseSpeed;
-                pauseBeforeFlip = 0;
+                pauseAfterFlip = 0;
             }
         }
 
         Move();
     }
 
-    private bool GroundNotDetected()
+    private void CheckGroundDetection()
     {
-        return _groundDetector.NotGround;
+        if(!canFlip && _groundDetector.NotGround)
+        {
+            canFlip = true;
+        }
     }
 
     public void CanFlip()
@@ -93,6 +101,7 @@ public class EnemyPatroling : MonoBehaviour
     {
         Speed = 0;
 
+        playerDetected = true;
         DeathCamera?.Invoke(gameObject);
         PlayerSurrender?.Invoke();
         //_weapon.Shoot();
@@ -101,7 +110,10 @@ public class EnemyPatroling : MonoBehaviour
 
     public void ContinuePatrolling()
     {
-        Speed = baseSpeed;
+        if (!playerDetected)
+        {
+            Speed = baseSpeed;
+        }
     }
 
     public bool isMoving()
