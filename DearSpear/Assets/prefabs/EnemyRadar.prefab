@@ -263,7 +263,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 0.5
   pauseAfterFlip: 0
-  particleRadar: {fileID: 1203683198140760973}
 --- !u!114 &1964302919393799923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,7 +458,7 @@ GameObject:
   - component: {fileID: 3358543406770133530}
   m_Layer: 0
   m_Name: Particle System
-  m_TagString: Particles
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

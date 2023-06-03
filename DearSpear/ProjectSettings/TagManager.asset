@@ -18,7 +18,6 @@ TagManager:
   - DogEnemy
   - SpearInGround
   - BaseEnemy_Standing
-  - Particles
   layers:
   - Default
   - TransparentFX
