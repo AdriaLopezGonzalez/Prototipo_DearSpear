@@ -14,6 +14,8 @@ public class EnemyPatroling : MonoBehaviour
     private bool playerDetected;
     public float pauseAfterFlip = 0;
 
+    private bool isInEdge = false;
+
     private bool canFlip;
 
     //public static Action Shoot;
@@ -56,9 +58,21 @@ public class EnemyPatroling : MonoBehaviour
 
             Speed = 0;
 
-            if (pauseAfterFlip == 0)
+            if (isInEdge)
             {
-                Flip();
+                if (pauseAfterFlip >= 2.5f)
+                {
+                    Flip();
+
+                    isInEdge = false;
+                }
+            }
+            else
+            {
+                if (pauseAfterFlip == 0)
+                {
+                    Flip();
+                }
             }
 
             pauseAfterFlip += 1 * Time.deltaTime;
@@ -79,6 +93,8 @@ public class EnemyPatroling : MonoBehaviour
         if(!canFlip && _groundDetector.NotGround)
         {
             canFlip = true;
+
+            isInEdge = true;
         }
     }
 
@@ -99,7 +115,7 @@ public class EnemyPatroling : MonoBehaviour
 
     public void DetectedThePlayer(Transform player)
     {
-        Speed = 0;
+        Speed = 0.25f;
 
         playerDetected = true;
         DeathCamera?.Invoke(gameObject);
