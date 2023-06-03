@@ -18,6 +18,8 @@ public class EnemyPatroling : MonoBehaviour
 
     private bool canFlip;
 
+    private ParticleSystem particleRadar;
+
     //public static Action Shoot;
 
     private EnemyWeapon _weapon;
@@ -48,6 +50,9 @@ public class EnemyPatroling : MonoBehaviour
         _weapon = GetComponentInChildren<EnemyWeapon>();
 
         Speed = baseSpeed;
+
+        if(gameObject.CompareTag("RadarEnemy"))
+            particleRadar = GetComponentInChildren<ParticleSystem>();
     }
 
     void Update()
@@ -106,6 +111,11 @@ public class EnemyPatroling : MonoBehaviour
     public void Flip()
     {
         transform.Rotate(new Vector3(0, 180, 0));
+
+        if(particleRadar != null)
+        {
+            particleRadar.transform.Rotate(new Vector3(0, 0, 180));
+        }
     }
 
     private void Move()
