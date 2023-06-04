@@ -149,4 +149,8 @@ public class EnemyPatroling : MonoBehaviour
     }
 
 
+    //public void GoWithDog(Transform player)
+    //{
+    //
+    //}
 }

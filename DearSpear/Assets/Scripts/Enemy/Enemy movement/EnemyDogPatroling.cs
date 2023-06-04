@@ -18,7 +18,7 @@ public class EnemyDogPatroling : MonoBehaviour
 
     private bool canFlip;
 
-    private ParticleSystem particleRadar;
+    private EnemyPatroling enemyWithDog;
 
     //public static Action Shoot;
 
@@ -51,6 +51,7 @@ public class EnemyDogPatroling : MonoBehaviour
 
         Speed = baseSpeed;
 
+        enemyWithDog = transform.parent.GetComponentInChildren<EnemyPatroling>();
     }
 
     void Update()
@@ -109,11 +110,6 @@ public class EnemyDogPatroling : MonoBehaviour
     public void Flip()
     {
         transform.Rotate(new Vector3(0, 180, 0));
-
-        if (particleRadar != null)
-        {
-            particleRadar.transform.Rotate(new Vector3(0, 0, 180));
-        }
     }
 
     private void Move()
@@ -126,6 +122,8 @@ public class EnemyDogPatroling : MonoBehaviour
         Speed = 0.0f;
 
         playerDetected = true;
+
+        //enemyWithDog.GoWithDog(player);
         //DeathCamera?.Invoke(gameObject);
         //PlayerSurrender?.Invoke();
     }
