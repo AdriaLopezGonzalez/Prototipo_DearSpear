@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
 
-public class EnemyPatroling : MonoBehaviour
+public class EnemyDogPatroling : MonoBehaviour
 {
     EnemyGroundDetector _groundDetector;
 
@@ -11,8 +11,6 @@ public class EnemyPatroling : MonoBehaviour
     private float baseSpeed = 0.5f;
 
     public float Speed;
-    [SerializeField]
-    private float catchingPlayerSpeed;
     private bool playerDetected;
     public float pauseAfterFlip = 0;
 
@@ -53,8 +51,6 @@ public class EnemyPatroling : MonoBehaviour
 
         Speed = baseSpeed;
 
-        if(gameObject.CompareTag("RadarEnemy"))
-            particleRadar = GetComponentInChildren<ParticleSystem>();
     }
 
     void Update()
@@ -97,7 +93,7 @@ public class EnemyPatroling : MonoBehaviour
 
     private void CheckGroundDetection()
     {
-        if(!canFlip && _groundDetector.NotGround)
+        if (!canFlip && _groundDetector.NotGround)
         {
             canFlip = true;
 
@@ -114,7 +110,7 @@ public class EnemyPatroling : MonoBehaviour
     {
         transform.Rotate(new Vector3(0, 180, 0));
 
-        if(particleRadar != null)
+        if (particleRadar != null)
         {
             particleRadar.transform.Rotate(new Vector3(0, 0, 180));
         }
@@ -127,12 +123,11 @@ public class EnemyPatroling : MonoBehaviour
 
     public void DetectedThePlayer(Transform player)
     {
-        Speed = catchingPlayerSpeed;
+        Speed = 0.0f;
 
         playerDetected = true;
-        DeathCamera?.Invoke(gameObject);
-        PlayerSurrender?.Invoke();
-        //_weapon.Shoot();
+        //DeathCamera?.Invoke(gameObject);
+        //PlayerSurrender?.Invoke();
     }
 
     public void ContinuePatrolling()
