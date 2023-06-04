@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 6807561561659841056}
   - component: {fileID: 4434003250869233039}
   m_Layer: 13
-  m_Name: EnemyBase
+  m_Name: EnemyDogTrainer
   m_TagString: BaseEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -516,7 +516,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.25225675, y: 0}
+  m_Offset: {x: 0, y: 0.000000014901161}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -527,7 +527,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.58548665, y: 1.2659427}
+  m_Size: {x: 1.09, y: 1.2659427}
   m_EdgeRadius: 0
 --- !u!114 &1964302920077654801
 MonoBehaviour:

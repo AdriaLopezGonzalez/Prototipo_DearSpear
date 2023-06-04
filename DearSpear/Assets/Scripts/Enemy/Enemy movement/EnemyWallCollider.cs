@@ -13,6 +13,14 @@ public class EnemyWallCollider : MonoBehaviour
         _patroling = GetComponentInParent<EnemyPatroling>();
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            _patroling.Speed = 0.0f;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("BaseEnemy")/*|| collision.gameObject.CompareTag("Wall")*/)

@@ -10,7 +10,7 @@ public class EnemyPatroling : MonoBehaviour
     [SerializeField]
     private float baseSpeed = 0.5f;
 
-    private float Speed;
+    public float Speed;
     private bool playerDetected;
     public float pauseAfterFlip = 0;
 
@@ -125,7 +125,14 @@ public class EnemyPatroling : MonoBehaviour
 
     public void DetectedThePlayer(Transform player)
     {
-        Speed = 0.25f;
+        if (gameObject.CompareTag("RadarEnemy"))
+        {
+            Speed = 0.0f;
+        }
+        else
+        {
+            Speed = 0.4f;
+        }
 
         playerDetected = true;
         DeathCamera?.Invoke(gameObject);
