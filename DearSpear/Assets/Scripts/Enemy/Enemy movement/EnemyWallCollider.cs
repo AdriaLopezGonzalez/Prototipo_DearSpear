@@ -7,10 +7,16 @@ public class EnemyWallCollider : MonoBehaviour
 {
     //public static Action CanFlip;
     private EnemyPatroling _patroling;
+    private EnemyDogPatroling _dogPatroling;
 
     private void Awake()
     {
         _patroling = GetComponentInParent<EnemyPatroling>();
+
+        if (gameObject.CompareTag("DogEnemy"))
+        {
+            _dogPatroling = GetComponentInParent<EnemyDogPatroling>();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -26,7 +32,15 @@ public class EnemyWallCollider : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("BaseEnemy")/*|| collision.gameObject.CompareTag("Wall")*/)
         {
             //CanFlip?.Invoke();
-            _patroling.CanFlip();
+            if (gameObject.CompareTag("DogEnemy"))
+            {
+                Debug.Log("queHaceAqui");
+                _dogPatroling.CanFlip();
+            }
+            else
+            {
+                _patroling.CanFlip();
+            }
         }
     }
 }
