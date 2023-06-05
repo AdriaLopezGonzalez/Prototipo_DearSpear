@@ -127,6 +127,11 @@ public class EnemyPatroling : MonoBehaviour
 
     public void DetectedThePlayer(Transform player)
     {
+        if((_groundDetector.transform.position.x > transform.position.x && player.position.x < transform.position.x) || (_groundDetector.transform.position.x < transform.position.x && player.position.x > transform.position.x))
+        {
+            Flip();
+        }
+
         Speed = catchingPlayerSpeed;
 
         playerDetected = true;
@@ -145,12 +150,17 @@ public class EnemyPatroling : MonoBehaviour
 
     public bool isMoving()
     {
-        return Speed > 0.3;
+        return Speed > 0.3f;
     }
 
 
-    //public void GoWithDog(Transform player)
-    //{
-    //
-    //}
+    public void GoWithDog(Transform player)
+    {
+        if ((_groundDetector.transform.position.x > transform.position.x && player.position.x < transform.position.x) || (_groundDetector.transform.position.x < transform.position.x && player.position.x > transform.position.x))
+        {
+            Flip();
+        }
+
+        baseSpeed = 1.4f;
+    }
 }

@@ -123,7 +123,7 @@ public class EnemyDogPatroling : MonoBehaviour
 
         playerDetected = true;
 
-        //enemyWithDog.GoWithDog(player);
+        enemyWithDog.GoWithDog(player);
         //DeathCamera?.Invoke(gameObject);
         //PlayerSurrender?.Invoke();
     }

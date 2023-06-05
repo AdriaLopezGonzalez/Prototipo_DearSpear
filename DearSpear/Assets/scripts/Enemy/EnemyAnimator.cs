@@ -4,12 +4,15 @@ public class EnemyAnimator : MonoBehaviour
 {
     public EnemyState currentState;
     private EnemyPatroling _movement;
+    private EnemyDogPatroling _dogMovement;
     private Animator _animator;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _movement = GetComponent<EnemyPatroling>();
+        _dogMovement = GetComponent<EnemyDogPatroling>();
+
     }
 
     private void Update()
@@ -32,14 +35,27 @@ public class EnemyAnimator : MonoBehaviour
 
     private void UpdateState()
     {
-
-        if (_movement.isMoving())
+        if (!gameObject.CompareTag("DogEnemy"))
         {
-            currentState = EnemyState.Patroling;
+            if (_movement.isMoving())
+            {
+                currentState = EnemyState.Patroling;
+            }
+            else
+            {
+                currentState = EnemyState.Idle;
+            }
         }
         else
         {
-            currentState = EnemyState.Idle;
+            if (_dogMovement.isMoving())
+            {
+                currentState = EnemyState.Patroling;
+            }
+            else
+            {
+                currentState = EnemyState.Idle;
+            }
         }
     }
 

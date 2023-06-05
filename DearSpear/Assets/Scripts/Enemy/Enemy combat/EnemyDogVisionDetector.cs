@@ -18,7 +18,7 @@ public class EnemyDogVisionDetector : MonoBehaviour
 
     //public static Action DetectedThePlayer;
     //public static Action ContinuePatrolling;
-    private EnemyPatroling _patroling;
+    private EnemyDogPatroling _patroling;
 
     private void OnDrawGizmos()
     {
@@ -51,7 +51,7 @@ public class EnemyDogVisionDetector : MonoBehaviour
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        _patroling = GetComponent<EnemyPatroling>();
+        _patroling = GetComponent<EnemyDogPatroling>();
     }
 
     // Update is called once per frame
@@ -74,7 +74,10 @@ public class EnemyDogVisionDetector : MonoBehaviour
         if (!IsInRange() || !IsInFOV() || !IsNotBlocked())
         {
             //ContinuePatrolling?.Invoke();
-            _patroling.ContinuePatrolling();
+            if (_patroling.pauseAfterFlip >= 3 || _patroling.pauseAfterFlip == 0)
+            {
+                _patroling.ContinuePatrolling();
+            }
         }
 
     }

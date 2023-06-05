@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 4434003250869233039}
   m_Layer: 13
   m_Name: EnemyDogTrainer
-  m_TagString: BaseEnemy
+  m_TagString: EnemyDogTrainer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -405,6 +405,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 0.5
+  Speed: 0
+  catchingPlayerSpeed: 0
   pauseAfterFlip: 0
 --- !u!114 &1964302919393799920
 MonoBehaviour:

@@ -65,7 +65,7 @@ public class LevelManager : MonoBehaviour
             enemyRotationList.Add(en.transform.rotation);
             enemyTypeList.Add(radarEnemy);
         }
-        foreach (GameObject en in GameObject.FindGameObjectsWithTag("DogEnemy"))
+        foreach (GameObject en in GameObject.FindGameObjectsWithTag("EnemyWithDog"))
         {
             enemyList.Add(en);
             enemyPositionList.Add(en.transform.position);

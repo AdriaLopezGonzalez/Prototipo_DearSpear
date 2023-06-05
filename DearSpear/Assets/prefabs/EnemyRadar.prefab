@@ -262,6 +262,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 0.5
+  Speed: 0
+  catchingPlayerSpeed: 0.4
   pauseAfterFlip: 0
 --- !u!114 &1964302919393799923
 MonoBehaviour:
