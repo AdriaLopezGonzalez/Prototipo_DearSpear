@@ -84,7 +84,7 @@ TagManager:
   - name: player
     uniqueID: 1809415947
     locked: 0
-  - name: weapon
+  - name: environment
     uniqueID: 3231283591
     locked: 0
   - name: shootDirection
