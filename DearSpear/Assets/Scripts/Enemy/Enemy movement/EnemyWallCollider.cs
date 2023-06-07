@@ -34,7 +34,6 @@ public class EnemyWallCollider : MonoBehaviour
             //CanFlip?.Invoke();
             if (gameObject.CompareTag("DogEnemy"))
             {
-                Debug.Log("queHaceAqui");
                 _dogPatroling.CanFlip();
             }
             else
