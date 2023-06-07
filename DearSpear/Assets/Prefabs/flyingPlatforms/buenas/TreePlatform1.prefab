@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 925455147564469755}
   - component: {fileID: 812160716741980774}
   - component: {fileID: 1408134753461960963}
+  - component: {fileID: 2943947470414749961}
   - component: {fileID: 4831328244079542105}
   m_Layer: 15
   m_Name: TreePlatform1
@@ -183,7 +184,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -198,6 +199,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.41, y: 0.52}
   m_EdgeRadius: 0
+--- !u!251 &2943947470414749961
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2351068557217016305}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!114 &4831328244079542105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +246,7 @@ MonoBehaviour:
   - {x: 1.4590607, y: -0.33151627, z: 0}
   m_ShapePathHash: -352593827
   m_Mesh: {fileID: 0}
-  m_InstanceId: 64584
+  m_InstanceId: 152822
 --- !u!1 &6777606135281382961
 GameObject:
   m_ObjectHideFlags: 0
