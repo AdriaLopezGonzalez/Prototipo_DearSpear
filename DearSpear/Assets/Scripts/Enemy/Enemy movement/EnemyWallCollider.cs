@@ -21,7 +21,7 @@ public class EnemyWallCollider : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !transform.CompareTag("EnemyDog"))
+        if (collision.gameObject.CompareTag("Player") && !transform.CompareTag("DogEnemy"))
         {
             _patroling.Speed = 0.0f;
         }

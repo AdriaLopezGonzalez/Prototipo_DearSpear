@@ -11,7 +11,6 @@ public class EnemyDogPatroling : MonoBehaviour
     private float baseSpeed = 0.5f;
 
     public float Speed;
-    private bool playerDetected;
     public float pauseAfterFlip = 0;
 
     private bool isInEdge = false;
@@ -121,19 +120,15 @@ public class EnemyDogPatroling : MonoBehaviour
     {
         Speed = 0.0f;
 
-        playerDetected = true;
-
-        enemyWithDog.GoWithDog(player);
+        if(enemyWithDog != null)
+            enemyWithDog.GoWithDog(player);
         //DeathCamera?.Invoke(gameObject);
         //PlayerSurrender?.Invoke();
     }
 
     public void ContinuePatrolling()
     {
-        if (!playerDetected)
-        {
-            Speed = baseSpeed;
-        }
+        Speed = baseSpeed;
     }
 
     public bool isMoving()
