@@ -77,6 +77,7 @@ public class EnemyDogVisionDetector : MonoBehaviour
             if (_patroling.pauseAfterFlip >= 3 || _patroling.pauseAfterFlip == 0)
             {
                 _patroling.ContinuePatrolling();
+                playerHasBeenDetected = false;
             }
         }
 
