@@ -11,6 +11,7 @@ public class PlayerCollisionDetector : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            gameObject.GetComponentInParent<PlayerMovement>().knockback = false;
             //SetAnimator(isGrounded);
         }
     }

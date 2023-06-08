@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyCombatCollider : MonoBehaviour
@@ -20,6 +18,41 @@ public class EnemyCombatCollider : MonoBehaviour
 
 
             SpearFall?.Invoke(gameObject.transform.position);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (!collision.gameObject.GetComponentInChildren<PlayerCollisionDetector>().isGrounded)
+            {
+                float forceX;
+                float forceY;
+                if ((collision.transform.position.x - transform.position.x) > 0)
+                {
+                    forceX = 7f;
+                }
+                else
+                {
+                    forceX = -7f;
+                }
+
+                if ((collision.transform.position.y - transform.position.y) > 0)
+                {
+                    forceY = 5f;
+                }
+                else
+                {
+                    forceY = -5f;
+                }
+
+                Vector2 force = new Vector2(forceX, forceY);
+
+                collision.gameObject.GetComponent<PlayerMovement>().knockback = true;
+                collision.gameObject.GetComponent<Rigidbody2D>().velocity += force;
+            }
+
         }
     }
 }

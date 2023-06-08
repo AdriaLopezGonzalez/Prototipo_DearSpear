@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public bool IsMoving => _isMoving;
+    public bool knockback;
 
     [SerializeField]
     private float Speed = 8f;
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        knockback = false;
+
         _input = GetComponent<PlayerInputs>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _vineDetect = gameObject.GetComponentInChildren<PlayerVineDetector>();
@@ -74,8 +77,10 @@ public class PlayerMovement : MonoBehaviour
             _rigidbody.gravityScale = oldGravityScale;
 
             Vector2 direction = new Vector2(_input.MovementHorizontal * Speed, _rigidbody.velocity.y);
-
-            _rigidbody.velocity = direction;
+            if (!knockback)
+            {
+                _rigidbody.velocity = direction;
+            }
             _isMoving = direction.magnitude > 1f;
         }
 
