@@ -6,13 +6,14 @@ public class EnemyAnimator : MonoBehaviour
     private EnemyPatroling _movement;
     private EnemyDogPatroling _dogMovement;
     private Animator _animator;
+    private EnemyDogVisionDetector _dogVision;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _movement = GetComponent<EnemyPatroling>();
         _dogMovement = GetComponent<EnemyDogPatroling>();
-
+        _dogVision = GetComponent<EnemyDogVisionDetector>();
     }
 
     private void Update()
@@ -23,9 +24,14 @@ public class EnemyAnimator : MonoBehaviour
         {
             case EnemyState.Idle:
                 _animator.SetBool("isMoving", false);
+                _animator.SetBool("Barking", false);
                 break;
             case EnemyState.Patroling:
                 _animator.SetBool("isMoving", true);
+                _animator.SetBool("Barking", false);
+                break;
+            case EnemyState.Barking:
+                _animator.SetBool("Barking", true);
                 break;
             default:
                 break;
@@ -48,7 +54,11 @@ public class EnemyAnimator : MonoBehaviour
         }
         else
         {
-            if (_dogMovement.isMoving())
+            if (_dogVision.isDetectingPlayer)
+            {
+                currentState = EnemyState.Barking;
+            }
+            else if (_dogMovement.isMoving())
             {
                 currentState = EnemyState.Patroling;
             }
@@ -65,4 +75,5 @@ public enum EnemyState
 {
     Idle,
     Patroling,
+    Barking,
 }
