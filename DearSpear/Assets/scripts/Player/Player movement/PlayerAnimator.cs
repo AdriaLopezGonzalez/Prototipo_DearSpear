@@ -113,6 +113,7 @@ public class PlayerAnimator : MonoBehaviour
             else if (_movement.isClimbing())
             {
                 currentState = PlayerState.Climbing;
+                _animator.SetBool("isRunning", _movement.IsMoving);
             }
             else if (_movement.isSwinging())
             {

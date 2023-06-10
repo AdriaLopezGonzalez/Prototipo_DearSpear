@@ -24,11 +24,11 @@ public class EnemyAnimator : MonoBehaviour
         {
             case EnemyState.Idle:
                 _animator.SetBool("isMoving", false);
-                _animator.SetBool("Barking", false);
+                if (_dogVision) { _animator.SetBool("Barking", false); }
                 break;
             case EnemyState.Patroling:
                 _animator.SetBool("isMoving", true);
-                _animator.SetBool("Barking", false);
+                if (_dogVision) { _animator.SetBool("Barking", false); }
                 break;
             case EnemyState.Barking:
                 _animator.SetBool("Barking", true);
