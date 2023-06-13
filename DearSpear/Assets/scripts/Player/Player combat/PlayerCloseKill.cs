@@ -14,9 +14,12 @@ public class PlayerCloseKill : MonoBehaviour
     private Vector3 bloodOffset = new Vector3(1f, -0.5f, 0);
     private Vector3 bloodOffsetFlipped = new Vector3(-1f, -0.5f, 0);
 
+    private GameObject _audioManager;
+
     private void Start()
     {
         enemyDetector = GetComponent<PlayerEnemyDetector>();
+        _audioManager = GameObject.FindGameObjectWithTag("AudioManager");
     }
     private void OnEnable()
     {
@@ -37,6 +40,9 @@ public class PlayerCloseKill : MonoBehaviour
         //ZOOM DE CAMARA
         ActivateCloseKillAnim?.Invoke();
         ActivateCloseKill?.Invoke();
+
+        _audioManager.GetComponent<AudioManager>().EnemyCloseKill();
+
         Destroy(enemyDetector._enemyTransform.gameObject);
     }
 

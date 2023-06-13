@@ -4,15 +4,25 @@ using UnityEngine;
 public class PlayerCollisionDetector : MonoBehaviour
 {
     public bool isGrounded;
-    //public PlayerAnimator pAnimator;
+    private GameObject _audioManager;
+
+    private void Start()
+    {
+        _audioManager = GameObject.FindGameObjectWithTag("AudioManager");
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            bool lastGrounded = isGrounded;
             isGrounded = true;
             gameObject.GetComponentInParent<PlayerMovement>().knockback = false;
-            //SetAnimator(isGrounded);
+
+            if (lastGrounded != isGrounded)
+            {
+                _audioManager.GetComponent<AudioManager>().Land();
+            }
         }
     }
 
@@ -21,20 +31,8 @@ public class PlayerCollisionDetector : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
-            //SetAnimator(isGrounded);
+
         }
     }
 
-    /*private void SetAnimator(bool _isGrounded)
-    {
-        //hacer script con FSM para el animator
-        if (_isGrounded)
-        {
-            pAnimator.ChangeState(PlayerState.Idle);
-        }
-        else
-        {
-            pAnimator.ChangeState(PlayerState.Jumping);
-        }
-    }*/
 }

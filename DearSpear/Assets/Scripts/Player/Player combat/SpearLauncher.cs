@@ -18,11 +18,14 @@ public class SpearLauncher : MonoBehaviour
     [SerializeField]
     private Transform launchPoint;
 
+    [SerializeField] private AudioSource throwSound;
+
     public bool spearActive = true;
 
     private bool isAiming = false;
 
     private PlayerInputs _playerInput;
+    private GameObject _audioManager;
 
     private void OnEnable()
     {
@@ -59,6 +62,8 @@ public class SpearLauncher : MonoBehaviour
     private void Awake()
     {
         _playerInput = GetComponentInParent<PlayerInputs>();
+
+        _audioManager = GameObject.FindGameObjectWithTag("AudioManager");
 
         points = new GameObject[numberOfPoints];
         for (int index = 0; index < numberOfPoints; index++)
@@ -127,6 +132,8 @@ public class SpearLauncher : MonoBehaviour
             GameObject newSpear = Instantiate(spear, launchPoint.position, launchPoint.rotation);
             newSpear.GetComponent<Rigidbody2D>().velocity = transform.right * launchForce;
             spearActive = false;
+
+            _audioManager.GetComponent<AudioManager>().ThrowSpear();
         }
     }
 

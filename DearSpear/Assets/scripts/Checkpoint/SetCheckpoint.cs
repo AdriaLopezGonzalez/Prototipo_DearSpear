@@ -8,6 +8,9 @@ public class SetCheckpoint : MonoBehaviour
 
     private ParticleSystem activeParticles;
 
+    [SerializeField] private AudioSource fireStart;
+    [SerializeField] private AudioSource fireCont;
+
     private void Start()
     {
         activeParticles = transform.GetComponentInChildren<ParticleSystem>();
@@ -22,6 +25,9 @@ public class SetCheckpoint : MonoBehaviour
             if (!activeParticles.isPlaying)
             {
                 activeParticles.Play();
+
+                fireCont.Play();
+                fireStart.Play();
             }
         }
     }

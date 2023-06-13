@@ -6,10 +6,19 @@ public class EnemyCombatCollider : MonoBehaviour
     public static Action<Vector3> SpearFall;
     public GameObject enemyBlood;
 
+    private GameObject _audioManager;
+
+    private void Start()
+    {
+        _audioManager = GameObject.FindGameObjectWithTag("AudioManager");
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Spear"))
         {
+            _audioManager.GetComponent<AudioManager>().EnemyHurt();
+
             ParticleSystem thisBlood = GameObject.Instantiate(enemyBlood).GetComponent<ParticleSystem>();
             thisBlood.transform.position = gameObject.transform.position;
             thisBlood.Play();
