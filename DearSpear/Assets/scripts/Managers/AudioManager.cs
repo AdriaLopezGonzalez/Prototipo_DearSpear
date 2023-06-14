@@ -33,7 +33,7 @@ public class AudioManager : MonoBehaviour
     public void EnemyHurt()
     {
         enemyHit.Play();
-        enemyHurts[Random.Range(0,2)].Play();
+        enemyHurts[Random.Range(0,3)].Play();
     }
 
     public void EnemyCloseKill()
