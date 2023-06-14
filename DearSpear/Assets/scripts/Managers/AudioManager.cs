@@ -6,8 +6,12 @@ public class AudioManager : MonoBehaviour
 {
 
     [SerializeField] private AudioSource enemyHit;
-    [SerializeField] private AudioSource enemyHurt;
+    [SerializeField] private AudioSource enemyHurt1;
+    [SerializeField] private AudioSource enemyHurt2;
+    [SerializeField] private AudioSource enemyHurt3;
     [SerializeField] private AudioSource enemyCloseKill;
+
+    private AudioSource[] enemyHurts = new AudioSource[3];
 
     [SerializeField] private AudioSource throwSpear;
     [SerializeField] private AudioSource land;
@@ -15,7 +19,9 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemyHurts[0] = enemyHurt1;
+        enemyHurts[1] = enemyHurt2;
+        enemyHurts[2] = enemyHurt3;
     }
 
     // Update is called once per frame
@@ -27,11 +33,12 @@ public class AudioManager : MonoBehaviour
     public void EnemyHurt()
     {
         enemyHit.Play();
-        enemyHurt.Play();
+        enemyHurts[Random.Range(0,2)].Play();
     }
 
     public void EnemyCloseKill()
     {
+        enemyCloseKill.pitch = Random.Range(0.85f, 1.15f);
         enemyCloseKill.Play();
         enemyHit.Play();
     }
