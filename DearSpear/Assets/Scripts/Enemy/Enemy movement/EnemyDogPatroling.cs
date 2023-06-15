@@ -26,25 +26,16 @@ public class EnemyDogPatroling : MonoBehaviour
     public static Action<GameObject> DeathCamera;
     public static Action PlayerSurrender;
 
-    //private void OnEnable()
-    //{
-    //    EnemyWallCollider.CanFlip += CanFlip;
-    //
-    //    EnemyVisionDetector.DetectedThePlayer += DetectedThePlayer;
-    //    EnemyVisionDetector.ContinuePatrolling += ContinuePatrolling;
-    //}
-    //
-    //private void OnDisable()
-    //{
-    //    EnemyWallCollider.CanFlip -= CanFlip;
-    //
-    //    EnemyVisionDetector.DetectedThePlayer -= DetectedThePlayer;
-    //    EnemyVisionDetector.ContinuePatrolling -= ContinuePatrolling;
-    //}
+    private bool playerDetected;
+    private float barkTimer = 1.1f;
+    private float barkTimeLimit = 0.7f;
+
+    private GameObject _audioManager;
 
     private void Awake()
     {
         _groundDetector = GetComponentInChildren<EnemyGroundDetector>();
+        _audioManager = GameObject.FindGameObjectWithTag("AudioManager");
 
         _weapon = GetComponentInChildren<EnemyWeapon>();
 
@@ -55,6 +46,19 @@ public class EnemyDogPatroling : MonoBehaviour
 
     void Update()
     {
+        if (playerDetected)
+        {
+            barkTimer += Time.deltaTime;
+
+            if(barkTimer > barkTimeLimit)
+            {
+                _audioManager.GetComponent<AudioManager>().Bark();
+
+                barkTimer = 0;
+            }
+
+        }
+
         CheckGroundDetection();
         if (canFlip)
         {
@@ -122,13 +126,16 @@ public class EnemyDogPatroling : MonoBehaviour
 
         if(enemyWithDog != null)
             enemyWithDog.GoWithDog(player);
-        //DeathCamera?.Invoke(gameObject);
-        //PlayerSurrender?.Invoke();
+
+        playerDetected = true;
     }
 
     public void ContinuePatrolling()
     {
         Speed = baseSpeed;
+        playerDetected = false;
+
+        barkTimer = 1.1f;
     }
 
     public bool isMoving()
