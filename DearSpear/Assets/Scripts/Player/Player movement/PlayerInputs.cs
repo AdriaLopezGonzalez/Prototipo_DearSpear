@@ -65,26 +65,7 @@ public class PlayerInputs : MonoBehaviour
         MovementHorizontal = Input.GetAxis("Horizontal");
 
         AimSpearPosition = AimSpear();
-        
-        //if (Input.GetKeyDown(KeyCode.Space) && playerCollisionDetector.isGrounded)
-        //{
-        //    UseJump();
-        //}
-        //
-        //if (Input.GetKeyDown(KeyCode.Mouse1))
-        //{
-        //    UseRope();
-        //}
-        //
-        //if (Input.GetKeyUp(KeyCode.Mouse1))
-        //{
-        //    EndRope?.Invoke();
-        //}
-        //
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    UseSpear();
-        //}
+
     }
 
     public void UseJump(InputAction.CallbackContext context)
@@ -212,7 +193,7 @@ public class PlayerInputs : MonoBehaviour
     {
         if (context.performed)
         {
-            transform.position = new Vector2(216.3f, 4.8f);
+            transform.position = new Vector2(189f, 3.4f);
         }
     }
 
@@ -220,7 +201,23 @@ public class PlayerInputs : MonoBehaviour
     {
         if (context.performed)
         {
-            transform.position = new Vector2(356f, 6.7f);
+            transform.position = new Vector2(252f, 8.4f);
+        }
+    }
+
+    public void Teleport4(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            transform.position = new Vector2(370f, 22.3f);
+        }
+    }
+
+    public void Teleport5(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            transform.position = new Vector2(456f, 27.4f);
         }
     }
 }
