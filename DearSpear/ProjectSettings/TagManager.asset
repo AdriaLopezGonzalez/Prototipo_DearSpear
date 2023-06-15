@@ -85,6 +85,9 @@ TagManager:
   - name: player
     uniqueID: 1809415947
     locked: 0
+  - name: decoration
+    uniqueID: 312889507
+    locked: 0
   - name: environment
     uniqueID: 3231283591
     locked: 0
