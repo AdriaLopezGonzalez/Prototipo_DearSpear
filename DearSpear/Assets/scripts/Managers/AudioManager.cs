@@ -56,8 +56,8 @@ public class AudioManager : MonoBehaviour
 
     private void MakeAudioValues()
     {
-        musicSlider.value = musicVolume;
-        sfxSlider.value = sfxVolume;
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");
 
         musicSlider.minValue = -40;
         musicSlider.maxValue = 10;
@@ -69,11 +69,13 @@ public class AudioManager : MonoBehaviour
     public void MusicVolume()
     {
         musicMixer.SetFloat("musicMasterVolume", musicSlider.value);
+        PlayerPrefs.SetFloat("musicVolume", musicSlider.value);
     }
 
     public void SfxVolume()
     {
         sfxMixer.SetFloat("sfxMasterVolume", sfxSlider.value);
+        PlayerPrefs.SetFloat("sfxVolume", sfxSlider.value);
     }
 
     public void EnemyHurt()
