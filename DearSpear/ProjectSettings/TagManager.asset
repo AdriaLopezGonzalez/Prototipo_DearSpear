@@ -67,6 +67,9 @@ TagManager:
   - name: floor & roof & walls
     uniqueID: 1015448557
     locked: 0
+  - name: decoration
+    uniqueID: 312889507
+    locked: 0
   - name: grab point
     uniqueID: 1892570589
     locked: 0
