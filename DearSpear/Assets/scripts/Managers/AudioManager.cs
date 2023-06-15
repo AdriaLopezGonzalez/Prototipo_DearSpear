@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource enemyHurt2;
     [SerializeField] private AudioSource enemyHurt3;
     [SerializeField] private AudioSource enemyCloseKill;
+    [SerializeField] private AudioSource dogHurt;
 
     private AudioSource[] enemyHurts = new AudioSource[3];
 
@@ -34,6 +35,12 @@ public class AudioManager : MonoBehaviour
     {
         enemyHit.Play();
         enemyHurts[Random.Range(0,3)].Play();
+    }
+
+    public void DogHurt()
+    {
+        enemyHit.Play();
+        dogHurt.Play();
     }
 
     public void EnemyCloseKill()

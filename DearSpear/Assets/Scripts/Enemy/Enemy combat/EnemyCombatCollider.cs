@@ -17,7 +17,14 @@ public class EnemyCombatCollider : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Spear"))
         {
-            _audioManager.GetComponent<AudioManager>().EnemyHurt();
+            if(gameObject.tag == "DogEnemy")
+            {
+                _audioManager.GetComponent<AudioManager>().DogHurt();
+            }
+            else
+            {
+                _audioManager.GetComponent<AudioManager>().EnemyHurt();
+            }
 
             ParticleSystem thisBlood = GameObject.Instantiate(enemyBlood).GetComponent<ParticleSystem>();
             thisBlood.transform.position = gameObject.transform.position;
