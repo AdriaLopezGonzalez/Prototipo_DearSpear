@@ -104,6 +104,7 @@ public class AudioManager : MonoBehaviour
 
     public void Bark()
     {
+        dogBark.pitch = Random.Range(0.95f, 1.05f);
         dogBark.Play();
     }
 }
