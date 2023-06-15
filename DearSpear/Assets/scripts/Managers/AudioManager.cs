@@ -20,12 +20,24 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource throwSpear;
     [SerializeField] private AudioSource land;
 
+    public static AudioManager instance;
+
     [Range(-40, 10)]
     public float musicVolume, sfxVolume;
     public Slider musicSlider, sfxSlider;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
+        MakeAudioValues();
+
         enemyHurts[0] = enemyHurt1;
         enemyHurts[1] = enemyHurt2;
         enemyHurts[2] = enemyHurt3;
@@ -36,6 +48,18 @@ public class AudioManager : MonoBehaviour
     {
         MusicVolume();
         SfxVolume();
+    }
+
+    private void MakeAudioValues()
+    {
+        musicSlider.value = musicVolume;
+        sfxSlider.value = sfxVolume;
+
+        musicSlider.minValue = -40;
+        musicSlider.maxValue = 10;
+
+        sfxSlider.minValue = -40;
+        sfxSlider.maxValue = 10;
     }
 
     public void MusicVolume()
