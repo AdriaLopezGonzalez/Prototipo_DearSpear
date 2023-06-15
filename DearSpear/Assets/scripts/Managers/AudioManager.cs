@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
+    public AudioMixer musicMixer, sfxMixer;
 
     [SerializeField] private AudioSource enemyHit;
     [SerializeField] private AudioSource enemyHurt1;
@@ -17,6 +20,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource throwSpear;
     [SerializeField] private AudioSource land;
 
+    [Range(-40, 10)]
+    public float musicVolume, sfxVolume;
+    public Slider musicSlider, sfxSlider;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +34,18 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        MusicVolume();
+        SfxVolume();
+    }
+
+    public void MusicVolume()
+    {
+        musicMixer.SetFloat("musicMasterVolume", musicSlider.value);
+    }
+
+    public void SfxVolume()
+    {
+        sfxMixer.SetFloat("sfxMasterVolume", sfxSlider.value);
     }
 
     public void EnemyHurt()
