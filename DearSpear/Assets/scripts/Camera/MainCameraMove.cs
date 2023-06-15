@@ -8,6 +8,8 @@ public class MainCameraMove : MonoBehaviour
     private float velocityX = 0;
     private float velocityY = 0;
 
+    private float xLimit = 561f;
+
     [SerializeField]
     private Transform target;
 
@@ -25,6 +27,10 @@ public class MainCameraMove : MonoBehaviour
             Vector3 targetPosition = target.position + offset;
             float xPosition = Mathf.SmoothDamp(transform.position.x, targetPosition.x, ref velocityX, smoothTimeX);
             float yPosition = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref velocityY, smoothTimeY);
+            if (xPosition > xLimit)
+            {
+                xPosition = xLimit;
+            }
             transform.position = new Vector3(xPosition, yPosition, transform.position.z);
         }
     }
