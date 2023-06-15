@@ -15,6 +15,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource enemyCloseKill;
     [SerializeField] private AudioSource dogHurt;
     [SerializeField] private AudioSource dogBark;
+    [SerializeField] private AudioSource playerDetected;
+
+    [SerializeField] private AudioSource rescueDone;
 
     private AudioSource[] enemyHurts = new AudioSource[3];
 
@@ -106,5 +109,15 @@ public class AudioManager : MonoBehaviour
     {
         dogBark.pitch = Random.Range(0.95f, 1.05f);
         dogBark.Play();
+    }
+
+    public void PlayerDetected()
+    {
+        playerDetected.Play();
+    }
+
+    public void RescueDone()
+    {
+        rescueDone.Play();
     }
 }

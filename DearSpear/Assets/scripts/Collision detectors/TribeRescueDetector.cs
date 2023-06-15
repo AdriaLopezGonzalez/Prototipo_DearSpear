@@ -3,6 +3,7 @@ using UnityEngine;
 public class TribeRescueDetector : MonoBehaviour
 {
     private Collider2D _collider;
+    private GameObject _audioManager;
 
     private bool theyLeaving;
 
@@ -20,6 +21,8 @@ public class TribeRescueDetector : MonoBehaviour
     {
         _collider = GetComponent<Collider2D>();
         theyLeaving = false;
+
+        _audioManager = GameObject.FindGameObjectWithTag("AudioManager");
 
         //tribe1 = transform.GetChild(0);
         //tribe2 = transform.GetChild(1);
@@ -42,6 +45,9 @@ public class TribeRescueDetector : MonoBehaviour
         {
             _collider.enabled = false;
             theyLeaving = true;
+
+            _audioManager.GetComponent<AudioManager>().RescueDone();
+
             foreach (Animator _an in tribesAnim)
             {
                 _an.SetBool("Rescued", true);

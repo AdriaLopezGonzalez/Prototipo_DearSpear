@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class EnemyPatroling : MonoBehaviour
 {
     EnemyGroundDetector _groundDetector;
+    private GameObject _audioManager;
 
     [SerializeField]
     private float baseSpeed = 0.5f;
@@ -29,25 +30,10 @@ public class EnemyPatroling : MonoBehaviour
     public static Action<GameObject> DeathCamera;
     public static Action PlayerSurrender;
 
-    //private void OnEnable()
-    //{
-    //    EnemyWallCollider.CanFlip += CanFlip;
-    //
-    //    EnemyVisionDetector.DetectedThePlayer += DetectedThePlayer;
-    //    EnemyVisionDetector.ContinuePatrolling += ContinuePatrolling;
-    //}
-    //
-    //private void OnDisable()
-    //{
-    //    EnemyWallCollider.CanFlip -= CanFlip;
-    //
-    //    EnemyVisionDetector.DetectedThePlayer -= DetectedThePlayer;
-    //    EnemyVisionDetector.ContinuePatrolling -= ContinuePatrolling;
-    //}
-
     private void Awake()
     {
         _groundDetector = GetComponentInChildren<EnemyGroundDetector>();
+        _audioManager = GameObject.FindGameObjectWithTag("AudioManager");
 
         _weapon = GetComponentInChildren<EnemyWeapon>();
 
@@ -133,6 +119,8 @@ public class EnemyPatroling : MonoBehaviour
         }
 
         Speed = catchingPlayerSpeed;
+
+        _audioManager.GetComponent<AudioManager>().PlayerDetected();
 
         playerDetected = true;
         DeathCamera?.Invoke(gameObject);
