@@ -98,6 +98,24 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Teleport4"",
+                    ""type"": ""Button"",
+                    ""id"": ""63c820cd-d8c2-41ee-8ebc-98107f3dad79"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Teleport5"",
+                    ""type"": ""Button"",
+                    ""id"": ""2bb61521-28ba-4e45-bf6a-e322998fe4ba"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -243,6 +261,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Teleport3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa3a3592-66f8-4e17-afed-f895cd44f501"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Teleport4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c2c160eb-ae9e-48f6-98e3-7d15cc6e65d3"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Teleport5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -287,6 +327,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Gameplay_Teleport1 = m_Gameplay.FindAction("Teleport1", throwIfNotFound: true);
         m_Gameplay_Teleport2 = m_Gameplay.FindAction("Teleport2", throwIfNotFound: true);
         m_Gameplay_Teleport3 = m_Gameplay.FindAction("Teleport3", throwIfNotFound: true);
+        m_Gameplay_Teleport4 = m_Gameplay.FindAction("Teleport4", throwIfNotFound: true);
+        m_Gameplay_Teleport5 = m_Gameplay.FindAction("Teleport5", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -354,6 +396,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Teleport1;
     private readonly InputAction m_Gameplay_Teleport2;
     private readonly InputAction m_Gameplay_Teleport3;
+    private readonly InputAction m_Gameplay_Teleport4;
+    private readonly InputAction m_Gameplay_Teleport5;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -366,6 +410,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Teleport1 => m_Wrapper.m_Gameplay_Teleport1;
         public InputAction @Teleport2 => m_Wrapper.m_Gameplay_Teleport2;
         public InputAction @Teleport3 => m_Wrapper.m_Gameplay_Teleport3;
+        public InputAction @Teleport4 => m_Wrapper.m_Gameplay_Teleport4;
+        public InputAction @Teleport5 => m_Wrapper.m_Gameplay_Teleport5;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -399,6 +445,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Teleport3.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport3;
                 @Teleport3.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport3;
                 @Teleport3.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport3;
+                @Teleport4.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport4;
+                @Teleport4.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport4;
+                @Teleport4.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport4;
+                @Teleport5.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport5;
+                @Teleport5.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport5;
+                @Teleport5.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport5;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -427,6 +479,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Teleport3.started += instance.OnTeleport3;
                 @Teleport3.performed += instance.OnTeleport3;
                 @Teleport3.canceled += instance.OnTeleport3;
+                @Teleport4.started += instance.OnTeleport4;
+                @Teleport4.performed += instance.OnTeleport4;
+                @Teleport4.canceled += instance.OnTeleport4;
+                @Teleport5.started += instance.OnTeleport5;
+                @Teleport5.performed += instance.OnTeleport5;
+                @Teleport5.canceled += instance.OnTeleport5;
             }
         }
     }
@@ -459,5 +517,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnTeleport1(InputAction.CallbackContext context);
         void OnTeleport2(InputAction.CallbackContext context);
         void OnTeleport3(InputAction.CallbackContext context);
+        void OnTeleport4(InputAction.CallbackContext context);
+        void OnTeleport5(InputAction.CallbackContext context);
     }
 }
