@@ -92,7 +92,10 @@ public class EnemyDogPatroling : MonoBehaviour
             }
         }
 
-        Move();
+        if (!playerDetected)
+        {
+            Move();
+        }
     }
 
     private void CheckGroundDetection()
@@ -135,7 +138,7 @@ public class EnemyDogPatroling : MonoBehaviour
         Speed = baseSpeed;
         playerDetected = false;
 
-        barkTimer = 1.1f;
+        barkTimer = 0.4f;
     }
 
     public bool isMoving()
