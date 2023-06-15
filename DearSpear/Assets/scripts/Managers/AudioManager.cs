@@ -56,25 +56,29 @@ public class AudioManager : MonoBehaviour
 
     private void MakeAudioValues()
     {
-        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
-        sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");
-
         musicSlider.minValue = -40;
         musicSlider.maxValue = 10;
 
         sfxSlider.minValue = -40;
         sfxSlider.maxValue = 10;
+
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");
     }
 
     public void MusicVolume()
     {
         musicMixer.SetFloat("musicMasterVolume", musicSlider.value);
-        PlayerPrefs.SetFloat("musicVolume", musicSlider.value);
     }
 
     public void SfxVolume()
     {
         sfxMixer.SetFloat("sfxMasterVolume", sfxSlider.value);
+    }
+
+    public void SaveVolume()
+    {
+        PlayerPrefs.SetFloat("musicVolume", musicSlider.value);
         PlayerPrefs.SetFloat("sfxVolume", sfxSlider.value);
     }
 
