@@ -29,9 +29,8 @@ public class EnemyWallCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("BaseEnemy")/*|| collision.gameObject.CompareTag("Wall")*/)
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("BaseEnemy"))
         {
-            //CanFlip?.Invoke();
             if (gameObject.CompareTag("DogEnemy"))
             {
                 _dogPatroling.CanFlip();
