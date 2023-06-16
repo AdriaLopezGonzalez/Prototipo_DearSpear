@@ -36,7 +36,7 @@ public class spearCollisionDetector : MonoBehaviour
             }
         }
 
-        if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("GroundChecker") && !collision.gameObject.CompareTag("VineChecker"))
+        if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("GroundChecker") && !collision.gameObject.CompareTag("VineChecker") && !collision.gameObject.CompareTag("Bird"))
         {
             if (!(collision.gameObject.CompareTag("Roof") && isFalling))
             {

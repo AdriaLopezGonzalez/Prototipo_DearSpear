@@ -8,7 +8,7 @@ public class MainCameraMove : MonoBehaviour
     private float velocityX = 0;
     private float velocityY = 0;
 
-    private float xLimit = 561f;
+    private float xLimit = 560f;
 
     [SerializeField]
     private Transform target;

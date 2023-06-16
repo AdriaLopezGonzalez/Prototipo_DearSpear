@@ -17,12 +17,9 @@ public class VideoEnding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer <= 5)
-        {
-            timer += Time.deltaTime;
-        }
-        
-        if (!_video.isPlaying && timer > 5)
+        timer += Time.deltaTime;
+
+        if (timer > _video.length)
         {
             SceneManager.LoadScene("MainMenu");
         }
