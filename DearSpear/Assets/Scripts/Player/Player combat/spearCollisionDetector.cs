@@ -10,8 +10,6 @@ public class spearCollisionDetector : MonoBehaviour
 
     public static Action SpearGrabbed;
 
-    private float timeHanging;
-
     private bool isFalling;
     private bool particlesThrown = false;
     private void Start()
@@ -55,21 +53,9 @@ public class spearCollisionDetector : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("Roof"))
+        if (collision.gameObject.CompareTag("StartGround"))
         {
-            if (_spear.spearCollided)
-            {
-                timeHanging += 5 * Time.deltaTime;
-
-                if (timeHanging >= 2)
-                {
-                    _spear.spearCollided = false;
-                    spearRb.velocity = new Vector2(0, -7);
-
-                    timeHanging = 0;
-                    isFalling = true;
-                }
-            }
+            SpearGrabbed?.Invoke();
         }
     }
 }
