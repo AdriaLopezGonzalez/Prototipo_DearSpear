@@ -21,6 +21,7 @@ TagManager:
   - EnemyWithDog
   - EnemyDogTrainer
   - AudioManager
+  - Bird
   layers:
   - Default
   - TransparentFX
