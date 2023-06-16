@@ -10,7 +10,6 @@ TagManager:
   - Vine
   - VineChecker
   - GroundChecker
-  - Roof
   - Background
   - Checkpoint
   - BaseEnemy
@@ -21,6 +20,9 @@ TagManager:
   - EnemyWithDog
   - EnemyDogTrainer
   - AudioManager
+  - Bird
+  - StartGround
+  - Roof
   layers:
   - Default
   - TransparentFX
