@@ -181,44 +181,44 @@ public class PlayerInputs : MonoBehaviour
         }
     }
 
-    public void Teleport1(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            transform.position = new Vector2(90.5f,1.7f);
-        }
-    }
-
-    public void Teleport2(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            transform.position = new Vector2(189f, 3.4f);
-        }
-    }
-
-    public void Teleport3(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            transform.position = new Vector2(252f, 8.4f);
-        }
-    }
-
-    public void Teleport4(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            transform.position = new Vector2(370f, 22.3f);
-        }
-    }
-
-    public void Teleport5(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            transform.position = new Vector2(456f, 27.4f);
-        }
-    }
+    //public void Teleport1(InputAction.CallbackContext context)
+    //{
+    //    if (context.performed)
+    //    {
+    //        transform.position = new Vector2(90.5f,1.7f);
+    //    }
+    //}
+    //
+    //public void Teleport2(InputAction.CallbackContext context)
+    //{
+    //    if (context.performed)
+    //    {
+    //        transform.position = new Vector2(189f, 3.4f);
+    //    }
+    //}
+    //
+    //public void Teleport3(InputAction.CallbackContext context)
+    //{
+    //    if (context.performed)
+    //    {
+    //        transform.position = new Vector2(252f, 8.4f);
+    //    }
+    //}
+    //
+    //public void Teleport4(InputAction.CallbackContext context)
+    //{
+    //    if (context.performed)
+    //    {
+    //        transform.position = new Vector2(370f, 22.3f);
+    //    }
+    //}
+    //
+    //public void Teleport5(InputAction.CallbackContext context)
+    //{
+    //    if (context.performed)
+    //    {
+    //        transform.position = new Vector2(456f, 27.4f);
+    //    }
+    //}
 }
 
