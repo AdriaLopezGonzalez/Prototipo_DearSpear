@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     private Vector3 activeCheckpoint;
 
     public static Action SpearGrab;
+    public static Action PlayerDeactivateSurrender;
 
     [SerializeField]
     private GameObject player;
@@ -96,6 +97,7 @@ public class LevelManager : MonoBehaviour
 
         SpearGrab?.Invoke();
 
+        PlayerDeactivateSurrender?.Invoke();
         cam.GetComponent<MainCameraMove>().CameraRespawn();
     }
 
@@ -103,6 +105,8 @@ public class LevelManager : MonoBehaviour
     {
         player.GetComponent<PlayerInput>().enabled = true;
         player.GetComponent<PlayerInputs>().enabled = true;
+
+        PlayerDeactivateSurrender?.Invoke();
     }
 
     private void SetActiveCheckpoint(Transform checkPoint)

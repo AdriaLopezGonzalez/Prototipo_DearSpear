@@ -15,12 +15,14 @@ public class PlayerAnimator : MonoBehaviour
     {
         PlayerCloseKill.ActivateCloseKillAnim += ActivateCloseKill;
         EnemyPatroling.PlayerSurrender += ActivateSurrender;
+        LevelManager.PlayerDeactivateSurrender += DeactivateSurrender;
     }
 
     private void OnDisable()
     {
         PlayerCloseKill.ActivateCloseKillAnim -= ActivateCloseKill;
         EnemyPatroling.PlayerSurrender -= ActivateSurrender;
+        LevelManager.PlayerDeactivateSurrender -= DeactivateSurrender;
     }
 
     private void Start()
@@ -147,8 +149,15 @@ public class PlayerAnimator : MonoBehaviour
 
     private void ActivateSurrender()
     {
+        _animator.ResetTrigger("Surrendern't");
         _animator.SetTrigger("Surrender");
     }
+
+    private void DeactivateSurrender()
+    {
+        _animator.SetTrigger("Surrendern't");
+    }
+
     /*public void ChangeState(PlayerState newState)
     {
         currentState = newState;

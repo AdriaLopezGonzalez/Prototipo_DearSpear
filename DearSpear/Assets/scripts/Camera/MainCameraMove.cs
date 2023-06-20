@@ -10,11 +10,22 @@ public class MainCameraMove : MonoBehaviour
 
     private float xLimit = 560f;
 
+    private float constantCameraSize = 6;
+    private float timeCameraApproach = 0.5f;
+    private float plainVelocity = 0;
+
+    private Camera cam;
+
     [SerializeField]
     private Transform target;
 
     [SerializeField]
     private CameraAnimations anim;
+
+    private void Start()
+    {
+        cam = GetComponent<Camera>();
+    }
 
     private void FixedUpdate()
     {
@@ -32,6 +43,16 @@ public class MainCameraMove : MonoBehaviour
                 xPosition = xLimit;
             }
             transform.position = new Vector3(xPosition, yPosition, transform.position.z);
+
+            if (cam.orthographicSize != constantCameraSize)
+            {
+                cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, constantCameraSize, ref plainVelocity, timeCameraApproach / 2);
+
+                //if (cam.orthographicSize < constantCameraSize + 0.05 || cam.orthographicSize > constantCameraSize - 0.05)
+                //{
+                //    cam.orthographicSize = constantCameraSize;
+                //}
+            }
         }
     }
 
