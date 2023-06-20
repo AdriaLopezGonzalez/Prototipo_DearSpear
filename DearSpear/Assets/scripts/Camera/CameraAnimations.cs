@@ -83,42 +83,19 @@ public class CameraAnimations : MonoBehaviour
             Vector3 targetPosition = target.position + zoomOffset;
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, timeCameraApproach / 2);
             cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, zoomSizeObjective, ref plainVelocity, timeCameraApproach / 2);
-            /*if (playerDeathActive && playerKiller == null)
-            {
-                playerDeathActive = false;
-                cam.orthographicSize = constantCameraSize;
-                animationOngoing = false;
-                timer = 0;
-                PlayerStillAlive?.Invoke();
-            }*/
+
+            CheckEnemyKilled();
         }
         else if (timer < timeCameraApproach + timeToKeepCamera)
         {
-
+            CheckEnemyKilled();
         }
         else if (timer < timeCameraApproach + timeToKeepCamera + timeCameraApproach)
         {
-            if (playerDeathActive)
-            {
-                playerDeathActive = false;
-                cam.orthographicSize = constantCameraSize;
-                animationOngoing = false;
-                timer = 0;
-                if (playerKiller != null)
-                {
-                    Respawn?.Invoke();
-                }
-                else
-                {
-                    PlayerStillAlive?.Invoke();
-                }
+            CheckEnemyKilled();
 
-            }
-            else
-            {
-                transform.position = Vector3.SmoothDamp(transform.position, oldCameraPosition, ref velocity, timeCameraApproach / 2);
-                cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, constantCameraSize, ref plainVelocity, timeCameraApproach / 2);
-            }
+            transform.position = Vector3.SmoothDamp(transform.position, oldCameraPosition, ref velocity, timeCameraApproach / 2);
+            cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, constantCameraSize, ref plainVelocity, timeCameraApproach / 2);
         }
         else
         {
@@ -131,7 +108,34 @@ public class CameraAnimations : MonoBehaviour
                 UnfreezePlayer();
                 DropBlood?.Invoke();
             }
+            if (playerDeathActive)
+            {
+                playerDeathActive = false;
+                if (playerKiller != null)
+                {
+                    Respawn?.Invoke();
+                    Debug.Log("surrendernt2");
+                }
+                else
+                {
+                    PlayerStillAlive?.Invoke();
+                    Debug.Log("surrendernt1.1");
+                }
 
+            }
+
+        }
+    }
+
+    private void CheckEnemyKilled()
+    {
+        if (playerDeathActive && playerKiller == null)
+        {
+            animationOngoing = false;
+            timer = 0;
+            playerDeathActive = false;
+            PlayerStillAlive?.Invoke();
+            Debug.Log("surrendernt1");
         }
     }
 
