@@ -19,7 +19,7 @@ public class VideoEnding : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer > _video.length)
+        if ((timer > _video.length) || Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("MainMenu");
         }
