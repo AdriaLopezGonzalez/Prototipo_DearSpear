@@ -71,51 +71,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Teleport1"",
-                    ""type"": ""Button"",
-                    ""id"": ""285ca0e9-8952-43b5-bd3b-87b57ca769c4"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Teleport2"",
-                    ""type"": ""Button"",
-                    ""id"": ""1f82e676-ab8e-4b4f-baf1-234c5944a997"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Teleport3"",
-                    ""type"": ""Button"",
-                    ""id"": ""c0c3eeef-ef98-42cf-982b-0e7cc14e0b5e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Teleport4"",
-                    ""type"": ""Button"",
-                    ""id"": ""63c820cd-d8c2-41ee-8ebc-98107f3dad79"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Teleport5"",
-                    ""type"": ""Button"",
-                    ""id"": ""2bb61521-28ba-4e45-bf6a-e322998fe4ba"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -228,32 +183,218 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""OpenMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""GameplayWithTeleports"",
+            ""id"": ""f6c7c532-5f6c-4e49-9850-7f91018bbc6b"",
+            ""actions"": [
+                {
+                    ""name"": ""Teleport5"",
+                    ""type"": ""Button"",
+                    ""id"": ""97b6cfa7-72f1-4b19-9166-a007292732fb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Teleport4"",
+                    ""type"": ""Button"",
+                    ""id"": ""1bffb183-0309-4d43-a108-9c079c1dec05"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Teleport3"",
+                    ""type"": ""Button"",
+                    ""id"": ""ceb66646-8c24-4af9-b3e3-899a37a423ac"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Teleport2"",
+                    ""type"": ""Button"",
+                    ""id"": ""24470951-fac1-489b-bd30-4f4fd4c9dbab"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Teleport1"",
+                    ""type"": ""Button"",
+                    ""id"": ""f302c928-1b70-4844-9139-a699b1e069c3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""2851394d-5bc8-4144-8a37-875ed2eda148"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""1c38a433-40c2-43ae-b00e-4966ce55ad85"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Rope"",
+                    ""type"": ""Button"",
+                    ""id"": ""1ea3b59e-4f25-47d4-ac9b-b4c983e5a032"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Value"",
+                    ""id"": ""00b4c7fb-6826-48d9-ac65-2b688dd26948"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""c68bc81b-ef14-4611-82da-824292253e54"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
                     ""name"": """",
-                    ""id"": ""aafe3a6d-25c2-4007-8d52-aa82cbf6bd43"",
-                    ""path"": ""<Keyboard>/1"",
+                    ""id"": ""1cb32452-4cb4-4d29-a2a3-87032d5619c3"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Teleport1"",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d8ac020e-09d9-4f46-9a1b-4aeb6b713d2e"",
-                    ""path"": ""<Keyboard>/2"",
+                    ""id"": ""60c62bc8-39bc-492f-a5bb-6dcaec36fa9c"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Teleport2"",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""467ca9bd-1562-430e-935e-74eec3f68546"",
+                    ""id"": ""05bd6740-eda3-4cb1-98d4-22a132e0c5c6"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b4c593f-16a2-4c4a-a5e7-ea960468be20"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0a1ad9c4-38c2-4424-8af8-489a0cd64ea4"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rope"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""38251b3e-59bd-407e-9718-f9990d2230f7"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rope"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2756a544-a021-408e-853a-77cac8959e0c"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60797cf5-e74e-4c08-8c10-425234fbd782"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6db62eb9-ae89-4ba9-ad2f-181f3b941818"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d9b35b05-b923-4606-ac9b-446701169333"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3f891005-fadb-4943-99fa-e2c4067489a2"",
                     ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -264,7 +405,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fa3a3592-66f8-4e17-afed-f895cd44f501"",
+                    ""id"": ""0a3f9e91-67e7-4229-af37-53ea3b73778d"",
                     ""path"": ""<Keyboard>/4"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -275,12 +416,34 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c2c160eb-ae9e-48f6-98e3-7d15cc6e65d3"",
+                    ""id"": ""adce1a3b-b78b-49a0-93b0-c188f806412c"",
                     ""path"": ""<Keyboard>/5"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Teleport5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b917f5da-be95-418c-b6f8-b35106ee7d2c"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Teleport1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ecb728a0-4726-46d3-885e-2132597baa05"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Teleport2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -324,11 +487,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
         m_Gameplay_Rope = m_Gameplay.FindAction("Rope", throwIfNotFound: true);
         m_Gameplay_OpenMenu = m_Gameplay.FindAction("OpenMenu", throwIfNotFound: true);
-        m_Gameplay_Teleport1 = m_Gameplay.FindAction("Teleport1", throwIfNotFound: true);
-        m_Gameplay_Teleport2 = m_Gameplay.FindAction("Teleport2", throwIfNotFound: true);
-        m_Gameplay_Teleport3 = m_Gameplay.FindAction("Teleport3", throwIfNotFound: true);
-        m_Gameplay_Teleport4 = m_Gameplay.FindAction("Teleport4", throwIfNotFound: true);
-        m_Gameplay_Teleport5 = m_Gameplay.FindAction("Teleport5", throwIfNotFound: true);
+        // GameplayWithTeleports
+        m_GameplayWithTeleports = asset.FindActionMap("GameplayWithTeleports", throwIfNotFound: true);
+        m_GameplayWithTeleports_Teleport5 = m_GameplayWithTeleports.FindAction("Teleport5", throwIfNotFound: true);
+        m_GameplayWithTeleports_Teleport4 = m_GameplayWithTeleports.FindAction("Teleport4", throwIfNotFound: true);
+        m_GameplayWithTeleports_Teleport3 = m_GameplayWithTeleports.FindAction("Teleport3", throwIfNotFound: true);
+        m_GameplayWithTeleports_Teleport2 = m_GameplayWithTeleports.FindAction("Teleport2", throwIfNotFound: true);
+        m_GameplayWithTeleports_Teleport1 = m_GameplayWithTeleports.FindAction("Teleport1", throwIfNotFound: true);
+        m_GameplayWithTeleports_OpenMenu = m_GameplayWithTeleports.FindAction("OpenMenu", throwIfNotFound: true);
+        m_GameplayWithTeleports_Attack = m_GameplayWithTeleports.FindAction("Attack", throwIfNotFound: true);
+        m_GameplayWithTeleports_Rope = m_GameplayWithTeleports.FindAction("Rope", throwIfNotFound: true);
+        m_GameplayWithTeleports_Aim = m_GameplayWithTeleports.FindAction("Aim", throwIfNotFound: true);
+        m_GameplayWithTeleports_Jump = m_GameplayWithTeleports.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -393,11 +563,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Attack;
     private readonly InputAction m_Gameplay_Rope;
     private readonly InputAction m_Gameplay_OpenMenu;
-    private readonly InputAction m_Gameplay_Teleport1;
-    private readonly InputAction m_Gameplay_Teleport2;
-    private readonly InputAction m_Gameplay_Teleport3;
-    private readonly InputAction m_Gameplay_Teleport4;
-    private readonly InputAction m_Gameplay_Teleport5;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -407,11 +572,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
         public InputAction @Rope => m_Wrapper.m_Gameplay_Rope;
         public InputAction @OpenMenu => m_Wrapper.m_Gameplay_OpenMenu;
-        public InputAction @Teleport1 => m_Wrapper.m_Gameplay_Teleport1;
-        public InputAction @Teleport2 => m_Wrapper.m_Gameplay_Teleport2;
-        public InputAction @Teleport3 => m_Wrapper.m_Gameplay_Teleport3;
-        public InputAction @Teleport4 => m_Wrapper.m_Gameplay_Teleport4;
-        public InputAction @Teleport5 => m_Wrapper.m_Gameplay_Teleport5;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -436,21 +596,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @OpenMenu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenMenu;
                 @OpenMenu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenMenu;
                 @OpenMenu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenMenu;
-                @Teleport1.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport1;
-                @Teleport1.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport1;
-                @Teleport1.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport1;
-                @Teleport2.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport2;
-                @Teleport2.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport2;
-                @Teleport2.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport2;
-                @Teleport3.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport3;
-                @Teleport3.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport3;
-                @Teleport3.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport3;
-                @Teleport4.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport4;
-                @Teleport4.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport4;
-                @Teleport4.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport4;
-                @Teleport5.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport5;
-                @Teleport5.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport5;
-                @Teleport5.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTeleport5;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -470,25 +615,115 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @OpenMenu.started += instance.OnOpenMenu;
                 @OpenMenu.performed += instance.OnOpenMenu;
                 @OpenMenu.canceled += instance.OnOpenMenu;
-                @Teleport1.started += instance.OnTeleport1;
-                @Teleport1.performed += instance.OnTeleport1;
-                @Teleport1.canceled += instance.OnTeleport1;
-                @Teleport2.started += instance.OnTeleport2;
-                @Teleport2.performed += instance.OnTeleport2;
-                @Teleport2.canceled += instance.OnTeleport2;
-                @Teleport3.started += instance.OnTeleport3;
-                @Teleport3.performed += instance.OnTeleport3;
-                @Teleport3.canceled += instance.OnTeleport3;
-                @Teleport4.started += instance.OnTeleport4;
-                @Teleport4.performed += instance.OnTeleport4;
-                @Teleport4.canceled += instance.OnTeleport4;
-                @Teleport5.started += instance.OnTeleport5;
-                @Teleport5.performed += instance.OnTeleport5;
-                @Teleport5.canceled += instance.OnTeleport5;
             }
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // GameplayWithTeleports
+    private readonly InputActionMap m_GameplayWithTeleports;
+    private IGameplayWithTeleportsActions m_GameplayWithTeleportsActionsCallbackInterface;
+    private readonly InputAction m_GameplayWithTeleports_Teleport5;
+    private readonly InputAction m_GameplayWithTeleports_Teleport4;
+    private readonly InputAction m_GameplayWithTeleports_Teleport3;
+    private readonly InputAction m_GameplayWithTeleports_Teleport2;
+    private readonly InputAction m_GameplayWithTeleports_Teleport1;
+    private readonly InputAction m_GameplayWithTeleports_OpenMenu;
+    private readonly InputAction m_GameplayWithTeleports_Attack;
+    private readonly InputAction m_GameplayWithTeleports_Rope;
+    private readonly InputAction m_GameplayWithTeleports_Aim;
+    private readonly InputAction m_GameplayWithTeleports_Jump;
+    public struct GameplayWithTeleportsActions
+    {
+        private @PlayerControls m_Wrapper;
+        public GameplayWithTeleportsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Teleport5 => m_Wrapper.m_GameplayWithTeleports_Teleport5;
+        public InputAction @Teleport4 => m_Wrapper.m_GameplayWithTeleports_Teleport4;
+        public InputAction @Teleport3 => m_Wrapper.m_GameplayWithTeleports_Teleport3;
+        public InputAction @Teleport2 => m_Wrapper.m_GameplayWithTeleports_Teleport2;
+        public InputAction @Teleport1 => m_Wrapper.m_GameplayWithTeleports_Teleport1;
+        public InputAction @OpenMenu => m_Wrapper.m_GameplayWithTeleports_OpenMenu;
+        public InputAction @Attack => m_Wrapper.m_GameplayWithTeleports_Attack;
+        public InputAction @Rope => m_Wrapper.m_GameplayWithTeleports_Rope;
+        public InputAction @Aim => m_Wrapper.m_GameplayWithTeleports_Aim;
+        public InputAction @Jump => m_Wrapper.m_GameplayWithTeleports_Jump;
+        public InputActionMap Get() { return m_Wrapper.m_GameplayWithTeleports; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GameplayWithTeleportsActions set) { return set.Get(); }
+        public void SetCallbacks(IGameplayWithTeleportsActions instance)
+        {
+            if (m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface != null)
+            {
+                @Teleport5.started -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnTeleport5;
+                @Teleport5.performed -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnTeleport5;
+                @Teleport5.canceled -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnTeleport5;
+                @Teleport4.started -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnTeleport4;
+                @Teleport4.performed -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnTeleport4;
+                @Teleport4.canceled -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnTeleport4;
+                @Teleport3.started -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnTeleport3;
+                @Teleport3.performed -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnTeleport3;
+                @Teleport3.canceled -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnTeleport3;
+                @Teleport2.started -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnTeleport2;
+                @Teleport2.performed -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnTeleport2;
+                @Teleport2.canceled -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnTeleport2;
+                @Teleport1.started -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnTeleport1;
+                @Teleport1.performed -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnTeleport1;
+                @Teleport1.canceled -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnTeleport1;
+                @OpenMenu.started -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnOpenMenu;
+                @OpenMenu.performed -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnOpenMenu;
+                @OpenMenu.canceled -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnOpenMenu;
+                @Attack.started -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnAttack;
+                @Rope.started -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnRope;
+                @Rope.performed -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnRope;
+                @Rope.canceled -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnRope;
+                @Aim.started -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnAim;
+                @Aim.performed -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnAim;
+                @Aim.canceled -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnAim;
+                @Jump.started -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface.OnJump;
+            }
+            m_Wrapper.m_GameplayWithTeleportsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Teleport5.started += instance.OnTeleport5;
+                @Teleport5.performed += instance.OnTeleport5;
+                @Teleport5.canceled += instance.OnTeleport5;
+                @Teleport4.started += instance.OnTeleport4;
+                @Teleport4.performed += instance.OnTeleport4;
+                @Teleport4.canceled += instance.OnTeleport4;
+                @Teleport3.started += instance.OnTeleport3;
+                @Teleport3.performed += instance.OnTeleport3;
+                @Teleport3.canceled += instance.OnTeleport3;
+                @Teleport2.started += instance.OnTeleport2;
+                @Teleport2.performed += instance.OnTeleport2;
+                @Teleport2.canceled += instance.OnTeleport2;
+                @Teleport1.started += instance.OnTeleport1;
+                @Teleport1.performed += instance.OnTeleport1;
+                @Teleport1.canceled += instance.OnTeleport1;
+                @OpenMenu.started += instance.OnOpenMenu;
+                @OpenMenu.performed += instance.OnOpenMenu;
+                @OpenMenu.canceled += instance.OnOpenMenu;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
+                @Rope.started += instance.OnRope;
+                @Rope.performed += instance.OnRope;
+                @Rope.canceled += instance.OnRope;
+                @Aim.started += instance.OnAim;
+                @Aim.performed += instance.OnAim;
+                @Aim.canceled += instance.OnAim;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
+            }
+        }
+    }
+    public GameplayWithTeleportsActions @GameplayWithTeleports => new GameplayWithTeleportsActions(this);
     private int m_ControllerSchemeIndex = -1;
     public InputControlScheme ControllerScheme
     {
@@ -514,10 +749,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnRope(InputAction.CallbackContext context);
         void OnOpenMenu(InputAction.CallbackContext context);
-        void OnTeleport1(InputAction.CallbackContext context);
-        void OnTeleport2(InputAction.CallbackContext context);
-        void OnTeleport3(InputAction.CallbackContext context);
-        void OnTeleport4(InputAction.CallbackContext context);
+    }
+    public interface IGameplayWithTeleportsActions
+    {
         void OnTeleport5(InputAction.CallbackContext context);
+        void OnTeleport4(InputAction.CallbackContext context);
+        void OnTeleport3(InputAction.CallbackContext context);
+        void OnTeleport2(InputAction.CallbackContext context);
+        void OnTeleport1(InputAction.CallbackContext context);
+        void OnOpenMenu(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+        void OnRope(InputAction.CallbackContext context);
+        void OnAim(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }
